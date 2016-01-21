@@ -12,8 +12,6 @@ use lukaszmakuch\ObjectBuilder\BuildingProcess\BuildingProcess;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildingProcess;
 
 /**
- * Description of ObjectBuilder
- *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 interface ObjectBuilder
