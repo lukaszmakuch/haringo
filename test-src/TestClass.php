@@ -7,6 +7,8 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
+namespace lukaszmakuch\ObjectBuilder;
+
 /**
  * Class used for test purposes.
  *
