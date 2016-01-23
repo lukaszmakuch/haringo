@@ -7,14 +7,14 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall;
 
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Selector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\ValueSource\ValueSource;
 use PHPUnit_Framework_TestCase;
 
-class MethodCallImplTest extends PHPUnit_Framework_TestCase
+class MethodCallTest extends PHPUnit_Framework_TestCase
 {
     public function testHoldingValues()
     {
@@ -23,7 +23,7 @@ class MethodCallImplTest extends PHPUnit_Framework_TestCase
         $selectorB = $this->getMock(ParameterSelector::class);
         $valueSourceA = $this->getMock(ValueSource::class);
         $valueSourceB = $this->getMock(ValueSource::class);
-        $call = new MethodCallImpl($selector);
+        $call = new MethodCall($selector);
         $call->assignParamValue($selectorA, $valueSourceA);
         $call->assignParamValue($selectorB, $valueSourceB);
         

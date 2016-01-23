@@ -9,31 +9,38 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall;
 
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\ParameterValueWithSelector;
+use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Selector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Impl\ParameterValueWithSelectorImpl;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\ValueSource\ValueSource;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Selector\MethodSelector;
 
-/**
- * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
- */
-interface MethodCall
+class MethodCall
 {
-    /**
-     * @return MethodSelector
-     */
-    public function getSelector();
+    private $selector;
+    private $valueSourcesWithParamsSelectors = [];
+    
+    public function __construct(MethodSelector $selector)
+    {
+        $this->selector = $selector;
+    }
 
-    /**
-     * @return MethodCall self
-     */
     public function assignParamValue(
         ParameterSelector $selector, 
         ValueSource $valueSource
-    );
-    
-    /**
-     * @return ParameterValueWithSelector[]
-     */
-    public function getParamsValueWithSelectors();
+    ) {
+        $valWithSelector = new ParameterValueWithSelectorImpl($valueSource, $selector);
+        $this->valueSourcesWithParamsSelectors[] = $valWithSelector;
+        return $this;
+    }
+
+    public function getParamsValueWithSelectors()
+    {
+        return $this->valueSourcesWithParamsSelectors;
+    }
+
+    public function getSelector()
+    {
+        return $this->selector;
+    }
+
 }

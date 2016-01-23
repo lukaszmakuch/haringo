@@ -12,7 +12,7 @@ namespace lukaszmakuch\ObjectBuilder\Impl;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Resolver\Impl\ExactClassPathResolver;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\Impl\BuildingProcessImpl;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Impl\MethodCallImpl;
+use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\Matcher\Impl\ParamByExactNameMatcher;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\ValueSource\Impl\ScalarValue;
@@ -36,7 +36,7 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
         $buildingProcess = (new BuildingProcessImpl())
             ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(
-                (new MethodCallImpl(new ExactMethodName("setMembers")))
+                (new MethodCall(new ExactMethodName("setMembers")))
                     ->assignParamValue(
                         new ParamByExactName("newB"),
                         new ScalarValue("secondParamVal")
@@ -47,7 +47,7 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
                     )
             )
             ->addMethodCall(
-                (new MethodCallImpl(new ExactMethodName("__construct")))
+                (new MethodCall(new ExactMethodName("__construct")))
                     ->assignParamValue(
                         new ParamByExactName("passedToConstructor"),
                         new ScalarValue("constructorParam")

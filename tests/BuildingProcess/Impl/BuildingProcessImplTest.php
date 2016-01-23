@@ -18,7 +18,9 @@ class BuildingProcessImplTest extends PHPUnit_Framework_TestCase
     public function testHoldingData()
     {
         $classSource = $this->getMock(FullClassPathSource::class);
-        $call = $this->getMock(MethodCall::class);
+        $call = $this->getMockBuilder(MethodCall::class)
+            ->disableOriginalConstructor()
+            ->getMock();
         $process = new BuildingProcessImpl();
         $this->assertTrue($process->setClassSource($classSource) === $process);
         $this->assertTrue($process->addMethodCall($call) === $process);
