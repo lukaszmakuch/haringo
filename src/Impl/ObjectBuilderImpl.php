@@ -24,27 +24,24 @@ use ReflectionMethod;
 
 class ObjectBuilderImpl implements ObjectBuilder
 {
-    private $buildProcessFactory;
     private $classPathResolver;
     private $methodMatcher;
     private $paramMatcher;
     private $paramValResolver;
     
     public function __construct(
-        BuildingProcessFactory $processFactory,
         FullClassPathResolver $classPathResolver,
         MethodMatcher $methodMatcher,
         ParameterMatcher $paramMatcher,
         ValueResolver $paramValResolver
     ) {
-        $this->buildProcessFactory = $processFactory;
         $this->classPathResolver = $classPathResolver;
         $this->methodMatcher = $methodMatcher;
         $this->paramMatcher = $paramMatcher;
         $this->paramValResolver = $paramValResolver;
     }
     
-    public function finishBuildingProcess(BuildingProcess $p)
+    public function buildObjectBasedOn(BuildingProcess $p)
     {
         $reflectedClass = $this->getReflectedClassBasedOn($p->getClassSource());
         
@@ -57,11 +54,6 @@ class ObjectBuilderImpl implements ObjectBuilder
         );
         
         return $builtObject;
-    }
-
-    public function startBuildingProcess()
-    {
-        return $this->buildProcessFactory->getNewBuildingProcess();
     }
     
     private function getReflectedClassBasedOn(FullClassPathSource $classSource)

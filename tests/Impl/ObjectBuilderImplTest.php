@@ -9,9 +9,9 @@
 
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildingProcess\Factory\Impl\BuildingProcessFactoryImpl;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Resolver\Impl\ExactClassPathResolver;
+use lukaszmakuch\ObjectBuilder\BuildingProcess\Impl\BuildingProcessImpl;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Impl\MethodCallImpl;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\Matcher\Impl\ParamByExactNameMatcher;
@@ -27,14 +27,13 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
     public function testCorrectBuild()
     {
         $builder = new ObjectBuilderImpl(
-            new BuildingProcessFactoryImpl(),
             new ExactClassPathResolver(),
             new ExactMethodNameMatcher(),
             new ParamByExactNameMatcher(),
             new ScalarValueResolver()
         );
         
-        $buildingProcess = $builder->startBuildingProcess()
+        $buildingProcess = (new BuildingProcessImpl())
             ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(
                 (new MethodCallImpl(new ExactMethodName("setMembers")))
@@ -55,7 +54,7 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
                     )
             );
 
-        $builtObject = $builder->finishBuildingProcess($buildingProcess);
+        $builtObject = $builder->buildObjectBasedOn($buildingProcess);
         
         /* @var $builtObject TestClass */
         $this->assertInstanceOf(TestClass::class, $builtObject);

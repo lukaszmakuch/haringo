@@ -17,13 +17,8 @@ use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildingProcess;
 interface ObjectBuilder
 {
     /**
-     * @return BuildingProcess
-     */
-    public function startBuildingProcess();
-    
-    /**
      * @return mixed object built based on the given BuildingProcess
      * @throws ImpossibleToFinishBuildingProcess
      */
-    public function finishBuildingProcess(BuildingProcess $p);
+    public function buildObjectBasedOn(BuildingProcess $p);
 }
