@@ -29,8 +29,10 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
         $builder = new ObjectBuilderImpl(
             new ExactClassPathResolver(),
             new ExactMethodNameMatcher(),
-            new ParamByExactNameMatcher(),
-            new ScalarValueResolver()
+            new ParameterListGenerator(
+                new ParamByExactNameMatcher(),
+                new ScalarValueResolver()
+            )
         );
         
         $buildPlan = (new BuildPlan())

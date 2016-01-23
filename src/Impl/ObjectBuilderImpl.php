@@ -9,13 +9,10 @@
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Factory\BuildPlanFactory;
 use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\FullClassPathResolver;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ParameterValueWithSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\ParameterMatcher;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\ValueResolver;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\MethodMatcher;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use Object;
@@ -26,19 +23,17 @@ class ObjectBuilderImpl implements ObjectBuilder
 {
     private $classPathResolver;
     private $methodMatcher;
-    private $paramMatcher;
-    private $paramValResolver;
-    
+    private $paramListGenerator;
+
     public function __construct(
         FullClassPathResolver $classPathResolver,
         MethodMatcher $methodMatcher,
-        ParameterMatcher $paramMatcher,
-        ValueResolver $paramValResolver
+        ParameterListGenerator $paramListGenerator
+
     ) {
         $this->classPathResolver = $classPathResolver;
         $this->methodMatcher = $methodMatcher;
-        $this->paramMatcher = $paramMatcher;
-        $this->paramValResolver = $paramValResolver;
+        $this->paramListGenerator = $paramListGenerator;
     }
     
     public function buildObjectBasedOn(BuildPlan $p)
@@ -47,9 +42,9 @@ class ObjectBuilderImpl implements ObjectBuilder
         
         $builtObject = $reflectedClass->newInstanceWithoutConstructor();
         
-        $this->callMethods(
+        $this->callMethodsOf(
             $builtObject,
-            $this->getReflectedMethodsAndConstructor($reflectedClass),
+            $this->getReflectedMethodsAndConstructorOf($reflectedClass),
             $p->getAllMethodCalls()
         );
         
@@ -64,30 +59,57 @@ class ObjectBuilderImpl implements ObjectBuilder
     }
     
     /**
+     * @param Object $targetObject
+     * @param ReflectionMethod[] $allReflectedMethods
+     * @param MethodCall[] $allMethodCalls
+     */
+    private function callMethodsOf(
+        $targetObject,
+        array $allReflectedMethods,
+        array $allMethodCalls
+    ) {
+        foreach ($allReflectedMethods as $reflectedMethod) {
+            $this->tryToCallReflectedMethod(
+                $reflectedMethod,
+                $targetObject,
+                $allMethodCalls
+            );
+        }
+    }
+    
+    /**
+     * @param ReflectionMethod $method
+     * @param Object $targetObject
+     * @param MethodCall[] $allMethodCalls
+     */
+    private function tryToCallReflectedMethod(
+        ReflectionMethod $method,
+        $targetObject,
+        array $allMethodCalls
+    ) {
+        foreach ($allMethodCalls as $call) {
+            if ($this->methodMatcher->methodMatches(
+                $method,
+                $call->getSelector()
+            )) {
+                $this->callSpecifiedMethod(
+                    $method,
+                    $targetObject,
+                    $call->getParamsValueWithSelectors()
+                );
+            }
+        }
+    }
+    
+    /**
      * @return \ReflectionMethod[]
      */
-    private function getReflectedMethodsAndConstructor(\ReflectionClass $c)
+    private function getReflectedMethodsAndConstructorOf(\ReflectionClass $c)
     {
         return array_merge(
             $c->getMethods(\ReflectionMethod::IS_PUBLIC),
             (is_null($c->getConstructor()) ? [] : [$c->getConstructor()])
         );
-    }
-    
-    /**
-     * @param Object $targetObject
-     * @param ReflectionMethod[] $allReflectedMethods
-     * @param MethodCall[] $allMethodCalls
-     */
-    private function callMethods($targetObject, array $allReflectedMethods, array $allMethodCalls)
-    {
-        foreach ($allReflectedMethods as $reflectedMethod) {
-            foreach ($allMethodCalls as $methodCall) {
-                if ($this->methodMatcher->methodMatches($reflectedMethod, $methodCall->getSelector())) {
-                    $this->callSpecifiedMethod($reflectedMethod, $targetObject, $methodCall->getParamsValueWithSelectors());
-                }
-            }
-        }
     }
     
     /**
@@ -102,33 +124,10 @@ class ObjectBuilderImpl implements ObjectBuilder
     ) {
         $reflectedMethod->invokeArgs(
             $targetObject, 
-            $this->getListOfArguments($reflectedMethod, $paramsWithSelectors)
+            $this->paramListGenerator->getListOfArguments(
+                $reflectedMethod,
+                $paramsWithSelectors
+            )
         );
     }
-    
-
-    
-    /**
-     * @param ReflectionMethod $reflectedMethod
-     * @param ParameterValueWithSelector[] $paramsWithSelectors
-     */
-    private function getListOfArguments(
-        ReflectionMethod $reflectedMethod, 
-        $paramsWithSelectors
-    ) {
-        $listOfValues = [];
-        $allReflectedParams = $reflectedMethod->getParameters();
-        $numberOfReflectedParms = count($allReflectedParams);
-        for ($paramIndex = 0; $paramIndex < $numberOfReflectedParms; $paramIndex++) {
-            $listOfValues[$paramIndex] = null;
-            foreach ($paramsWithSelectors as $singleParamWithSelector) {
-                if ($this->paramMatcher->parameterMatches($allReflectedParams[$paramIndex], $singleParamWithSelector->getSelector())) {
-                    $listOfValues[$paramIndex] = $this->paramValResolver->resolveValueFrom($singleParamWithSelector->getValueSource());
-                }
-            }
-        }
-        
-        return $listOfValues;
-    }
-    
 }
