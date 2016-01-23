@@ -11,7 +11,7 @@ namespace lukaszmakuch\ObjectBuilder\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Resolver\Impl\ExactClassPathResolver;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\Impl\BuildingProcessImpl;
+use lukaszmakuch\ObjectBuilder\BuildingProcess\BuildingProcess;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\Matcher\Impl\ParamByExactNameMatcher;
@@ -33,7 +33,7 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
             new ScalarValueResolver()
         );
         
-        $buildingProcess = (new BuildingProcessImpl())
+        $buildingProcess = (new BuildingProcess())
             ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(
                 (new MethodCall(new ExactMethodName("setMembers")))
