@@ -8,15 +8,15 @@
 
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildingProcess\BuildingProcess;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\Factory\BuildingProcessFactory;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Resolver\FullClassPathResolver;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\ParameterValueWithSelector;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\Matcher\ParameterMatcher;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\ValueSource\Resolver\ValueResolver;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Selector\Matcher\MethodMatcher;
+use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
+use lukaszmakuch\ObjectBuilder\BuildPlan\Factory\BuildPlanFactory;
+use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\FullClassPathSource;
+use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\FullClassPathResolver;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ParameterValueWithSelector;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\ParameterMatcher;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\ValueResolver;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\MethodMatcher;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use Object;
 use ReflectionClass;
@@ -41,7 +41,7 @@ class ObjectBuilderImpl implements ObjectBuilder
         $this->paramValResolver = $paramValResolver;
     }
     
-    public function buildObjectBasedOn(BuildingProcess $p)
+    public function buildObjectBasedOn(BuildPlan $p)
     {
         $reflectedClass = $this->getReflectedClassBasedOn($p->getClassSource());
         

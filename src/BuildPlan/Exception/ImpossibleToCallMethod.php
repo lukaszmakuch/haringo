@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Exception;
+namespace lukaszmakuch\ObjectBuilder\BuildPlan\Exception;
 
 /**
- * Thrown when for some reason it's not possible to finish the building process.
- * 
+ * Thown when for some reason it's impossible to call a method.
+ *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ImpossibleToFinishBuildPlan extends \RuntimeException
+class ImpossibleToCallMethod extends \RuntimeException
 {
 }

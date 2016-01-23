@@ -7,13 +7,14 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Exception;
+namespace lukaszmakuch\ObjectBuilder\BuildPlan\Repository\Exception;
 
 /**
- * Thrown when for some reason it's not possible to finish the building process.
+ * Thrown when a building process has been found but it's impossible to read it
+ * for some reason.
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ImpossibleToFinishBuildPlan extends \RuntimeException
+class ImpossibleToReadBuildPlan extends \RuntimeException
 {
 }

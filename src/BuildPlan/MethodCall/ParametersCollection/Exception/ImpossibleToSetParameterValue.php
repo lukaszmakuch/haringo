@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Exception;
+namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Exception;
 
 /**
- * Thrown when for some reason it's not possible to finish the building process.
- * 
+ * Thrown when for some reason it's not possible to set a parameter value.
+ *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ImpossibleToFinishBuildPlan extends \RuntimeException
+class ImpossibleToSetParameterValue extends \RuntimeException
 {
 }

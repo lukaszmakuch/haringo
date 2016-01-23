@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Exception;
+namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Exception;
 
 /**
- * Thrown when for some reason it's not possible to finish the building process.
+ * Thrown when trying to match a method against some unsupported matcher.
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ImpossibleToFinishBuildPlan extends \RuntimeException
+class UnsupportedMatcher extends \RuntimeException
 {
 }

@@ -7,9 +7,9 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Resolver\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Impl\ExactClassPath;
+use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Impl\ExactClassPath;
 use PHPUnit_Framework_TestCase;
 
 class ExactClassPathResolverTest extends PHPUnit_Framework_TestCase

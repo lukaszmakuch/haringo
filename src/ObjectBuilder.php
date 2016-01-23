@@ -8,8 +8,8 @@
 
 namespace lukaszmakuch\ObjectBuilder;
 
-use lukaszmakuch\ObjectBuilder\BuildingProcess\BuildingProcess;
-use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildingProcess;
+use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
+use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 
 /**
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
@@ -17,8 +17,8 @@ use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildingProcess;
 interface ObjectBuilder
 {
     /**
-     * @return mixed object built based on the given BuildingProcess
-     * @throws ImpossibleToFinishBuildingProcess
+     * @return mixed object built based on the given BuildPlan
+     * @throws ImpossibleToFinishBuildPlan
      */
-    public function buildObjectBasedOn(BuildingProcess $p);
+    public function buildObjectBasedOn(BuildPlan $p);
 }

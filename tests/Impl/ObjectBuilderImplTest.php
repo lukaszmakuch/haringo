@@ -9,16 +9,16 @@
 
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\FullClassPathSource\Resolver\Impl\ExactClassPathResolver;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\BuildingProcess;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\Impl\ParamByExactName;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\Matcher\Impl\ParamByExactNameMatcher;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\ValueSource\Impl\ScalarValue;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\ValueSource\Resolver\Impl\ScalarValueResolver;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Selector\Impl\ExactMethodName;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Selector\Matcher\Impl\ExactMethodNameMatcher;
+use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Impl\ExactClassPath;
+use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\Impl\ExactClassPathResolver;
+use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl\ParamByExactName;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\Impl\ParamByExactNameMatcher;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Impl\ScalarValue;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Impl\ScalarValueResolver;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Impl\ExactMethodName;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Impl\ExactMethodNameMatcher;
 use lukaszmakuch\ObjectBuilder\TestClass;
 use PHPUnit_Framework_TestCase;
 
@@ -33,7 +33,7 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
             new ScalarValueResolver()
         );
         
-        $buildingProcess = (new BuildingProcess())
+        $buildPlan = (new BuildPlan())
             ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(
                 (new MethodCall(new ExactMethodName("setMembers")))
@@ -54,7 +54,7 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
                     )
             );
 
-        $builtObject = $builder->buildObjectBasedOn($buildingProcess);
+        $builtObject = $builder->buildObjectBasedOn($buildPlan);
         
         /* @var $builtObject TestClass */
         $this->assertInstanceOf(TestClass::class, $builtObject);

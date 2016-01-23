@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall;
+namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall;
 
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Selector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\Selector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\ParametersCollection\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
 use PHPUnit_Framework_TestCase;
 
 class MethodCallTest extends PHPUnit_Framework_TestCase
