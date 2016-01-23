@@ -27,7 +27,7 @@ class ParamByExactNameMatcherTest extends PHPUnit_Framework_TestCase
     public function testCorrectMatch()
     {
         $this->assertTrue($this->matcher->parameterMatches(
-            new ReflectionParameter([TestClass::class, "setMemberA"], "newA"), 
+            new ReflectionParameter([TestClass::class, "setMembers"], "newA"), 
             new ParamByExactName("newA")
         ));
     }

@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Selector\Matcher;
 
-use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCal\Selector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Selector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\Selector\Matcher\Exception\UnsupportedMatcher;
 use ReflectionMethod;
 

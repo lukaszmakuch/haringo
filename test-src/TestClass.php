@@ -18,14 +18,16 @@ class TestClass
 {
     public $memberA;
     public $memberB;
+    public $passedToConstructor;
     
-    public function setMemberA($newA)
+    public function __construct($passedToConstructor)
     {
-        $this->memberA = $newA;
+        $this->passedToConstructor = $passedToConstructor;
     }
     
-    public function setMemberB($newB)
+    public function setMembers($newA, $newB)
     {
+        $this->memberA = $newA;
         $this->memberB = $newB;
     }
 }

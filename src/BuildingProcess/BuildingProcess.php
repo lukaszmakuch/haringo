@@ -21,13 +21,13 @@ use lukaszmakuch\ObjectBuilder\BuildingProcess\MethodCall\MethodCall;
 interface BuildingProcess
 {
     /**
-     * @return null
+     * @return BuildingProcess self
      * @throws ImpossibleToSetClassSource
      */
     public function setClassSource(FullClassPathSource $source);
     
     /**
-     * @return null
+     * @return BuildingProcess self
      * @throws ImpossibleToCallMethod
      */
     public function addMethodCall(MethodCall $call);
