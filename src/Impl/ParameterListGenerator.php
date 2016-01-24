@@ -8,7 +8,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ParameterValueWithSelector;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\ParameterMatcher;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\ValueResolver;
 use ReflectionMethod;
@@ -28,7 +28,7 @@ class ParameterListGenerator
     
     /**
      * @param ReflectionMethod $reflectedMethod
-     * @param ParameterValueWithSelector[] $paramsWithSelectors
+     * @param AssignedParamValue[] $paramsWithSelectors
      * 
      * @return array ordered values ready to be passed as arguments
      */

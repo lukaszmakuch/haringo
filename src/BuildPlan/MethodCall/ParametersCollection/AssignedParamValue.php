@@ -12,12 +12,12 @@ namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
 
-class ParameterValueWithSelector
+class AssignedParamValue
 {
     private $valueSource;
     private $selector;
     
-    public function __construct(ValueSource $valueSource, ParameterSelector $selector)
+    public function __construct(ParameterSelector $selector, ValueSource $valueSource)
     {
         $this->valueSource = $valueSource;
         $this->selector = $selector;

@@ -10,9 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ParameterValueWithSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
 
 class MethodCall
 {
@@ -25,11 +23,9 @@ class MethodCall
     }
 
     public function assignParamValue(
-        ParameterSelector $selector, 
-        ValueSource $valueSource
+        AssignedParamValue $valueWithSelector
     ) {
-        $valWithSelector = new ParameterValueWithSelector($valueSource, $selector);
-        $this->valueSourcesWithParamsSelectors[] = $valWithSelector;
+        $this->valueSourcesWithParamsSelectors[] = $valueWithSelector;
         return $this;
     }
 

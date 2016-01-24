@@ -9,9 +9,10 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
 use PHPUnit_Framework_TestCase;
 
 class MethodCallTest extends PHPUnit_Framework_TestCase
@@ -24,8 +25,8 @@ class MethodCallTest extends PHPUnit_Framework_TestCase
         $valueSourceA = $this->getMock(ValueSource::class);
         $valueSourceB = $this->getMock(ValueSource::class);
         $call = new MethodCall($selector);
-        $call->assignParamValue($selectorA, $valueSourceA);
-        $call->assignParamValue($selectorB, $valueSourceB);
+        $call->assignParamValue(new AssignedParamValue($selectorA, $valueSourceA));
+        $call->assignParamValue(new AssignedParamValue($selectorB, $valueSourceB));
         
         $heldParamsWithSelectors = $call->getParamsValueWithSelectors();
         $this->assertTrue(

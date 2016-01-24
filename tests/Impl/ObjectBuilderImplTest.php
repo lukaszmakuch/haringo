@@ -9,10 +9,11 @@
 
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
+use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\Impl\ExactClassPathResolver;
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\Impl\ParamByExactNameMatcher;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Impl\ScalarValue;
@@ -39,21 +40,21 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
             ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(
                 (new MethodCall(new ExactMethodName("setMembers")))
-                    ->assignParamValue(
-                        new ParamByExactName("newB"),
+                    ->assignParamValue(new AssignedParamValue(
+                        new ParamByExactName("newB"), 
                         new ScalarValue("secondParamVal")
-                    )
-                    ->assignParamValue(
+                    ))
+                    ->assignParamValue(new AssignedParamValue(
                         new ParamByExactName("newA"),
                         new ScalarValue("firstParamVal")
-                    )
+                    ))
             )
             ->addMethodCall(
                 (new MethodCall(new ExactMethodName("__construct")))
-                    ->assignParamValue(
+                    ->assignParamValue(new AssignedParamValue(
                         new ParamByExactName("passedToConstructor"),
                         new ScalarValue("constructorParam")
-                    )
+                    ))
             );
 
         $builtObject = $builder->buildObjectBasedOn($buildPlan);
