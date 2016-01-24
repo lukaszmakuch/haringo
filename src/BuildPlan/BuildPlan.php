@@ -20,6 +20,11 @@ class BuildPlan
     private $methodCalls = [];
     private $classSource;
     
+    public function __construct(FullClassPathSource $source)
+    {
+        $this->classSource = $source;
+    }
+    
     public function addMethodCall(MethodCall $call)
     {
         $this->methodCalls[] = $call;
@@ -34,11 +39,5 @@ class BuildPlan
     public function getAllMethodCalls()
     {
         return $this->methodCalls;
-    }
-
-    public function setClassSource(FullClassPathSource $source)
-    {
-        $this->classSource = $source;
-        return $this;
     }
 }

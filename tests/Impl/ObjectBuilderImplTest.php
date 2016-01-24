@@ -36,8 +36,7 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
             )
         );
         
-        $buildPlan = (new BuildPlan())
-            ->setClassSource(new ExactClassPath(TestClass::class))
+        $buildPlan = (new BuildPlan(new ExactClassPath(TestClass::class)))
             ->addMethodCall(
                 (new MethodCall(new ExactMethodName("setMembers")))
                     ->assignParamValue(new AssignedParamValue(

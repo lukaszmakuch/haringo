@@ -21,8 +21,7 @@ class BuildPlanTest extends PHPUnit_Framework_TestCase
         $call = $this->getMockBuilder(MethodCall::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $process = new BuildPlan();
-        $this->assertTrue($process->setClassSource($classSource) === $process);
+        $process = new BuildPlan($classSource);
         $this->assertTrue($process->addMethodCall($call) === $process);
         $this->assertTrue($classSource == $process->getClassSource());
         $this->assertTrue($call === $process->getAllMethodCalls()[0]);
