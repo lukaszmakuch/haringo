@@ -124,7 +124,7 @@ class ObjectBuilderImpl implements ObjectBuilder
     ) {
         $reflectedMethod->invokeArgs(
             $targetObject, 
-            $this->paramListGenerator->getListOfArguments(
+            $this->paramListGenerator->getOrderedListOfArgumentValue(
                 $reflectedMethod,
                 $paramsWithSelectors
             )

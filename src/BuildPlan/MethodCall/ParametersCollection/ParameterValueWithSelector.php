@@ -12,18 +12,30 @@ namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
 
-/**
- * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
- */
-interface ParameterValueWithSelector
+class ParameterValueWithSelector
 {
+    private $valueSource;
+    private $selector;
+    
+    public function __construct(ValueSource $valueSource, ParameterSelector $selector)
+    {
+        $this->valueSource = $valueSource;
+        $this->selector = $selector;
+    }
+    
     /**
      * @return ValueSource
      */
-    public function getValueSource();
+    public function getValueSource()
+    {
+        return $this->valueSource;
+    }
     
     /**
      * @return ParameterSelector
      */
-    public function getSelector();
+    public function getSelector()
+    {
+        return $this->selector;
+    }
 }

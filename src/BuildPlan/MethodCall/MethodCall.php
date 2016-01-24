@@ -10,7 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Impl\ParameterValueWithSelectorImpl;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ParameterValueWithSelector;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
 
@@ -28,7 +28,7 @@ class MethodCall
         ParameterSelector $selector, 
         ValueSource $valueSource
     ) {
-        $valWithSelector = new ParameterValueWithSelectorImpl($valueSource, $selector);
+        $valWithSelector = new ParameterValueWithSelector($valueSource, $selector);
         $this->valueSourcesWithParamsSelectors[] = $valWithSelector;
         return $this;
     }

@@ -32,7 +32,7 @@ class ParameterListGenerator
      * 
      * @return array ordered values ready to be passed as arguments
      */
-    public function getListOfArguments(
+    public function getOrderedListOfArgumentValue(
         ReflectionMethod $reflectedMethod, 
         array $paramsWithSelectors
     ) {
