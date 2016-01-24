@@ -28,7 +28,7 @@ class MethodCallTest extends PHPUnit_Framework_TestCase
         $call->assignParamValue(new AssignedParamValue($selectorA, $valueSourceA));
         $call->assignParamValue(new AssignedParamValue($selectorB, $valueSourceB));
         
-        $heldParamsWithSelectors = $call->getParamsValueWithSelectors();
+        $heldParamsWithSelectors = $call->getAssignedParamValues();
         $this->assertTrue(
             (count($heldParamsWithSelectors) == 2)
             && (

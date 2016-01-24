@@ -29,7 +29,7 @@ class MethodCall
         return $this;
     }
 
-    public function getParamsValueWithSelectors()
+    public function getAssignedParamValues()
     {
         return $this->valueSourcesWithParamsSelectors;
     }

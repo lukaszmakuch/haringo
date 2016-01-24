@@ -95,7 +95,7 @@ class ObjectBuilderImpl implements ObjectBuilder
                 $this->callSpecifiedMethod(
                     $method,
                     $targetObject,
-                    $call->getParamsValueWithSelectors()
+                    $call->getAssignedParamValues()
                 );
             }
         }
