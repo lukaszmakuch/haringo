@@ -1,8 +1,13 @@
 <?php
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
+use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception\ImpossibleToBuildFromArray;
+use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception\ImpossibleToMapObject;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\BuildPlanArrayMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Exception\UnableToSerialize;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\ArrayStringMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\Exception\UnableToMapToString;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\BuildPlanSerializerImpl;
 
 /**
@@ -14,39 +19,100 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\BuildPlanSerializerImpl
 
 class BuildPlanSerializerImplTest extends PHPUnit_Framework_TestCase
 {
+    protected $planToMap;
+    protected $planBuildArrayMapper;
+    protected $arrayStringMapper;
+    protected $serializer;
+    
+    protected function setUp()
+    {
+        $this->planToMap = $this->getMockBuilder(BuildPlan::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        
+        $this->planBuildArrayMapper = $this->getMockBuilder(BuildPlanArrayMapper::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        
+        $this->arrayStringMapper = $this->getMock(ArrayStringMapper::class);
+        
+        $this->serializer = new BuildPlanSerializerImpl(
+            $this->planBuildArrayMapper,
+            $this->arrayStringMapper
+        );
+    }
+    
     public function testCorrectSerialization()
     {
-        $planToMap = $this->getMockBuilder(BuildPlan::class)
-            ->disableOriginalConstructor()
-            ->getMock();
         $planMappedAsArray = ["mapped plan"];
         $planArrayAsString = "serialized plan";
-        //plan build mapper
-        $planBuildArrayMapper = $this->getMockBuilder(BuildPlanArrayMapper::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $planBuildArrayMapper->method("mapToArray")->will($this->returnValueMap([
-            [$planToMap, $planMappedAsArray]
+        
+        $this->planBuildArrayMapper->method("mapToArray")->will($this->returnValueMap([
+            [$this->planToMap, $planMappedAsArray]
         ]));
-        $planBuildArrayMapper->method("mapToObject")->will($this->returnValueMap([
-            [$planMappedAsArray, $planToMap]
+        $this->planBuildArrayMapper->method("mapToObject")->will($this->returnValueMap([
+            [$planMappedAsArray, $this->planToMap]
         ]));
-        //array to string mapper
-        $arrayStringMapper = $this->getMock(ArrayStringMapper::class);
-        $arrayStringMapper->method("arrayToString")->will($this->returnValueMap([
+        
+        $this->arrayStringMapper->method("arrayToString")->will($this->returnValueMap([
             [$planMappedAsArray, $planArrayAsString]
         ]));
-        $arrayStringMapper->method("stringToArray")->will($this->returnValueMap([
+        $this->arrayStringMapper->method("stringToArray")->will($this->returnValueMap([
             [$planArrayAsString, $planMappedAsArray]
         ]));
         
-        $serializer = new BuildPlanSerializerImpl(
-            $planBuildArrayMapper,
-            $arrayStringMapper
-        );
+        $serializedBuildPlan = $this->serializer->serialize($this->planToMap);
+        $deserializedPlan = $this->serializer->deserialize($serializedBuildPlan);
+        $this->assertTrue($deserializedPlan === $this->planToMap);
+    }
+    
+    public function testIncorrectMappingToString()
+    {
+        $this->planBuildArrayMapper
+            ->method("mapToArray")
+            ->will($this->returnValue([]));
         
-        $serializedBuildPlan = $serializer->serialize($planToMap);
-        $deserializedPlan = $serializer->deserialize($serializedBuildPlan);
-        $this->assertTrue($deserializedPlan === $planToMap);
+        $this->arrayStringMapper
+            ->method("arrayToString")
+            ->will($this->throwException(new UnableToMapToString()));
+        
+        $this->setExpectedException(UnableToSerialize::class);
+        
+        $this->serializer->serialize($this->planToMap);
+    }
+    
+    public function testIncorrectMappingToArray()
+    {
+        $this->planBuildArrayMapper
+            ->method("mapToArray")
+            ->will($this->throwException(new ImpossibleToMapObject()));
+        
+        $this->setExpectedException(UnableToSerialize::class);
+        
+        $this->serializer->serialize($this->planToMap);
+    }
+    
+    public function testIncorrectMappingFromString()
+    {
+        $this->arrayStringMapper
+            ->method("stringToArray")
+            ->will($this->throwException(new UnableToMapToArray()));
+        
+        $this->setExpectedException(UnableToSerialize::class);
+        
+        $this->serializer->deserialize("");
+    }
+    
+    public function testIncorrectMappingToObject()
+    {
+        $this->arrayStringMapper->method("stringToArray")->will($this->returnValue([]));
+        
+        $this->planBuildArrayMapper
+            ->method("mapToObject")
+            ->will($this->throwException(new ImpossibleToBuildFromArray()));
+        
+        $this->setExpectedException(UnableToSerialize::class);
+        
+        $this->serializer->deserialize("");
     }
 }

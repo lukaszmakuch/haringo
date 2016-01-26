@@ -9,9 +9,25 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper;
 
+use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\Exception\UnableToMapToString;
+
+/**
+ * Maps an array to a string that may be later mapped back into an array.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 interface ArrayStringMapper
 {
+    /**
+     * @return String the given array mapped to a string
+     * @throws UnableToMapToString
+     */
     public function arrayToString(array $inputArray);
     
+    /**
+     * @return array the given string mapped to an array
+     * @throws UnableToMapToArray
+     */
     public function stringToArray($inputString);
 }
