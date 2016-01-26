@@ -1,7 +1,7 @@
 <?php
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Mapper\BuildPlanArrayMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\BuildPlanArrayMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\ArrayStringMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\BuildPlanSerializerImpl;
 
