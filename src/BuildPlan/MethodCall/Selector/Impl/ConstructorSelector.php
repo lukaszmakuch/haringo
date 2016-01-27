@@ -11,17 +11,24 @@ namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
 
-class ExactMethodName implements MethodSelector
+class ConstructorSelector implements MethodSelector
 {
-    private $methodName;
+    private static $instance = null;
     
-    public function __construct($methodName)
+    private function __construct()
     {
-        $this->methodName = $methodName;
     }
     
-    public function getExactMethodName()
+    private function __clone()
     {
-        return $this->methodName;
+    }
+    
+    public static function getInstance()
+    {
+        if (null === self::$instance) {
+            self::$instance = new self();
+        }
+        
+        return self::$instance;
     }
 }
