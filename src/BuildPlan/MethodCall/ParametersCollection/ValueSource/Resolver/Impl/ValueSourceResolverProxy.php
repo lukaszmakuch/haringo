@@ -39,5 +39,4 @@ class ValueSourceResolverProxy implements ValueResolver
             throw new ImpossibleToResolveValue();
         }
     }
-    
 }
