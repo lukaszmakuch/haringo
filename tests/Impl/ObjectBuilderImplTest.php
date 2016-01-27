@@ -20,8 +20,10 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSo
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Impl\ScalarValueResolver;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Impl\ExactMethodNameMatcher;
+use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
 use lukaszmakuch\ObjectBuilder\TestClass;
 use PHPUnit_Framework_TestCase;
+use stdClass;
 
 class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
 {
@@ -76,12 +78,27 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
             )
         );
         
-        $buildPlan = (new BuildPlan(new ExactClassPath(\stdClass::class)));
+        $buildPlan = (new BuildPlan(new ExactClassPath(stdClass::class)));
         
         $builtObject = $builder->buildObjectBasedOn($buildPlan);
         
         $fetchedBuildPlan = $builder->getBuildPlanUsedToBuild($builtObject);
         
         $this->assertTrue($fetchedBuildPlan === $buildPlan);
+    }
+    
+    public function testExceptionWhenImpossibleToFetchBuildPlan()
+    {
+        $builder = new ObjectBuilderImpl(
+            new ExactClassPathResolver(),
+            new ExactMethodNameMatcher(),
+            new ParameterListGenerator(
+                new ParamByExactNameMatcher(),
+                new ScalarValueResolver()
+            )
+        );
+        
+        $this->setExpectedException(BuildPlanNotFound::class);
+        $builder->getBuildPlanUsedToBuild(new stdClass());
     }
 }

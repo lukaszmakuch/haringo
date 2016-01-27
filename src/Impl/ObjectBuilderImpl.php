@@ -14,9 +14,12 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\FullClassP
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\MethodMatcher;
+use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use ReflectionClass;
 use ReflectionMethod;
+use SplObjectStorage;
+use UnexpectedValueException;
 
 class ObjectBuilderImpl implements ObjectBuilder
 {
@@ -34,7 +37,7 @@ class ObjectBuilderImpl implements ObjectBuilder
         $this->classPathResolver = $classPathResolver;
         $this->methodMatcher = $methodMatcher;
         $this->paramListGenerator = $paramListGenerator;
-        $this->buildPlanByBuildObject = new \SplObjectStorage();
+        $this->buildPlanByBuildObject = new SplObjectStorage();
     }
     
     public function buildObjectBasedOn(BuildPlan $p)
@@ -55,7 +58,11 @@ class ObjectBuilderImpl implements ObjectBuilder
     
     public function getBuildPlanUsedToBuild($previouslyBuiltObject)
     {
-        return $this->buildPlanByBuildObject->offsetGet($previouslyBuiltObject);
+        try {
+            return $this->buildPlanByBuildObject->offsetGet($previouslyBuiltObject);
+        } catch (\UnexpectedValueException $e) {
+            throw new BuildPlanNotFound("this builder has not been used to build the given object");
+        }
     }
     
     private function getReflectedClassBasedOn(FullClassPathSource $classSource)

@@ -9,6 +9,7 @@
 namespace lukaszmakuch\ObjectBuilder;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
+use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 
 /**
@@ -27,6 +28,7 @@ interface ObjectBuilder
      * previously built by this builder
      * 
      * @return BuildPlan
+     * @throws BuildPlanNotFound
      */
     public function getBuildPlanUsedToBuild($previouslyBuiltObject);
 }
