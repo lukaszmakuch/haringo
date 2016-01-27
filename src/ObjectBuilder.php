@@ -21,4 +21,12 @@ interface ObjectBuilder
      * @throws ImpossibleToFinishBuildPlan
      */
     public function buildObjectBasedOn(BuildPlan $p);
+    
+    /**
+     * @param mixed $previouslyBuiltObject any object that has been 
+     * previously built by this builder
+     * 
+     * @return BuildPlan
+     */
+    public function getBuildPlanUsedToBuild($previouslyBuiltObject);
 }

@@ -15,7 +15,6 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\MethodMatcher;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
-use Object;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -24,6 +23,7 @@ class ObjectBuilderImpl implements ObjectBuilder
     private $classPathResolver;
     private $methodMatcher;
     private $paramListGenerator;
+    private $buildPlanByBuildObject;
 
     public function __construct(
         FullClassPathResolver $classPathResolver,
@@ -34,6 +34,7 @@ class ObjectBuilderImpl implements ObjectBuilder
         $this->classPathResolver = $classPathResolver;
         $this->methodMatcher = $methodMatcher;
         $this->paramListGenerator = $paramListGenerator;
+        $this->buildPlanByBuildObject = new \SplObjectStorage();
     }
     
     public function buildObjectBasedOn(BuildPlan $p)
@@ -48,7 +49,13 @@ class ObjectBuilderImpl implements ObjectBuilder
             $p->getAllMethodCalls()
         );
         
+        $this->buildPlanByBuildObject->attach($builtObject, $p);
         return $builtObject;
+    }
+    
+    public function getBuildPlanUsedToBuild($previouslyBuiltObject)
+    {
+        return $this->buildPlanByBuildObject->offsetGet($previouslyBuiltObject);
     }
     
     private function getReflectedClassBasedOn(FullClassPathSource $classSource)

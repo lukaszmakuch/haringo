@@ -46,7 +46,6 @@ class ValueSourceMapperProxyTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($valueSourceA === $rebuiltValSourceA);
         
         //check B
-        var_dump($mapperProxy->mapToArray($valueSourceB));
         $rebuiltValSourceB = $mapperProxy->mapToObject($mapperProxy->mapToArray($valueSourceB));
         $this->assertTrue($valueSourceB === $rebuiltValSourceB);
     }

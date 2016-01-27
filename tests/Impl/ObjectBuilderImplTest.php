@@ -64,4 +64,24 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("firstParamVal", $builtObject->memberA);
         $this->assertEquals("secondParamVal", $builtObject->memberB);
     }
+    
+    public function testFetchingBuildPlanByBuiltObject()
+    {
+        $builder = new ObjectBuilderImpl(
+            new ExactClassPathResolver(),
+            new ExactMethodNameMatcher(),
+            new ParameterListGenerator(
+                new ParamByExactNameMatcher(),
+                new ScalarValueResolver()
+            )
+        );
+        
+        $buildPlan = (new BuildPlan(new ExactClassPath(\stdClass::class)));
+        
+        $builtObject = $builder->buildObjectBasedOn($buildPlan);
+        
+        $fetchedBuildPlan = $builder->getBuildPlanUsedToBuild($builtObject);
+        
+        $this->assertTrue($fetchedBuildPlan === $buildPlan);
+    }
 }
