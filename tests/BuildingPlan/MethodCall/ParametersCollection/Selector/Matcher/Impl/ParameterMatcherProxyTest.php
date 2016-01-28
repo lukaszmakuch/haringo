@@ -32,8 +32,8 @@ class ParameterMatcherProxyTest extends PHPUnit_Framework_TestCase
         $paramSelectorA = new ParamSelectorA();
         $paramSelectorB = new ParamSelectorB();
         
-        $matcherA = $this->getMatcherStub($reflectedParamA, $paramSelectorA, $reflectedParamA);
-        $matcherB = $this->getMatcherStub($reflectedParamB, $paramSelectorB, $reflectedParamB);
+        $matcherA = $this->getMatcherStub($reflectedParamA, $paramSelectorA);
+        $matcherB = $this->getMatcherStub($reflectedParamB, $paramSelectorB);
 
         $proxy = new ParameterMatcherProxy();
         $proxy->registerMatcher($matcherA, ParamSelectorA::class);
@@ -45,8 +45,7 @@ class ParameterMatcherProxyTest extends PHPUnit_Framework_TestCase
     
     private function getMatcherStub(
         ReflectionParameter $param,
-        ParameterSelector $itsSelector,
-        ReflectionParameter $paramItExpectsBeingUsedWith
+        ParameterSelector $itsSelector
     ) {
         $matcher = $this->getMock(ParameterMatcher::class);
         $matcher->method("parameterMatches")->will($this->returnValueMap([
@@ -54,7 +53,7 @@ class ParameterMatcherProxyTest extends PHPUnit_Framework_TestCase
         ]));
         $matcher->expects($this->once())
             ->method("parameterMatches")
-            ->with($paramItExpectsBeingUsedWith);
+            ->with($param);
         return $matcher;
     }
 }
