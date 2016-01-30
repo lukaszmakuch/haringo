@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Exception;
+namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Exception;
 
 /**
  * Thrown when it's not possible to match a parameter against some matcher.

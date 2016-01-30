@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Impl;
+namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl;
 
-use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Impl\ParameterMatcherProxy;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\ParameterMatcher;
+use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParameterMatcherProxy;
+use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use PHPUnit_Framework_TestCase;
 use ReflectionParameter;

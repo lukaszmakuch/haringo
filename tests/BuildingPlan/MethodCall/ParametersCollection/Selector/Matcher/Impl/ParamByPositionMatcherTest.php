@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Impl;
+namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl;
 
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
 use lukaszmakuch\ObjectBuilder\TestClass;

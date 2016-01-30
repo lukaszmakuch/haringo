@@ -9,7 +9,7 @@
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\ParameterMatcher;
+use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
 use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\ValueResolver;
 use ReflectionMethod;
 

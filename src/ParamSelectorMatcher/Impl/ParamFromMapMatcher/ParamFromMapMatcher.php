@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Impl\ParamFromMapMatcher;
+namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\FullClassPathResolver;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Exception\UnsupportedMatcher;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\ParameterMatcher;
+use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Exception\UnsupportedMatcher;
+use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
 use ReflectionMethod;
