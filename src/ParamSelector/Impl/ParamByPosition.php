@@ -7,9 +7,9 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl;
+namespace lukaszmakuch\ObjectBuilder\ParamSelector\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
+use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 
 class ParamByPosition implements ParameterSelector
 {

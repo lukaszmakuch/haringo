@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\Impl\ParamFromMapMatcher;
+namespace lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Impl\ParamFromMapMatcher;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\Impl\ExactClassPathResolver;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl\ParamByExactName;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl\ParamFromMap;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\Impl\ParamByExactNameMatcher;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Impl\ParamByExactNameMatcher;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Impl\ExactMethodNameMatcher;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Impl\MethodSelectorFromMap\FullMethodIdentifier;

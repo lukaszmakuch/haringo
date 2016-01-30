@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher;
+namespace lukaszmakuch\ObjectBuilder\ParamSelector\Matcher;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\Exception\UnsupportedMatcher;
+use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Exception\UnsupportedMatcher;
 use ReflectionParameter;
 
 /**

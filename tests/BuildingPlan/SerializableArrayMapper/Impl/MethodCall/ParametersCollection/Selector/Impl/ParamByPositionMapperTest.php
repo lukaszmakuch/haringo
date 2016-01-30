@@ -10,8 +10,8 @@
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\ParametersCollection\Selector\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl\ParamByExactName;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl\ParamByPosition;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
 
 class ParamByPositionMapperTest extends ArrayMapperTest
 {

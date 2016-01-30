@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\Impl;
+namespace lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl\ParamByPosition;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\ParameterMatcher;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\ParameterMatcher;
+use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use ReflectionParameter;
 
 class ParamByPositionMatcher implements ParameterMatcher

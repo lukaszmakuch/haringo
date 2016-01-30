@@ -1,7 +1,7 @@
 <?php
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl\ParamFromMap;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\ParametersCollection\Selector\Impl\ParamFromMapMapper;
 
 /**

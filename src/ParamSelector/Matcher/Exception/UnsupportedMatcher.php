@@ -7,11 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector;
+namespace lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Exception;
 
 /**
+ * Thrown when it's not possible to match a parameter against some matcher.
+ *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-interface ParameterSelector
+class UnsupportedMatcher extends \RuntimeException
 {
 }

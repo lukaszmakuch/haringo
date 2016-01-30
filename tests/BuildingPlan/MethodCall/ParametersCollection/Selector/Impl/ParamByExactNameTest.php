@@ -1,6 +1,6 @@
 <?php
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl\ParamByExactName;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 
 /**
  * This file is part of the ObjectBuilder library.
