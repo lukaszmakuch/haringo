@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher;
 
-use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\FullClassPathResolver;
+use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Exception\UnsupportedMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;

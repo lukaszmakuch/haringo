@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Exception;
+namespace lukaszmakuch\ObjectBuilder\ClassSourceResolver\Exception;
 
 /**
  * Thrown when trying to resolve an unsupported source.

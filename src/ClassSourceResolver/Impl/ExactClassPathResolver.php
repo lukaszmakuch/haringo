@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Impl;
+namespace lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\FullClassPathResolver;
+use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
 
 class ExactClassPathResolver implements FullClassPathResolver
 {

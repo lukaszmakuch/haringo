@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Impl;
+namespace lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl;
 
 use lukaszmakuch\ClassBasedRegistry\ClassBasedRegistry;
 use lukaszmakuch\ClassBasedRegistry\Exception\ValueNotFound;
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Exception\UnsupportedSource;
-use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\FullClassPathResolver;
+use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Exception\UnsupportedSource;
+use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
 
 class ClassPathResolverProxy implements FullClassPathResolver
 {

@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Impl\ClassPathFromMapResolver;
+namespace lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 

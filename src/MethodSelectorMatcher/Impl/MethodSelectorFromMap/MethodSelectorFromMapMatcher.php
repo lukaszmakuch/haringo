@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap;
 
-use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\FullClassPathResolver;
+use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Exception\UnsupportedMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;

@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Impl;
+namespace lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use PHPUnit_Framework_TestCase;

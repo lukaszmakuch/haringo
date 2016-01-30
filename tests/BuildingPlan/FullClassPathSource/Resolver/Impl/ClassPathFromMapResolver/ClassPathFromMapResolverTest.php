@@ -7,12 +7,12 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Impl\ClassPathFromMapResolver;
+namespace lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ClassPathFromMap;
-use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\FullClassPathResolver;
-use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Impl\ClassPathFromMapResolver\ClassPathFromMapResolver;
+use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
+use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathFromMapResolver;
 use PHPUnit_Framework_TestCase;
 
 class ClassPathFromMapResolverTest extends PHPUnit_Framework_TestCase
