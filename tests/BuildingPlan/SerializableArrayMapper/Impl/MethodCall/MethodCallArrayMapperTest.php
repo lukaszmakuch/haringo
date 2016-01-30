@@ -10,8 +10,8 @@
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
+use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
+use lukaszmakuch\ObjectBuilder\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\ParametersCollection\AssignedParamValueArrayMapper;
 

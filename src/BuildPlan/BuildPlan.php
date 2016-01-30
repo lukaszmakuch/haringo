@@ -10,7 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\BuildPlan;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
+use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 
 /**
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>

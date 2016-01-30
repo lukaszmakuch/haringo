@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall;
+namespace lukaszmakuch\ObjectBuilder\MethodCall;
 
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
+use lukaszmakuch\ObjectBuilder\MethodCall\ParametersCollection\AssignedParamValue;
 
 class MethodCall
 {

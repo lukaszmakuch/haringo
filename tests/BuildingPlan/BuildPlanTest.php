@@ -10,7 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\BuildPlan;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
+use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use PHPUnit_Framework_TestCase;
 
 class BuildPlanTest extends PHPUnit_Framework_TestCase

@@ -8,7 +8,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
+use lukaszmakuch\ObjectBuilder\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
 use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\ValueResolver;
 use ReflectionMethod;

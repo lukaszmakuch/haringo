@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection;
+namespace lukaszmakuch\ObjectBuilder\MethodCall\ParametersCollection;
 
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;

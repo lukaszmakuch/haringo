@@ -1,7 +1,7 @@
 <?php
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
+use lukaszmakuch\ObjectBuilder\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\ParametersCollection\AssignedParamValueArrayMapper;

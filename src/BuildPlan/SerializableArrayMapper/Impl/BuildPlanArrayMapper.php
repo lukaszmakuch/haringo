@@ -10,7 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
+use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\FullClassPathSource\ClassSourceMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\MethodCallArrayMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\SerializableArrayMapper;
