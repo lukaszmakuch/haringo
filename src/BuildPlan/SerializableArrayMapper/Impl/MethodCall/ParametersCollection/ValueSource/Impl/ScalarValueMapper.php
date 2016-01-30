@@ -48,7 +48,7 @@ class ScalarValueMapper implements ValueSourceArrayMapper
         if (
             empty($previouslyMappedArray)
             || !isset($previouslyMappedArray[0])
-            || !is_string($previouslyMappedArray[0])
+            || !is_scalar($previouslyMappedArray[0])
         ) {
             throw new ImpossibleToBuildFromArray();
         }

@@ -25,13 +25,13 @@ class ScalarValueMapperTest extends ArrayMapperTest
 
     public function testCorrectMapping()
     {
-        $valueSourceToMap = new ScalarValue("abc");
+        $valueSourceToMap = new ScalarValue(123);
         $objectAsArray = $this->mapper->mapToArray($valueSourceToMap);
         $this->assertAllowedDataTypesWithin($objectAsArray);
         /* @var $rebuiltObject ScalarValue */
         $rebuiltObject = $this->mapper->mapToObject($objectAsArray);
         $this->assertInstanceOf(ScalarValue::class, $rebuiltObject);
-        $this->assertEquals("abc", $rebuiltObject->getHeldScalarValue());
+        $this->assertEquals(123, $rebuiltObject->getHeldScalarValue());
     }
     
     /**
