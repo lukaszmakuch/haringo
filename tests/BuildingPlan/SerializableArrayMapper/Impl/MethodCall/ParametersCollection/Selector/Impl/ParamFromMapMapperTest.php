@@ -2,7 +2,7 @@
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\Selector\Impl\ParamFromMapMapper;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\Selector\Impl\ParamFromMapMapper;
 
 /**
  * This file is part of the ObjectBuilder library.

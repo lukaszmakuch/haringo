@@ -11,7 +11,7 @@ namespace lukaszmakuch\ObjectBuilder\MethodCallMapper;
 
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\AssignedParamValueArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\AssignedParamValueArrayMapper;
 use lukaszmakuch\ObjectBuilder\MethodCallMapper\Selector\MethodSelectorArrayMapper;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 

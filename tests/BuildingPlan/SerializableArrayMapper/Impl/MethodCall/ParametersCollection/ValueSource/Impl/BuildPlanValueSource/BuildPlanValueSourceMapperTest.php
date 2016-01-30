@@ -9,12 +9,13 @@
 
 namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\Impl\BuildPlanValueSource;
 
+use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
 use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanArrayMapper;
-use PHPUnit_Framework_TestCase;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\Impl\BuildPlanValueSource\BuildPlanValueSourceMapper;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
 
-class BuildPlanValueSourceMapperTest extends \lukaszmakuch\ObjectBuilder\ArrayMapperTest
+class BuildPlanValueSourceMapperTest extends ArrayMapperTest
 {
     public function testCorrectMapping()
     {

@@ -10,6 +10,8 @@
 namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\Impl\ArrayValueSourceMapper;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\Impl\ScalarValueMapper;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl\ArrayValueSource\ArrayValueSourceResolver;

@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\Impl;
+namespace lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\Impl;
 
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
 use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\ValueSourceArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\ValueSourceArrayMapper;
 
 /**
  * Builds array like this:

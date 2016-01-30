@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\Selector\Impl;
+namespace lukaszmakuch\ObjectBuilder\ParamValueMapper\Selector\Impl;
 
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\Selector\ParamSelectorArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\Selector\ParamSelectorArrayMapper;
 
 class ParamFromMapMapper implements ParamSelectorArrayMapper
 {

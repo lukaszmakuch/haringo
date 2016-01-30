@@ -11,9 +11,9 @@ namespace lukaszmakuch\ObjectBuilder\MethodCallMapper;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\AssignedParamValueArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\AssignedParamValueArrayMapper;
 
 class MethodCallArrayMapperTest extends ArrayMapperTest
 {

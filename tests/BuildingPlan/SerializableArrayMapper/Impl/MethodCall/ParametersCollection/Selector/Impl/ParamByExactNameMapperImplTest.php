@@ -10,9 +10,11 @@
 namespace lukaszmakuch\ObjectBuilder\ParamSelector\ArrayMapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\Selector\Impl\ParamByExactNameMapperImpl;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\Selector\Impl\ParamByExactNameMapperImpl;
 
 class ParamByExactNameMapperImplTest extends ArrayMapperTest
 {
@@ -36,19 +38,15 @@ class ParamByExactNameMapperImplTest extends ArrayMapperTest
         $this->assertEquals("myParamName", $rebuiltSelector->getExactName());
     }
     
-    /**
-     * @expectedException \lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject
-     */
     public function testWrongClass()
     {
+        $this->setExpectedException(ImpossibleToMapObject::class);
         $this->mapper->mapToArray($this->getMock(ParameterSelector::class));
     }
     
-    /**
-     * @expectedException \lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray
-     */
     public function testIncorrectInputArray()
     {
+        $this->setExpectedException(ImpossibleToBuildFromArray::class);
         $this->mapper->mapToObject([123]);
     }
 }

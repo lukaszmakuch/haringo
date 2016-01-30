@@ -1,12 +1,12 @@
 <?php
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
+use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\AssignedParamValueArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\Selector\ParamSelectorArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\ValueSourceArrayMapper;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\AssignedParamValueArrayMapper;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\Selector\ParamSelectorArrayMapper;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\ValueSourceArrayMapper;
 
 /**
  * This file is part of the ObjectBuilder library.

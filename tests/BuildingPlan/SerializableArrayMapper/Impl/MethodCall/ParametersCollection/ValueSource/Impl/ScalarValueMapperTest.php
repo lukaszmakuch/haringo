@@ -10,9 +10,11 @@
 namespace lukaszmakuch\ObjectBuilder\ValueSource\Mapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\Impl\ScalarValueMapper;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\Impl\ScalarValueMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
 
 class ScalarValueMapperTest extends ArrayMapperTest
 {
@@ -34,19 +36,15 @@ class ScalarValueMapperTest extends ArrayMapperTest
         $this->assertEquals(123, $rebuiltObject->getHeldScalarValue());
     }
     
-    /**
-     * @expectedException \lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject
-     */
     public function testWrongClass()
     {
+        $this->setExpectedException(ImpossibleToMapObject::class);
         $this->mapper->mapToArray($this->getMock(ValueSource::class));
     }
     
-    /**
-     * @expectedException \lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray
-     */
     public function testWrongIputArray()
     {
+        $this->setExpectedException(ImpossibleToBuildFromArray::class);
         $this->mapper->mapToObject([3 => 123]);
     }
 }

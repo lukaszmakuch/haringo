@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\Impl\BuildPlanValueSource;
+namespace lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\Impl\BuildPlanValueSource;
 
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
 use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanArrayMapper;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\ValueSourceArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\ValueSourceArrayMapper;
 
 class BuildPlanValueSourceMapper  implements ValueSourceArrayMapper
 {

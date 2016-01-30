@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection;
+namespace lukaszmakuch\ObjectBuilder\ParamValueMapper;
 
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\Selector\ParamSelectorArrayMapper;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\ValueSourceArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\Selector\ParamSelectorArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\ValueSourceArrayMapper;
 
 /**
  * Uses structure like:
