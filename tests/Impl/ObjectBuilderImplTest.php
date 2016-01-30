@@ -19,7 +19,7 @@ use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Impl\ParamByExactNameMatche
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl\ScalarValueResolver;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Impl\ExactMethodNameMatcher;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ExactMethodNameMatcher;
 use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
 use lukaszmakuch\ObjectBuilder\TestClass;
 use PHPUnit_Framework_TestCase;

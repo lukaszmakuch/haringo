@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Impl;
+namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl;
 
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\MethodMatcher;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
 
 class ExactMethodNameMatcher implements MethodMatcher
 {

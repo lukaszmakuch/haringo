@@ -10,7 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Impl\ParamFromMapMatcher;
 
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Impl\MethodSelectorFromMap\FullMethodIdentifier;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\FullMethodIdentifier;
 
 class FullParamIdentifier
 {

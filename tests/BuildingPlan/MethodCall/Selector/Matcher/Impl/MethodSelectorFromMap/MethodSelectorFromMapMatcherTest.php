@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Impl\MethodSelectorFromMap;
+namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Impl\ExactClassPathResolver;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Impl\ExactMethodNameMatcher;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ExactMethodNameMatcher;
 use lukaszmakuch\ObjectBuilder\TestClass;
 use PHPUnit_Framework_TestCase;
 use ReflectionMethod;

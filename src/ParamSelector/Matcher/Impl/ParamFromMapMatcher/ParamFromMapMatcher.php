@@ -13,7 +13,7 @@ use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\FullClassPathResolver;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\Exception\UnsupportedMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Matcher\ParameterMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\MethodMatcher;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
 use ReflectionMethod;
 use ReflectionParameter;
 
