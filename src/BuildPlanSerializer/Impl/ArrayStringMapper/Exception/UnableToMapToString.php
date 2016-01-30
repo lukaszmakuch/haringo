@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Exception;
+namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception;
 
 /**
- * Thrown when it's not possible to deserialize any BuildPlan from some string.
+ * Thrown when it's not possible to map some given array to a string.
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class UnableToDeserialize extends \RuntimeException
+class UnableToMapToString extends \RuntimeException
 {
 }

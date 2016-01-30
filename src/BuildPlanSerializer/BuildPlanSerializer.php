@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\Serializer;
+namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Exception\UnableToDeserialize;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Exception\UnableToSerialize;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception\UnableToDeserialize;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception\UnableToSerialize;
 
 /**
  * Supports serialization and deserialization of BuildPlan objects.

@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Exception;
+namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception;
 
 /**
  * Thrown when it's not possible to serialize some BuildPlan.

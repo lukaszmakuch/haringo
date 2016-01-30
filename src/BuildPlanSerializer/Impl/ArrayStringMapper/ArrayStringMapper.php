@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper;
+namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\Exception\UnableToMapToString;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToString;
 
 /**
  * Maps an array to a string that may be later mapped back into an array.

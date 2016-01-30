@@ -7,17 +7,17 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception\ImpossibleToBuildFromArray;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception\ImpossibleToMapObject;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\BuildPlanArrayMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\BuildPlanSerializer;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Exception\UnableToSerialize;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\ArrayStringMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\Exception\UnableToMapToString;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Serializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\BuildPlanSerializer;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception\UnableToSerialize;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\ArrayStringMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToString;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;
 
 class BuildPlanSerializerImpl implements BuildPlanSerializer
 {
