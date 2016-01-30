@@ -11,6 +11,8 @@ namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\V
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Impl\BuildPlanValueSource;
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Exception\ImpossibleToResolveValue;
+use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use PHPUnit_Framework_TestCase;
 use stdClass;
@@ -36,5 +38,23 @@ class BuildPlanValueSourceResolverTest extends PHPUnit_Framework_TestCase
         $source = new BuildPlanValueSource($buildPlan);
         $resolvedValue = $resolver->resolveValueFrom($source);
         $this->assertTrue($resolvedValue === $buildPlanResult);
+    }
+    
+    public function testExceptionWhenWrongBuildPlan()
+    {
+        $buildPlan = $this->getMockBuilder(BuildPlan::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        
+        $objectBuilder = $this->getMock(ObjectBuilder::class);
+        $objectBuilder
+            ->method("buildObjectBasedOn")
+            ->will($this->throwException(new ImpossibleToFinishBuildPlan()));
+        
+        $resolver = new BuildPlanValueSourceResolver($objectBuilder);
+        $source = new BuildPlanValueSource($buildPlan);
+        
+        $this->setExpectedException(ImpossibleToResolveValue::class);
+        $resolver->resolveValueFrom($source);
     }
 }
