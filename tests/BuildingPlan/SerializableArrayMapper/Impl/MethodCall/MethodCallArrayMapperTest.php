@@ -12,7 +12,7 @@ namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\Meth
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\ParametersCollection\AssignedParamValueArrayMapper;
 
 class MethodCallArrayMapperTest extends ArrayMapperTest

@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Impl;
+namespace lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Impl\ConstructorSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Exception\UnsupportedMatcher;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Exception\UnsupportedMatcher;
+use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\TestClass;
 use PHPUnit_Framework_TestCase;
 use ReflectionClass;

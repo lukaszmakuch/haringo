@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher;
+namespace lukaszmakuch\ObjectBuilder\MethodSelector\Matcher;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Exception\UnsupportedMatcher;
+use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Exception\UnsupportedMatcher;
 use ReflectionMethod;
 
 /**

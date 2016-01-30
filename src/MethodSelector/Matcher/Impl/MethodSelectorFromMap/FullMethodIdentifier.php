@@ -7,9 +7,9 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Impl\MethodSelectorFromMap;
+namespace lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Impl\MethodSelectorFromMap;
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 
 /**
  * Identifier exact method (together with the class it belongs to).

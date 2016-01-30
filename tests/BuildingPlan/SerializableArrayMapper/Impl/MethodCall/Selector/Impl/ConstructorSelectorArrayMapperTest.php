@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Mapper\Impl;
+namespace lukaszmakuch\ObjectBuilder\MethodSelector\Mapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Impl\ConstructorSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\Selector\Impl\ConstructorSelectorArrayMapper;
 
 class ConstructorSelectorArrayMapperTest extends ArrayMapperTest

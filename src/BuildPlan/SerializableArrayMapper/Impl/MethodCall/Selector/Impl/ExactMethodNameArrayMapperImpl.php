@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\Selector\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Impl\ExactMethodName;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\Selector\MethodSelectorArrayMapper;
 
 /**

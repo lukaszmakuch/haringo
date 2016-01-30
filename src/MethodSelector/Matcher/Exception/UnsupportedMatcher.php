@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Exception;
+namespace lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Exception;
 
 /**
  * Thrown when trying to match a method against some unsupported matcher.

@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Impl;
+namespace lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\MethodMatcher;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\MethodMatcher;
+use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use PHPUnit_Framework_TestCase;
 use ReflectionMethod;
 

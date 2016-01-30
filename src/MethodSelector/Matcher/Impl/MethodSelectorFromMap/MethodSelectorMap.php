@@ -7,9 +7,9 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\Impl\MethodSelectorFromMap;
+namespace lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\Impl\MethodSelectorFromMap;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Impl\MethodSelectorFromMap;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
 
 class MethodSelectorMap
 {

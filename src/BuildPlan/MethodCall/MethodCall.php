@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
 
 class MethodCall

@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector;
+namespace lukaszmakuch\ObjectBuilder\MethodSelector;
 
 /**
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>

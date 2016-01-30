@@ -13,7 +13,7 @@ use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\FullClassPathResolver;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\Matcher\MethodMatcher;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Matcher\MethodMatcher;
 use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use ReflectionClass;

@@ -12,7 +12,7 @@ namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use PHPUnit_Framework_TestCase;
 
 class MethodCallTest extends PHPUnit_Framework_TestCase
