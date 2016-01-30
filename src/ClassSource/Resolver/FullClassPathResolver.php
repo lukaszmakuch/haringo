@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver;
+namespace lukaszmakuch\ObjectBuilder\ClassSource\Resolver;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\Exception\UnsupportedSource;
+use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
+use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Exception\UnsupportedSource;
 
 /**
  * Resolves full class path.

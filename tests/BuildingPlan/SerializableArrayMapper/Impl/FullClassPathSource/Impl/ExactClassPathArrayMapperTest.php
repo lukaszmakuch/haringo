@@ -10,7 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\FullClassPathSource\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
-use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Impl\ExactClassPath;
+use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 
 class ExactClassPathArrayMapperTest extends ArrayMapperTest
 {

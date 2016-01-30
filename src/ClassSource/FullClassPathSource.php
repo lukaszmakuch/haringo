@@ -7,13 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\Exception;
+namespace lukaszmakuch\ObjectBuilder\ClassSource;
 
 /**
- * Thrown when trying to resolve an unsupported source.
- *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class UnsupportedSource extends \InvalidArgumentException
+interface FullClassPathSource
 {
 }

@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\Impl;
+namespace lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\Exception\UnsupportedSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Resolver\FullClassPathResolver;
+use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
+use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\Exception\UnsupportedSource;
+use lukaszmakuch\ObjectBuilder\ClassSource\Resolver\FullClassPathResolver;
 use PHPUnit_Framework_TestCase;
 
 class ClassPathSourceA implements FullClassPathSource {}

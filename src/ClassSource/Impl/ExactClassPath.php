@@ -7,9 +7,9 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Impl;
+namespace lukaszmakuch\ObjectBuilder\ClassSource\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\FullClassPathSource;
+use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 
 class ExactClassPath implements FullClassPathSource
 {

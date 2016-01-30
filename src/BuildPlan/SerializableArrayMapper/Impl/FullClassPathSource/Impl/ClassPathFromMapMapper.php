@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\FullClassPathSource\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\FullClassPathSource\Impl\ClassPathFromMap;
+use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ClassPathFromMap;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\FullClassPathSource\ClassSourceMapper;
 
 class ClassPathFromMapMapper implements ClassSourceMapper
