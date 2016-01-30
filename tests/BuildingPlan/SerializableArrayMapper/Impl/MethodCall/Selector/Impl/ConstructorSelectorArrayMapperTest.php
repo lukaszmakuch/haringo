@@ -11,7 +11,7 @@ namespace lukaszmakuch\ObjectBuilder\MethodSelector\Mapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\Selector\Impl\ConstructorSelectorArrayMapper;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl\ConstructorSelectorArrayMapper;
 
 class ConstructorSelectorArrayMapperTest extends ArrayMapperTest
 {

@@ -11,7 +11,7 @@ namespace lukaszmakuch\ObjectBuilder\MethodSelector\Mapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\Selector\Impl\MethodSelectorFromMapMapper;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl\MethodSelectorFromMapMapper;
 
 class MethodSelectorFromMapMapperTest extends ArrayMapperTest
 {

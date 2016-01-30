@@ -11,7 +11,7 @@ namespace lukaszmakuch\ObjectBuilder\MethodSelector\Mapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\Selector\Impl\ExactMethodNameArrayMapperImpl;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl\ExactMethodNameArrayMapperImpl;
 
 class ExactMethodNameArrayMapperImplTest extends ArrayMapperTest
 {

@@ -12,6 +12,7 @@ namespace lukaszmakuch\ObjectBuilder\MethodCallMapper;
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\ParamValueMapper\AssignedParamValueArrayMapper;
 
@@ -31,7 +32,7 @@ class MethodCallArrayMapperTest extends ArrayMapperTest
         
         //building mapper
         //method selector mapper
-        $methodSelectorMapper = $this->getMock(Selector\MethodSelectorArrayMapper::class);
+        $methodSelectorMapper = $this->getMock(MethodSelectorArrayMapper::class);
         $methodSelectorMapper->method("mapToArray")->will($this->returnValueMap([
             [$selector, $selectorAsArray]
         ]));

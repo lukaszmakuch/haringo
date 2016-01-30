@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\Selector;
+namespace lukaszmakuch\ObjectBuilder\MethodSelectorMapper;
 
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 

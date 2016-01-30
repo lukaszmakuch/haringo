@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\Selector\Impl;
+namespace lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\Selector\MethodSelectorArrayMapper;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
 
 /**
  * Uses array formated like that:
