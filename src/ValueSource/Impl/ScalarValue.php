@@ -7,9 +7,9 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Impl;
+namespace lukaszmakuch\ObjectBuilder\ValueSource\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
 /**
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>

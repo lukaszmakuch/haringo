@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Impl\ArrayValueSource;
+namespace lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl\ArrayValueSource;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Impl\ArrayValueSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Impl\ScalarValue;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Impl\ScalarValueResolver;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl\ScalarValueResolver;
 use PHPUnit_Framework_TestCase;
 
 class ArrayValueSourceResolverTest extends PHPUnit_Framework_TestCase

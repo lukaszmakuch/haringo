@@ -11,7 +11,7 @@ namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\Selector\MethodSelector;
 use PHPUnit_Framework_TestCase;
 

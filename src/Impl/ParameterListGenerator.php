@@ -10,7 +10,7 @@ namespace lukaszmakuch\ObjectBuilder\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Matcher\ParameterMatcher;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\ValueResolver;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\ValueResolver;
 use ReflectionMethod;
 
 class ParameterListGenerator

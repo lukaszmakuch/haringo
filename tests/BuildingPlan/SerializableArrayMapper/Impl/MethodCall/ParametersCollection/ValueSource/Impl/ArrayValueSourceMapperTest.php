@@ -10,10 +10,10 @@
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\ParametersCollection\ValueSource\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Impl\ArrayValueSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Impl\ScalarValue;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Impl\ArrayValueSource\ArrayValueSourceResolver;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Impl\ScalarValueResolver;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl\ArrayValueSource\ArrayValueSourceResolver;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl\ScalarValueResolver;
 
 class ArrayValueSourceMapperTest  extends ArrayMapperTest
 {

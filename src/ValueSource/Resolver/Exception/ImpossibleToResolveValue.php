@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Exception;
+namespace lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Exception;
 
 /**
  * Thrown when it's impossible to resolve some value.

@@ -1,9 +1,9 @@
 <?php
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Exception\ImpossibleToResolveValue;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Impl\ValueSourceResolverProxy;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\ValueResolver;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Exception\ImpossibleToResolveValue;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl\ValueSourceResolverProxy;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\ValueResolver;
+use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
 /**
  * This file is part of the ObjectBuilder library.

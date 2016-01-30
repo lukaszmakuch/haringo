@@ -7,9 +7,9 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Impl;
+namespace lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Impl\ScalarValue;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 use PHPUnit_Framework_TestCase;
 
 /**

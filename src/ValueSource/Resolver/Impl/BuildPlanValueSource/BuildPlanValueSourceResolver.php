@@ -7,12 +7,12 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Impl\BuildPlanValueSource;
+namespace lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl\BuildPlanValueSource;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Impl\BuildPlanValueSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Exception\ImpossibleToResolveValue;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\ValueResolver;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Exception\ImpossibleToResolveValue;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\ValueResolver;
+use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 

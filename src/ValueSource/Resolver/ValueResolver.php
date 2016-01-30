@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver;
+namespace lukaszmakuch\ObjectBuilder\ValueSource\Resolver;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Exception\ImpossibleToResolveValue;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Exception\ImpossibleToResolveValue;
+use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
 /**
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>

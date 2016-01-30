@@ -10,7 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 use PHPUnit_Framework_TestCase;
 
 

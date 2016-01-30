@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Impl;
+namespace lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl;
 
 use lukaszmakuch\ClassBasedRegistry\ClassBasedRegistry;
 use lukaszmakuch\ClassBasedRegistry\Exception\ValueNotFound;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\Exception\ImpossibleToResolveValue;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\Resolver\ValueResolver;
-use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Exception\ImpossibleToResolveValue;
+use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\ValueResolver;
+use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
 class ValueSourceResolverProxy implements ValueResolver
 {
