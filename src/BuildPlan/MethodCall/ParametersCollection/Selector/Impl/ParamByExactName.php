@@ -9,10 +9,12 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\Impl;
 
+use lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector;
+
 /**
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ParamByExactName implements \lukaszmakuch\ObjectBuilder\BuildPlan\MethodCall\ParametersCollection\Selector\ParameterSelector
+class ParamByExactName implements ParameterSelector
 {
     private $exactParameterName;
     
