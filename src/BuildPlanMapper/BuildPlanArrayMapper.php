@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Mapper\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;

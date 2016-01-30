@@ -3,7 +3,7 @@
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
 use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
-use lukaszmakuch\ObjectBuilder\Mapper\Impl\BuildPlanArrayMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanArrayMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception\UnableToSerialize;
 use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\ArrayStringMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;

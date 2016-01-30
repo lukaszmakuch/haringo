@@ -13,7 +13,7 @@ use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\Mapper\Impl\BuildPlanArrayMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanArrayMapper;
 use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
 use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
 
