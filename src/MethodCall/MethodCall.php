@@ -10,7 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\MethodCall;
 
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\MethodCall\ParametersCollection\AssignedParamValue;
+use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 
 class MethodCall
 {

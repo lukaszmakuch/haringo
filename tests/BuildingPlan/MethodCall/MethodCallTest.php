@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\MethodCall;
 
-use lukaszmakuch\ObjectBuilder\MethodCall\ParametersCollection\AssignedParamValue;
+use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;

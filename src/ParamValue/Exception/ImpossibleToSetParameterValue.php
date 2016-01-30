@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodCall\ParametersCollection\Exception;
+namespace lukaszmakuch\ObjectBuilder\ParamValue\Exception;
 
 /**
  * Thrown when for some reason it's not possible to set a parameter value.
