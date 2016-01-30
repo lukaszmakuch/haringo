@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper;
+namespace lukaszmakuch\ObjectBuilder\Mapper;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception\ImpossibleToBuildFromArray;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception\ImpossibleToMapObject;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
 
 /**
  * Allows to map an object to an array that may contain: 

@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\Selector;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\SerializableArrayMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
 interface ParamSelectorArrayMapper extends SerializableArrayMapper
 {

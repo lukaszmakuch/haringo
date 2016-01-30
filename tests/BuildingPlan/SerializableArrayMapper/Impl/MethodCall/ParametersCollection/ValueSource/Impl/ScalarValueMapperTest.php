@@ -35,7 +35,7 @@ class ScalarValueMapperTest extends ArrayMapperTest
     }
     
     /**
-     * @expectedException \lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception\ImpossibleToMapObject
+     * @expectedException \lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject
      */
     public function testWrongClass()
     {
@@ -43,7 +43,7 @@ class ScalarValueMapperTest extends ArrayMapperTest
     }
     
     /**
-     * @expectedException \lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception\ImpossibleToBuildFromArray
+     * @expectedException \lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray
      */
     public function testWrongIputArray()
     {

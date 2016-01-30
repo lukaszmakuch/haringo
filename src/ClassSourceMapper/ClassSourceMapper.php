@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\ClassSourceMapper;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\SerializableArrayMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
 interface ClassSourceMapper extends SerializableArrayMapper
 {

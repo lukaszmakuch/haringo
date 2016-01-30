@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\SerializableArrayMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
 interface ValueSourceArrayMapper extends SerializableArrayMapper
 {

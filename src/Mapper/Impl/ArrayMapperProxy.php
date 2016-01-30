@@ -7,12 +7,12 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl;
+namespace lukaszmakuch\ObjectBuilder\Mapper\Impl;
 
 use lukaszmakuch\ClassBasedRegistry\ClassBasedRegistry;
 use lukaszmakuch\ClassBasedRegistry\Exception\ValueNotFound;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception\ImpossibleToMapObject;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\SerializableArrayMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
+use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
 class ArrayMapperProxy implements SerializableArrayMapper
 {

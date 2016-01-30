@@ -11,7 +11,7 @@ namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\Value
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\BuildPlanArrayMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\Impl\BuildPlanArrayMapper;
 use PHPUnit_Framework_TestCase;
 
 class BuildPlanValueSourceMapperTest extends \lukaszmakuch\ObjectBuilder\ArrayMapperTest

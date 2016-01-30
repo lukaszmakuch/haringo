@@ -10,7 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\Impl\BuildPlanValueSource;
 
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\BuildPlanArrayMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\Impl\BuildPlanArrayMapper;
 use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\ValueSourceArrayMapper;
 
 class BuildPlanValueSourceMapper  implements ValueSourceArrayMapper

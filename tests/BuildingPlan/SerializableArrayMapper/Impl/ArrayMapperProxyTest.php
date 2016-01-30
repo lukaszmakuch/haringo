@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl;
+namespace lukaszmakuch\ObjectBuilder\Mapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception\ImpossibleToMapObject;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\SerializableArrayMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
+use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 use PHPUnit_Framework_TestCase;
 use stdClass;
 

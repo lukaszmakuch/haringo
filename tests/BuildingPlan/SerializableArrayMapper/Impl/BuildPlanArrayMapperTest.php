@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl;
+namespace lukaszmakuch\ObjectBuilder\Mapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\BuildPlanArrayMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\Impl\BuildPlanArrayMapper;
 use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
 use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
 

@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Exception;
+namespace lukaszmakuch\ObjectBuilder\Mapper\Exception;
 
 use RuntimeException;
 

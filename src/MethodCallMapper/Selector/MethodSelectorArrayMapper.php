@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\MethodCallMapper\Selector;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\SerializableArrayMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
 interface MethodSelectorArrayMapper extends SerializableArrayMapper
 {

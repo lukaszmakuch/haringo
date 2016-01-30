@@ -13,7 +13,7 @@ use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\AssignedParamValueArrayMapper;
 use lukaszmakuch\ObjectBuilder\MethodCallMapper\Selector\MethodSelectorArrayMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\SerializableArrayMapper;
+use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
 /**
  * Uses structure like:
