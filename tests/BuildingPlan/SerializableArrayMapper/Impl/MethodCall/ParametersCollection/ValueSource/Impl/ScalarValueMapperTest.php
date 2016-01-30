@@ -12,7 +12,7 @@ namespace lukaszmakuch\ObjectBuilder\ValueSource\Mapper\Impl;
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\ParametersCollection\ValueSource\Impl\ScalarValueMapper;
+use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\ValueSource\Impl\ScalarValueMapper;
 
 class ScalarValueMapperTest extends ArrayMapperTest
 {

@@ -15,7 +15,7 @@ use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\BuildPlanArrayMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\FullClassPathSource\ClassSourceMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\MethodCallArrayMapper;
+use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
 
 class BuildPlanArrayMapperTest extends ArrayMapperTest
 {

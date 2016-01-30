@@ -12,7 +12,7 @@ namespace lukaszmakuch\ObjectBuilder\ParamSelector\ArrayMapper\Impl;
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\MethodCall\ParametersCollection\Selector\Impl\ParamByExactNameMapperImpl;
+use lukaszmakuch\ObjectBuilder\MethodCallMapper\ParametersCollection\Selector\Impl\ParamByExactNameMapperImpl;
 
 class ParamByExactNameMapperImplTest extends ArrayMapperTest
 {
