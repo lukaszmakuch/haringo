@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\FullClassPathSource\Impl;
+namespace lukaszmakuch\ObjectBuilder\ClassSourceMapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\BuildPlan\SerializableArrayMapper\Impl\FullClassPathSource\ClassSourceMapper;
+use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
 
 /**
  * Uses structure like:
