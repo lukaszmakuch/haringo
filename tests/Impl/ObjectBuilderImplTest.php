@@ -17,7 +17,7 @@ use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamByExactNameMatcher;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\Resolver\Impl\ScalarValueResolver;
+use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ScalarValueResolver;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ExactMethodNameMatcher;
 use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;

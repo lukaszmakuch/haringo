@@ -10,8 +10,8 @@
 namespace lukaszmakuch\ObjectBuilder\ParamValueMapper;
 
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\ParamValueMapper\Selector\ParamSelectorArrayMapper;
-use lukaszmakuch\ObjectBuilder\ParamValueMapper\ValueSource\ValueSourceArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\ParamSelectorArrayMapper;
+use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
 
 /**
  * Uses structure like:
