@@ -9,35 +9,14 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildPlan;
 
-use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-
 /**
+ * Describes the way how an object should be build. 
+ * 
+ * It should be possible to serialize and deserialize
+ * implementatios of this interface. 
+ * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class BuildPlan
+interface BuildPlan
 {
-    private $methodCalls = [];
-    private $classSource;
-    
-    public function __construct(FullClassPathSource $source)
-    {
-        $this->classSource = $source;
-    }
-    
-    public function addMethodCall(MethodCall $call)
-    {
-        $this->methodCalls[] = $call;
-        return $this;
-    }
-
-    public function getClassSource()
-    {
-        return $this->classSource;
-    }
-
-    public function getAllMethodCalls()
-    {
-        return $this->methodCalls;
-    }
 }

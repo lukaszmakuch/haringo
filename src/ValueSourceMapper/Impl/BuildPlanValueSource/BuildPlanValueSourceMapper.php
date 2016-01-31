@@ -10,14 +10,14 @@
 namespace lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\BuildPlanValueSource;
 
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
-use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanArrayMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanMapper;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
 
 class BuildPlanValueSourceMapper  implements ValueSourceArrayMapper
 {
     private $buildPlanMapper;
     
-    public function __construct(BuildPlanArrayMapper $buildPlanMapper)
+    public function __construct(BuildPlanMapper $buildPlanMapper)
     {
         $this->buildPlanMapper = $buildPlanMapper;
     }

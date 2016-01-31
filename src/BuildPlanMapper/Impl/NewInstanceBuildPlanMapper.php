@@ -7,28 +7,22 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper;
+namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
+use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
+use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
+use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
 
-/**
- * Uses array like:
- * [
- *     array $mappedClassSource,
- *     [array $mappedMethodCall, array $mappedMethodCall, ...]
- * ]
- */
-class BuildPlanArrayMapper implements SerializableArrayMapper
+class NewInstanceBuildPlanMapper implements SerializableArrayMapper
 {
     private $classSourceMapper;
     private $methodCallMapper;
     
     public function __construct(
-    ClassSourceMapper $classSourceMapper,
+        ClassSourceMapper $classSourceMapper,
         MethodCallArrayMapper $methodCallMapper
     ) {
         $this->classSourceMapper = $classSourceMapper;
@@ -49,9 +43,12 @@ class BuildPlanArrayMapper implements SerializableArrayMapper
     
     public function mapToObject(array $previouslyMappedObject)
     {
-        $plan = new BuildPlan($this->classSourceMapper->mapToObject($previouslyMappedObject[0]));
+        $classSource = $this->classSourceMapper->mapToObject($previouslyMappedObject[0]);
+        $plan = new NewInstanceBuildPlan();
+        $plan->setClassSource($classSource);
         foreach ($previouslyMappedObject[1] as $callAsArray) {
-            $plan->addMethodCall($this->methodCallMapper->mapToObject($callAsArray));
+            $methodCall = $this->methodCallMapper->mapToObject($callAsArray);
+            $plan->addMethodCall($methodCall);
         }
         
         return $plan;

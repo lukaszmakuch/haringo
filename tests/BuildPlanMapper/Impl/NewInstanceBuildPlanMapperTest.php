@@ -7,17 +7,16 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper;
+namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanArrayMapper;
 use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
 use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
 
-class BuildPlanArrayMapperTest extends ArrayMapperTest
+class NewInstanceBuildPlanMapperTest extends ArrayMapperTest
 {
     public function testCorrectMapping()
     {
@@ -26,7 +25,8 @@ class BuildPlanArrayMapperTest extends ArrayMapperTest
         $methodCall = $this->getMockBuilder(MethodCall::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $planToMap = new BuildPlan($classSource);
+        $planToMap = new \lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan();
+        $planToMap->setClassSource($classSource);
         $planToMap->addMethodCall($methodCall);
         
         //build mapper
@@ -50,7 +50,7 @@ class BuildPlanArrayMapperTest extends ArrayMapperTest
         $methodCallMapper->method("mapToObject")->will($this->returnValueMap([
             [$mappedMethodCall, $methodCall]
         ]));
-        $mapper = new BuildPlanArrayMapper(
+        $mapper = new NewInstanceBuildPlanMapper(
             $classSourceMapper,
             $methodCallMapper
         );

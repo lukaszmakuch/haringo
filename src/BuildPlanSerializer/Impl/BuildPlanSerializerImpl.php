@@ -9,15 +9,15 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl;
 
+use lukaszmakuch\ObjectBuilder\ArrayStringMapper\ArrayStringMapper;
+use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToString;
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
-use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanArrayMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\BuildPlanSerializer;
 use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception\UnableToSerialize;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\ArrayStringMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToString;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
 
 class BuildPlanSerializerImpl implements BuildPlanSerializer
 {
@@ -25,7 +25,7 @@ class BuildPlanSerializerImpl implements BuildPlanSerializer
     private $arrayStringMapper;
     
     public function __construct(
-        BuildPlanArrayMapper $planMapper,
+        BuildPlanMapper $planMapper,
         ArrayStringMapper $arrayStringMapper
     ) {
         $this->buildPlanArrayMapper = $planMapper;

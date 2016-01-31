@@ -11,7 +11,7 @@ namespace lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\BuildPlanValueSource
 
 use lukaszmakuch\ObjectBuilder\ArrayMapperTest;
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanArrayMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanMapper;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\BuildPlanValueSource\BuildPlanValueSourceMapper;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
 
@@ -24,7 +24,7 @@ class BuildPlanValueSourceMapperTest extends ArrayMapperTest
             ->getMock();
         $buildPlanMappedToArray = ["build_plan"];
         
-        $buildPlanMapper = $this->getMockBuilder(BuildPlanArrayMapper::class)
+        $buildPlanMapper = $this->getMockBuilder(BuildPlanMapper::class)
             ->disableOriginalConstructor()
             ->getMock();
         $buildPlanMapper->method("mapToArray")->will($this->returnValueMap([

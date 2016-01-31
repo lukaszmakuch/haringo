@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Impl;
+namespace lukaszmakuch\ObjectBuilder\ArrayStringMapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\ArrayStringMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\ObjectBuilder\ArrayStringMapper\ArrayStringMapper;
+use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToArray;
 
 class JSONArrayStringMapper implements ArrayStringMapper
 {

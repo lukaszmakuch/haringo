@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\Exception;
+namespace lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception;
 
 /**
- * Thrown when it's impossible to set full class path source.
- *
+ * Thrown when it's not possible to map some given array to a string.
+ * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ImpossibleToSetClassSource extends \RuntimeException
+class UnableToMapToString extends \RuntimeException
 {
 }

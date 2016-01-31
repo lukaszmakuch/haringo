@@ -1,21 +1,24 @@
 <?php
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
-use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanArrayMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception\UnableToSerialize;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\ArrayStringMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToString;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\BuildPlanSerializerImpl;
-
 /**
  * This file is part of the ObjectBuilder library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
+
+namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl;
+
+use lukaszmakuch\ObjectBuilder\ArrayStringMapper\ArrayStringMapper;
+use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToString;
+use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
+use lukaszmakuch\ObjectBuilder\BuildPlanMapper\BuildPlanMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception\UnableToSerialize;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\BuildPlanSerializerImpl;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
+use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
+use PHPUnit_Framework_TestCase;
 
 class BuildPlanSerializerImplTest extends PHPUnit_Framework_TestCase
 {
@@ -30,7 +33,7 @@ class BuildPlanSerializerImplTest extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
         
-        $this->planBuildArrayMapper = $this->getMockBuilder(BuildPlanArrayMapper::class)
+        $this->planBuildArrayMapper = $this->getMockBuilder(BuildPlanMapper::class)
             ->disableOriginalConstructor()
             ->getMock();
         

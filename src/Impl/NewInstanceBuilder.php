@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the ObjectBuilder library.
  *
@@ -19,9 +20,8 @@ use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use ReflectionClass;
 use ReflectionMethod;
 use SplObjectStorage;
-use UnexpectedValueException;
 
-class ObjectBuilderImpl implements ObjectBuilder
+class NewInstanceBuilder implements ObjectBuilder
 {
     private $classPathResolver;
     private $methodMatcher;
@@ -55,7 +55,7 @@ class ObjectBuilderImpl implements ObjectBuilder
         $this->buildPlanByBuildObject->attach($builtObject, $p);
         return $builtObject;
     }
-    
+
     public function getBuildPlanUsedToBuild($previouslyBuiltObject)
     {
         try {

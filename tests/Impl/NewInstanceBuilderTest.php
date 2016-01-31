@@ -10,26 +10,27 @@
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
+use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ExactClassPathResolver;
+use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamByExactNameMatcher;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ScalarValueResolver;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ExactMethodNameMatcher;
-use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
+use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
+use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamByExactNameMatcher;
+use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\TestClass;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
+use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ScalarValueResolver;
 use PHPUnit_Framework_TestCase;
 use stdClass;
 
-class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
+class NewInstanceBuilderTest extends PHPUnit_Framework_TestCase
 {
     public function testCorrectBuild()
     {
-        $builder = new ObjectBuilderImpl(
+        $builder = new NewInstanceBuilder(
             new ExactClassPathResolver(),
             new ExactMethodNameMatcher(),
             new ParameterListGenerator(
@@ -38,7 +39,8 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
             )
         );
         
-        $buildPlan = (new BuildPlan(new ExactClassPath(TestClass::class)))
+        $buildPlan = (new NewInstanceBuildPlan())
+            ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(
                 (new MethodCall(new ExactMethodName("setMembers")))
                     ->assignParamValue(new AssignedParamValue(
@@ -69,7 +71,7 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
     
     public function testFetchingBuildPlanByBuiltObject()
     {
-        $builder = new ObjectBuilderImpl(
+        $builder = new NewInstanceBuilder(
             new ExactClassPathResolver(),
             new ExactMethodNameMatcher(),
             new ParameterListGenerator(
@@ -78,7 +80,8 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
             )
         );
         
-        $buildPlan = (new BuildPlan(new ExactClassPath(stdClass::class)));
+        $buildPlan = (new NewInstanceBuildPlan())
+            ->setClassSource(new ExactClassPath(TestClass::class));
         
         $builtObject = $builder->buildObjectBasedOn($buildPlan);
         
@@ -89,7 +92,7 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
     
     public function testExceptionWhenImpossibleToFetchBuildPlan()
     {
-        $builder = new ObjectBuilderImpl(
+        $builder = new NewInstanceBuilder(
             new ExactClassPathResolver(),
             new ExactMethodNameMatcher(),
             new ParameterListGenerator(
@@ -97,7 +100,7 @@ class ObjectBuilderImplTest extends PHPUnit_Framework_TestCase
                 new ScalarValueResolver()
             )
         );
-        
+
         $this->setExpectedException(BuildPlanNotFound::class);
         $builder->getBuildPlanUsedToBuild(new stdClass());
     }

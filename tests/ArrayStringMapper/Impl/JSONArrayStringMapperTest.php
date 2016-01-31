@@ -1,8 +1,5 @@
 <?php
 
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Exception\UnableToMapToArray;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Impl\JSONArrayStringMapper;
-
 /**
  * This file is part of the ObjectBuilder library.
  *
@@ -10,7 +7,12 @@ use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\ArrayStringMapper\Impl\J
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-class JSONArrayStringMapperTest extends PHPUnit_Framework_TestCase
+namespace lukaszmakuch\ObjectBuilder\ArrayStringMapper\Impl;
+
+use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Impl\JSONArrayStringMapper;
+
+class JSONArrayStringMapperTest extends \PHPUnit_Framework_TestCase
 {
     private $mapper;
     

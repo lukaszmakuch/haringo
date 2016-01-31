@@ -7,13 +7,13 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlan\Exception;
+namespace lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception;
 
 /**
- * Thown when for some reason it's impossible to call a method.
- *
+ * Thrown when it's not possible to map some given string to an array.
+ * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ImpossibleToCallMethod extends \RuntimeException
+class UnableToMapToArray extends \RuntimeException
 {
 }
