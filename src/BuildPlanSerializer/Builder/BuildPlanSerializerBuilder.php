@@ -17,9 +17,12 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl\BuilderObjectProductBuildPlanMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl\FactoryObjectProductBuildPlanMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl\NewInstanceBuildPlanMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\BuildPlanSerializer;
 use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\BuildPlanSerializerImpl;
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
+use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ClassPathFromMap;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\ObjectBuilder\ClassSourceMapper\Impl\ClassPathFromMapMapper;
 use lukaszmakuch\ObjectBuilder\ClassSourceMapper\Impl\ExactClassPathArrayMapper;
 use lukaszmakuch\ObjectBuilder\Mapper\Impl\ArrayMapperProxy;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
@@ -56,7 +59,7 @@ class BuildPlanSerializerBuilder
     private $methodCallMapper;
     
     /**
-     * @return \lukaszmakuch\ObjectBuilder\BuildPlanSerializer\BuildPlanSerializer
+     * @return BuildPlanSerializer
      */
     public function buildSerializer()
     {
@@ -73,6 +76,11 @@ class BuildPlanSerializerBuilder
             new ExactClassPathArrayMapper(),
             ExactClassPath::class,
             "exact_class_path"
+        );
+        $this->classSourceMapper->registerActualMapper(
+            new ClassPathFromMapMapper(),
+            ClassPathFromMap::class,
+            "from_map"
         );
         
         // method selector mapper

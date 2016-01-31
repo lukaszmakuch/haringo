@@ -13,6 +13,7 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\BuilderObjectProductBuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\StaticFactoryProductBuildPlan;
+use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ClassPathFromMap;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathFromMapResolver;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
@@ -26,6 +27,7 @@ use lukaszmakuch\ObjectBuilder\Impl\ParameterListGenerator;
 use lukaszmakuch\ObjectBuilder\Impl\StaticFactoryProductBuilder;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ConstructorSelectorMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ExactMethodNameMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodMatcherProxy;
@@ -101,7 +103,7 @@ class ObjectBuilderBuilder
                 $this->classSourceMap,
                 $this->classPathResolver
             ),
-            ExactClassPath::class
+            ClassPathFromMap::class
         );
 
         //register method matchers
@@ -119,7 +121,7 @@ class ObjectBuilderBuilder
                 $this->classPathResolver,
                 $this->methodMatcher 
             ), 
-            MethodSelectorMap::class
+            MethodSelectorFromMap::class
         );
 
         //register parameter matchers

@@ -9,10 +9,10 @@
 
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\BuilderObjectProductBuildPlan;
+use lukaszmakuch\ObjectBuilder\BuilderTestTpl;
+use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\Impl\BuilderTestTpl;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
@@ -21,38 +21,33 @@ use lukaszmakuch\ObjectBuilder\TestClass;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 
-class TestBuilder
+class TestFactoryClass
 {
-    private $param;
-    public function setConstructorParam($param) { $this->param = $param; }
-    public function build()
+    public function getProduct($configValue)
     {
-        return new TestClass($this->param);
+        return new TestClass($configValue);
     }
 }
 
-class BuilderObjectProductBuilderTest extends BuilderTestTpl
+class FactoryObjectProductBuildPlanTest extends BuilderTestTpl
 {
-    public function testBuildingFromDeserializedPlan()
+    public function testCorrectBuild()
     {
-        $plan = new BuilderObjectProductBuildPlan();
-        $plan->setBuilderSource(
-            //build TestBuilder object
+        $plan = new FactoryObjectProductBuildPlan();
+        $plan->setFactoryObject(
+            //build TestStaticFactory
             new BuildPlanValueSource((new NewInstanceBuildPlan())
-                ->setClassSource(new ExactClassPath(TestBuilder::class)
+                ->setClassSource(new ExactClassPath(TestFactoryClass::class)
             ))
         );
-        $plan->addSettingMethodCall(
-            (new MethodCall(new ExactMethodName("setConstructorParam")))
+        $plan->setBuildMethodCall(
+            (new MethodCall(new ExactMethodName("getProduct")))
                 ->assignParamValue(new AssignedParamValue(
-                    new ParamByExactName("param"),
+                    new ParamByExactName("configValue"),
                     new ScalarValue("paramValue")
                 ))
         );
-        $plan->setBuildMethodCall(
-            (new MethodCall(new ExactMethodName("build")))
-        );
-
+        
         /* @var $builtObject TestClass */
         $builtObject = $this->getRebuiltObjectBy($plan);
         $this->assertInstanceOf(TestClass::class, $builtObject);

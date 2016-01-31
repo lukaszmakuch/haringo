@@ -20,12 +20,12 @@ class TestClass
     public $memberB;
     public $passedToConstructor;
     
-    public function __construct($passedToConstructor)
+    public function __construct($passedToConstructor = null)
     {
         $this->passedToConstructor = $passedToConstructor;
     }
     
-    public function setMembers($newA, $newB)
+    public function setMembers($newA = null, $newB = null)
     {
         $this->memberA = $newA;
         $this->memberB = $newB;
