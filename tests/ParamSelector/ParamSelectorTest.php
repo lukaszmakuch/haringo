@@ -58,7 +58,7 @@ class ParamSelectorsTest extends BuilderTestTpl
     {
         $this->checkSelector(new ParamByPosition(1));
     }
-
+    
     public function testParamFromMap()
     {
         $this->checkSelector(new ParamFromMap("second_param"));
