@@ -52,7 +52,7 @@ class BuilderObjectProductBuilderTest extends BuilderTestTpl
         $plan->setBuildMethodCall(
             (new MethodCall(new ExactMethodName("build")))
         );
-        
+
         /* @var $builtObject TestClass */
         $builtObject = $this->getRebuiltObjectBy($plan);
         $this->assertInstanceOf(TestClass::class, $builtObject);
