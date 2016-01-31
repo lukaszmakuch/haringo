@@ -11,10 +11,8 @@ namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
 
 class NewInstanceBuildPlanMapper implements SerializableArrayMapper
 {
@@ -22,8 +20,8 @@ class NewInstanceBuildPlanMapper implements SerializableArrayMapper
     private $methodCallMapper;
     
     public function __construct(
-        ClassSourceMapper $classSourceMapper,
-        MethodCallArrayMapper $methodCallMapper
+        SerializableArrayMapper $classSourceMapper,
+        SerializableArrayMapper $methodCallMapper
     ) {
         $this->classSourceMapper = $classSourceMapper;
         $this->methodCallMapper = $methodCallMapper;

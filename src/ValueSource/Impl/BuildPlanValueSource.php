@@ -10,9 +10,9 @@
 namespace lukaszmakuch\ObjectBuilder\ValueSource\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\ObjectSource;
 
-class BuildPlanValueSource implements ValueSource
+class BuildPlanValueSource implements ObjectSource
 {
     private $heldBuildPlan;
     

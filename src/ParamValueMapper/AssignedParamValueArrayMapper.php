@@ -9,22 +9,19 @@
 
 namespace lukaszmakuch\ObjectBuilder\ParamValueMapper;
 
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
+use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\ParamSelectorArrayMapper;
+use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
 
-/**
- * Uses structure like:
- * [array $mappedSelector, array $mappedValue]
- */
-class AssignedParamValueArrayMapper
+class AssignedParamValueArrayMapper implements SerializableArrayMapper
 {
     private $paramSelectorArrayMapper;
     private $valueSourceArrayMapper;
 
     public function __construct(
-        ParamSelectorArrayMapper $paramSelectorArrayMapper,
-        ValueSourceArrayMapper $valueSourceArrayMapper
+        SerializableArrayMapper $paramSelectorArrayMapper,
+        SerializableArrayMapper $valueSourceArrayMapper
     ) {
         $this->paramSelectorArrayMapper = $paramSelectorArrayMapper;
         $this->valueSourceArrayMapper = $valueSourceArrayMapper;

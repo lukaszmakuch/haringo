@@ -59,7 +59,7 @@ abstract class BuilderTpl implements ObjectBuilder
     
     /**
      * @param Object $targetObject
-     * @param \ReflectionClass $reflectedClass,
+     * @param \ReflectionClass $reflectedClass
      * @param MethodCall[] $allMethodCalls
      */
     protected function callMethodsOf(

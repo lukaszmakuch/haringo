@@ -9,6 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl;
 
+use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
 
@@ -16,7 +17,7 @@ class ArrayValueSourceMapper implements ValueSourceArrayMapper
 {
     private $actualMapper;
     
-    public function __construct(ValueSourceArrayMapper $actualMapper)
+    public function __construct(SerializableArrayMapper $actualMapper)
     {
         $this->actualMapper = $actualMapper;
     }

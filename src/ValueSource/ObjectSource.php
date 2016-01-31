@@ -10,10 +10,10 @@
 namespace lukaszmakuch\ObjectBuilder\ValueSource;
 
 /**
- * Represents source of any kind of value.
+ * Represents source of any value that is resolved to an object.
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-interface ValueSource
+interface ObjectSource extends ValueSource
 {
 }

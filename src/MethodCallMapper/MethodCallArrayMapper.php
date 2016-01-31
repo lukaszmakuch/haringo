@@ -11,16 +11,9 @@ namespace lukaszmakuch\ObjectBuilder\MethodCallMapper;
 
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\ParamValueMapper\AssignedParamValueArrayMapper;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
 /**
- * Uses structure like:
- * [
- *     array $serializedMethodSelector,
- *     [array $serializedAssignedParamValue, array $serializedAssignedParamValue, ...]
- * ]
  */
 class MethodCallArrayMapper implements SerializableArrayMapper
 {
@@ -28,8 +21,8 @@ class MethodCallArrayMapper implements SerializableArrayMapper
     private $assignedParamValueMapper;
     
     public function __construct(
-        MethodSelectorArrayMapper $methodSelectorMapper,
-        AssignedParamValueArrayMapper $assignedParamValueMapper
+        SerializableArrayMapper $methodSelectorMapper,
+        SerializableArrayMapper $assignedParamValueMapper
     ) {
         $this->methodSelectorMapper = $methodSelectorMapper;
         $this->assignedParamValueMapper = $assignedParamValueMapper;
