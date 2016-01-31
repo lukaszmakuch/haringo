@@ -24,17 +24,17 @@ class ClassSourceTest extends BuilderTestTpl
         $map->addSource("class_from_map", new ExactClassPath(TestClass::class));
         return $map;
     }
-    
+
     public function testExactNameSource()
     {
         $this->checkClassSource(new ExactClassPath(TestClass::class));
     }
-    
+
     public function testClassSourceFromMap()
     {
         $this->checkClassSource(new ClassPathFromMap("class_from_map"));
     }
-    
+
     protected function checkClassSource(FullClassPathSource $source)
     {
         $plan = new NewInstanceBuildPlan();

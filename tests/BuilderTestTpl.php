@@ -19,6 +19,9 @@ use PHPUnit_Framework_TestCase;
 
 abstract class BuilderTestTpl extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var ObjectBuilder
+     */
     protected $builder;
     protected $serializer;
 

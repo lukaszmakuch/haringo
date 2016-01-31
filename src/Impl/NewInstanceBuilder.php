@@ -10,8 +10,6 @@
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use ReflectionClass;
 
 class NewInstanceBuilder extends BuilderTpl
 {

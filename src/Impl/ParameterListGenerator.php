@@ -8,8 +8,9 @@
 
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
+use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
+use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
 use ReflectionMethod;
 
@@ -33,45 +34,38 @@ class ParameterListGenerator
      * @return array ordered values ready to be passed as arguments
      */
     public function getOrderedListOfArgumentValue(
-        ReflectionMethod $reflectedMethod, 
+        ReflectionMethod $reflectedMethod,
         array $paramsWithSelectors
     ) {
-        $orderedList = [];
-        $reflectedParams = $reflectedMethod->getParameters();
-        $reflectedParamsCount = count($reflectedParams);
-        for ($paramIndex = 0; $paramIndex < $reflectedParamsCount; $paramIndex++) {
-            $orderedList[$paramIndex] = null;
-            $this->findAndSetValue(
-                $paramIndex,
-                $orderedList,
-                $paramsWithSelectors,
-                $reflectedParams
-            );
+        /* @var $methodParams \ReflectionParameter[] */
+        $methodParams = $reflectedMethod->getParameters();
+        $numberOfMethodParams = count($methodParams);
+        
+        if ($numberOfMethodParams > 0) { //for older php
+            $orderedParamList = array_fill(0, $numberOfMethodParams, null);
+        } else {
+            $orderedParamList = [];
         }
         
-        return $orderedList;
-    }
-    
-    /**
-     * @param int $paramIndex
-     * @param array $listOfParams
-     * @param array $allParamsWithSelectors
-     */
-    private function findAndSetValue(
-        $paramIndex,
-        &$listOfParams,
-        array $allParamsWithSelectors,
-        array $reflectedParams
-    ) {
-        foreach ($allParamsWithSelectors as $paramWithSelector) {
-            if ($this->matcher->parameterMatches(
-                $reflectedParams[$paramIndex],
-                $paramWithSelector->getSelector()
-            )) {
-                $listOfParams[$paramIndex] = $this->resolver->resolveValueFrom(
-                    $paramWithSelector->getValueSource()
-                );
+        foreach ($paramsWithSelectors as $paramValue) {
+            $nothingSet = true;
+            for ($paramIndex = 0; $paramIndex < count($methodParams); $paramIndex++) {
+                $reflectedParam = $methodParams[$paramIndex];
+                if ($this->matcher->parameterMatches(
+                    $reflectedParam,
+                    $paramValue->getSelector()
+                )) {
+                    $nothingSet = false;
+                    $orderedParamList[$paramIndex] = $this->resolver->resolveValueFrom($paramValue->getValueSource());
+                }
+            }
+
+            if ($nothingSet) {
+                throw new ImpossibleToFinishBuildPlan("param not set");
             }
         }
+        
+        
+        return $orderedParamList;
     }
 }

@@ -9,9 +9,10 @@
 
 namespace lukaszmakuch\ObjectBuilder\ParamSelector;
 
+use lukaszmakuch\ObjectBuilder\BuilderTestTpl;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\BuilderTestTpl;
+use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\FullMethodIdentifier;
@@ -47,6 +48,11 @@ class ParamSelectorsTest extends BuilderTestTpl
     {
         $this->checkSelector(new ParamByExactName("newB"));
     }
+    
+    public function testWrongExactParamNameSelector()
+    {
+        $this->checkExceptionWhenWrongSelector(new ParamByExactName("does_not_exist"));
+    }
 
     public function testParamByPositionSelector()
     {
@@ -76,5 +82,20 @@ class ParamSelectorsTest extends BuilderTestTpl
         /* @var $rebuiltObject TestClass */
         $rebuiltObject = $this->getRebuiltObjectBy($plan);
         $this->assertEquals("secondParamVal", $rebuiltObject->memberB);
+    }
+    
+    protected function checkExceptionWhenWrongSelector(ParameterSelector $wrongSelector)
+    {
+        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $plan = (new NewInstanceBuildPlan())
+            ->setClassSource(new ExactClassPath(TestClass::class))
+            ->addMethodCall(
+                (new MethodCall(new ExactMethodName("setMembers")))
+                    ->assignParamValue(new AssignedParamValue(
+                        $wrongSelector, 
+                        new ScalarValue("secondParamVal")
+                    ))
+            );
+        $this->builder->buildObjectBasedOn($plan);
     }
 }
