@@ -17,8 +17,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "lukaszmakuch\\ObjectBuilder\\": "tests/",
-            "lukaszmakuch\\ObjectBuilder\\": "test-src/"
+            "lukaszmakuch\\ObjectBuilder\\": ["tests/", "test-src/"]
         }
     },
     "minimum-stability": "stable",
