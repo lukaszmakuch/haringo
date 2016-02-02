@@ -12,11 +12,14 @@ namespace lukaszmakuch\ObjectBuilder\Impl;
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
 use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
+use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Exception\UnsupportedMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
+use Object;
 use ReflectionClass;
 use ReflectionMethod;
 use SplObjectStorage;
@@ -70,6 +73,10 @@ abstract class BuilderTpl implements ObjectBuilder
         foreach ($allMethodCalls as $call) {
             $selector = $call->getSelector();
             $matchingMethods = $this->findMatchingMethods($reflectedClass, $selector);
+            if (empty($matchingMethods)) {
+                throw new ImpossibleToFinishBuildPlan();
+            }
+            
             foreach ($matchingMethods as $reflectedMethod) {
                 $this->callSpecifiedMethod(
                     $reflectedMethod,
@@ -92,8 +99,12 @@ abstract class BuilderTpl implements ObjectBuilder
         $matchingMathods = [];
         $allMethods = $this->getReflectedMethodsAndConstructorOf($reflectedClass);
         foreach ($allMethods as $method) {
-            if ($this->methodMatcher->methodMatches($method, $selector)) {
-                $matchingMathods[] = $method;
+            try {
+                if ($this->methodMatcher->methodMatches($method, $selector)) {
+                    $matchingMathods[] = $method;
+                }
+            } catch (UnsupportedMatcher $e) {
+                throw new ImpossibleToFinishBuildPlan();
             }
         }
         
