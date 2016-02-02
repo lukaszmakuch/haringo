@@ -11,6 +11,11 @@ namespace lukaszmakuch\ObjectBuilder\MethodSelectorMapper;
 
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
+/**
+ * Allows to somehod map a method selector to an array.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 interface MethodSelectorArrayMapper extends SerializableArrayMapper
 {
 }

@@ -16,10 +16,20 @@ use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Exception\ImpossibleToResolveValue;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
 
+/**
+ * Resolves values based on build plans.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class BuildPlanValueSourceResolver  implements ValueResolver
 {
     private $objectBuilder;
     
+    /**
+     * Provides builder used to build objects based on given value sources.
+     * 
+     * @param ObjectBuilder $objectBuilder
+     */
     public function __construct(ObjectBuilder $objectBuilder)
     {
         $this->objectBuilder = $objectBuilder;

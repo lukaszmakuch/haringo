@@ -12,6 +12,11 @@ namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
+/**
+ * Maps build plans of factory object's products.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class FactoryObjectProductBuildPlanMapper implements SerializableArrayMapper
 {
     private $objectSourceMapper;

@@ -14,6 +14,11 @@ use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use ReflectionParameter;
 
+/**
+ * Allows to assign different matchers to different classes of selectors.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ParameterMatcherProxy implements ParameterMatcher
 {
     private $matchersBySelectors;
@@ -23,6 +28,13 @@ class ParameterMatcherProxy implements ParameterMatcher
         $this->matchersBySelectors = new ClassBasedRegistry();
     }
 
+    /**
+     * Assigns some matcher to some type of selectors.
+     * 
+     * @param ParameterMatcher $m matcher to use
+     * @param String $targetParamSelectorClass full class path of parameter
+     * selector that should be checked by the given matcher
+     */
     public function registerMatcher(ParameterMatcher $m, $targetParamSelectorClass)
     {
         $this->matchersBySelectors->associateValueWithClasses(
@@ -40,6 +52,7 @@ class ParameterMatcherProxy implements ParameterMatcher
     }
 
     /**
+     * Gets a matcher suitable for the given selector.
      * 
      * @param ParameterSelector $selector
      * @return ParameterMatcher

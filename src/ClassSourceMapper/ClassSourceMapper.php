@@ -11,6 +11,11 @@ namespace lukaszmakuch\ObjectBuilder\ClassSourceMapper;
 
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
+/**
+ * Somehow maps class source to array and arrays to class sources.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 interface ClassSourceMapper extends SerializableArrayMapper
 {
 }

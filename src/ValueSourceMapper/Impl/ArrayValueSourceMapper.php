@@ -13,10 +13,21 @@ use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
 
+/**
+ * Maps array value source to array.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ArrayValueSourceMapper implements ValueSourceArrayMapper
 {
     private $actualMapper;
     
+    /**
+     * Provides the actual mapper used to map values that are held within
+     * the array value source.
+     * 
+     * @param SerializableArrayMapper $actualMapper
+     */
     public function __construct(SerializableArrayMapper $actualMapper)
     {
         $this->actualMapper = $actualMapper;

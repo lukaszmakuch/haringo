@@ -13,9 +13,9 @@ use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
 
 /**
- * Uses array formated like that:
- * [String]
- * where the only String value (with index 0) is the key value from the map.
+ * Maps method selectors from map to array.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 class MethodSelectorFromMapMapper implements MethodSelectorArrayMapper
 {

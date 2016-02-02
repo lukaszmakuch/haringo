@@ -15,6 +15,11 @@ use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
 
+/**
+ * Maps build plans of static factory method's products.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class StaticFactoryProductBuildPlanMapper  implements SerializableArrayMapper
 {
     private static $MAPPED_INDEX_FACTORY_CLASS = 0;
@@ -34,7 +39,6 @@ class StaticFactoryProductBuildPlanMapper  implements SerializableArrayMapper
     public function mapToArray($objectToMap)
     {
         /* @var $objectToMap StaticFactoryBuildPlan */
-        
         $factoryClass = $objectToMap->getFactoryClass();
         $mappedFactoryClass = $this->classSourceMapper
             ->mapToArray($factoryClass);

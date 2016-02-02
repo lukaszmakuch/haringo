@@ -14,6 +14,12 @@ use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use ReflectionParameter;
 
+/**
+ * Checks whether some reflected param matches
+ * the given param byby position selector.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ParamByPositionMatcher implements ParameterMatcher
 {
     public function parameterMatches(ReflectionParameter $param, ParameterSelector $selector)

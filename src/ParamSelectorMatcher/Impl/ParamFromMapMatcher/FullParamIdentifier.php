@@ -12,10 +12,26 @@ namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatch
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\FullMethodIdentifier;
 
+/**
+ * Represents full parameter identifier, that is:
+ * - class identifier
+ * - method identifier
+ * - param identifier
+ * Those two first are part of full method identifier.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class FullParamIdentifier
 {
     private $methodId;
     private $actualParamSelector;
+    
+    /**
+     * Provides dependencies.
+     * 
+     * @param FullMethodIdentifier $fullMethodIdentifier identifies the method
+     * @param ParameterSelector $actualParamSelector identifies the actual parameter
+     */
     public function __construct(
         FullMethodIdentifier $fullMethodIdentifier,
         ParameterSelector $actualParamSelector
@@ -25,7 +41,7 @@ class FullParamIdentifier
     }
     
     /**
-     * @return FullMethodIdentifier
+     * @return FullMethodIdentifier method this param belongs to
      */
     public function getFullMethodIdentifier()
     {
@@ -33,7 +49,7 @@ class FullParamIdentifier
     }
     
     /**
-     * @return ParameterSelector
+     * @return ParameterSelector parameter (but not its method) selector
      */
     public function getActualParamSelector()
     {

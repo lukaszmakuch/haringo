@@ -15,9 +15,10 @@ use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
 use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\ParamSelectorArrayMapper;
 
-/*
- * It uses following format of array:
- * [String] where the only String with index 0 is the parameter name
+/**
+ * Maps param by exact name selectors.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 class ParamByExactNameMapperImpl implements ParamSelectorArrayMapper
 {
@@ -50,6 +51,10 @@ class ParamByExactNameMapperImpl implements ParamSelectorArrayMapper
         }
     }
     
+    /**
+     * @param array $previouslyMappedArray
+     * @throws ImpossibleToBuildFromArray
+     */
     private function throwExceptionIfIncorrectInputArray(array $previouslyMappedArray)
     {
         if (

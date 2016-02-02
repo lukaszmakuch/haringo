@@ -13,11 +13,15 @@ use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Exception\ImpossibleToResolve
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
 /**
+ * Resolves values from some given sources.
+ * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 interface ValueResolver
 {
     /**
+     * Resolves value from the given source.
+     * 
      * @return mixed resolved value
      * @throws ImpossibleToResolveValue
      */

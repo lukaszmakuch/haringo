@@ -11,6 +11,11 @@ namespace lukaszmakuch\ObjectBuilder\MethodSelector\Impl;
 
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 
+/**
+ * Singleton which allows to select a class constructor.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ConstructorSelector implements MethodSelector
 {
     private static $instance = null;
@@ -23,6 +28,9 @@ class ConstructorSelector implements MethodSelector
     {
     }
     
+    /**
+     * @return MethodSelector self
+     */
     public static function getInstance()
     {
         if (null === self::$instance) {

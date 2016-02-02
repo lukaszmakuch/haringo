@@ -13,9 +13,9 @@ use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
 
 /**
- * Uses array formated like that:
- * [String]
- * where the only String value (with index 0) is the selector value.
+ * Maps exact method name selectors to arrays.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 class ExactMethodNameArrayMapperImpl implements MethodSelectorArrayMapper
 {

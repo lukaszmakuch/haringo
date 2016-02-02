@@ -11,12 +11,17 @@ namespace lukaszmakuch\ObjectBuilder\ClassSource\Impl;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 
+/**
+ * Holds key from the map of class path sources.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ClassPathFromMap implements FullClassPathSource
 {
     private $keyFromMap;
     
     /**
-     * @param String $keyFromMap
+     * @param String $keyFromMap key from the map
      */
     public function __construct($keyFromMap)
     {
@@ -24,7 +29,7 @@ class ClassPathFromMap implements FullClassPathSource
     }
 
     /**
-     * @return string
+     * @return string key from the map
      */
     public function getKeyFromMap()
     {

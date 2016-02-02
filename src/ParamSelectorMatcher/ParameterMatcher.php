@@ -14,11 +14,14 @@ use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Exception\UnsupportedMatcher
 use ReflectionParameter;
 
 /**
+ * Checks whether some parameter matches some selector.
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 interface ParameterMatcher
 {
     /**
+     * Checks whether the parameter matches.
+     * 
      * @return bool true if the given param matches this selector
      * @throws UnsupportedMatcher
      */

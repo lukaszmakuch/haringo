@@ -15,6 +15,12 @@ use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Exception\UnsupportedSource;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
 
+/**
+ * Proxy of class path resolvers that 
+ * allows to assign a resolver to some class source class.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ClassPathResolverProxy implements FullClassPathResolver
 {
     private $resolversByClassSources;
@@ -24,6 +30,13 @@ class ClassPathResolverProxy implements FullClassPathResolver
         $this->resolversByClassSources = new ClassBasedRegistry();
     }
     
+    /**
+     * Registers a new resolver.
+     * 
+     * @param FullClassPathResolver $r resolver to use
+     * @param String $targetClassPathSourceClass full class path of value sources
+     * that should be supported by this resolver
+     */
     public function registerResolver(FullClassPathResolver $r, $targetClassPathSourceClass)
     {
         $this->resolversByClassSources->associateValueWithClasses(

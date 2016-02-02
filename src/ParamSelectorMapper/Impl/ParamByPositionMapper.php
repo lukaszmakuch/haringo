@@ -12,6 +12,11 @@ namespace lukaszmakuch\ObjectBuilder\ParamSelectorMapper\Impl;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\ParamSelectorArrayMapper;
 
+/**
+ * Maps param by position selectors.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ParamByPositionMapper implements ParamSelectorArrayMapper
 {
     public function mapToArray($objectToMap)

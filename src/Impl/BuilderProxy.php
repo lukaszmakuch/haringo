@@ -16,6 +16,11 @@ use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 
+/**
+ * Proxy that allows to assign some builder to target build plan class.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class BuilderProxy implements ObjectBuilder
 {
     private $builderByBuildPlan;
@@ -30,7 +35,14 @@ class BuilderProxy implements ObjectBuilder
         $this->builderByBuildPlan = new ClassBasedRegistry();
         $this->allBuilders = [];
     }
-    
+   
+    /**
+     * Adds a builder to the proxy.
+     * 
+     * @param ObjectBuilder $actualBuilder builder to use
+     * @param String $targetBuildPlanClass BuildPlan class that should be 
+     * supproted by this builder
+     */
     public function registerBuilder(
         ObjectBuilder $actualBuilder,
         $targetBuildPlanClass

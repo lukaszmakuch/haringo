@@ -13,9 +13,9 @@ use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
 
 /**
- * Uses structure like:
- * [String]
- * where the string with index 0 is the exact class path
+ * Maps exact class path to array and from array.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 class ExactClassPathArrayMapper implements ClassSourceMapper
 {

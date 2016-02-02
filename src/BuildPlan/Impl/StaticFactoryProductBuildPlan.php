@@ -13,6 +13,11 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 
+/**
+ * Describes how a product of a static factory method should be build.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class StaticFactoryProductBuildPlan implements BuildPlan
 {
     private $factoryClass;
@@ -20,6 +25,11 @@ class StaticFactoryProductBuildPlan implements BuildPlan
     private $factoryMethod;
     
     /**
+     * Sets class with the static factory method.
+     * 
+     * Stands for that part:
+     * Factory::
+     * 
      * @param FullClassPathSource $classSource
      * @return StaticFactoryProductBuildPlan self
      */
@@ -30,6 +40,11 @@ class StaticFactoryProductBuildPlan implements BuildPlan
     }
     
     /**
+     * Sets the actual factory method.
+     * 
+     * Stands for that part:
+     * ::build();
+     * 
      * @param MethodCall $call
      * @return StaticFactoryProductBuildPlan self
      */

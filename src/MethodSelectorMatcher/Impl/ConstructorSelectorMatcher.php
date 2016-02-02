@@ -15,6 +15,11 @@ use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use ReflectionMethod;
 
+/**
+ * Matches a method against the constructor selector.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ConstructorSelectorMatcher implements MethodMatcher
 {
     public function methodMatches(ReflectionMethod $method, MethodSelector $selector)

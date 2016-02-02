@@ -9,6 +9,13 @@
 
 namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper;
 
-interface BuildPlanMapper extends \lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper
+use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
+
+/**
+ * Maps build plan objects into arrays.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
+interface BuildPlanMapper extends SerializableArrayMapper
 {
 }

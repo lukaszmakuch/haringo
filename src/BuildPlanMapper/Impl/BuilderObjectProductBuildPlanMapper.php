@@ -13,6 +13,11 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\BuilderObjectProductBuildPlan;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 
+/**
+ * Maps build plans of builder object's products.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class BuilderObjectProductBuildPlanMapper implements SerializableArrayMapper
 {
     private $objectSourceMapper;

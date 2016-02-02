@@ -10,15 +10,24 @@
 namespace lukaszmakuch\ObjectBuilder\ParamValueMapper;
 
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\ParamSelectorArrayMapper;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
 
+/**
+ * Maps assigned parameter values with selectors to array.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class AssignedParamValueArrayMapper implements SerializableArrayMapper
 {
     private $paramSelectorArrayMapper;
     private $valueSourceArrayMapper;
 
+    /**
+     * Provides dependencies.
+     * 
+     * @param SerializableArrayMapper $paramSelectorArrayMapper used to map selectors
+     * @param SerializableArrayMapper $valueSourceArrayMapper used to map value sources
+     */
     public function __construct(
         SerializableArrayMapper $paramSelectorArrayMapper,
         SerializableArrayMapper $valueSourceArrayMapper

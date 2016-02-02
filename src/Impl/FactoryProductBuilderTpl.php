@@ -13,8 +13,20 @@ use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use ReflectionClass;
 
+/**
+ * Contains common parts of factory product builders. 
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 abstract class FactoryProductBuilderTpl extends BuilderTpl
 {
+    /**
+     * Gets the factory method. The selector must pick exactly 1 object.
+     * 
+     * @param ReflectionClass $reflectedFactoryClass
+     * @param MethodSelector $factoryMethodSelector
+     * @return ReflectionMethod
+     */
     protected function findFactoryMethod(
         ReflectionClass $reflectedFactoryClass,    
         MethodSelector $factoryMethodSelector

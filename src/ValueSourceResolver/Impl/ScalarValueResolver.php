@@ -13,6 +13,11 @@ use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
+/**
+ * Resolves scalar values.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ScalarValueResolver implements ValueResolver
 {
     public function resolveValueFrom(ValueSource $source)

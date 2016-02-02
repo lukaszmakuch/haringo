@@ -14,6 +14,11 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 
+/**
+ * Maps build plans of new class instances.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class NewInstanceBuildPlanMapper implements SerializableArrayMapper
 {
     private $classSourceMapper;

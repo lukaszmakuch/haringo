@@ -13,6 +13,11 @@ use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
 
+/**
+ * Resolves exact class paths.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ExactClassPathResolver implements FullClassPathResolver
 {
     public function resolve(FullClassPathSource $source)

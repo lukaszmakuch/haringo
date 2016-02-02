@@ -11,10 +11,22 @@ namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatch
 
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
 
+/**
+ * Holds definitions of some full parameter identifiers together with their
+ * string keys.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ParamSelectorMap
 {
     private $fullParamIdentifierByKey = [];
     
+    /**
+     * Adds a new full param identifier to the map.
+     * 
+     * @param String $key
+     * @param FullParamIdentifier $paramId
+     */
     public function addSelector($key, FullParamIdentifier $paramId)
     {
         if ($this->noIdentifierFor($key)) {

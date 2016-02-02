@@ -12,6 +12,11 @@ namespace lukaszmakuch\ObjectBuilder\ClassSourceMapper\Impl;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ClassPathFromMap;
 use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
 
+/**
+ * Maps a class path from map to an array and from array to object.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ClassPathFromMapMapper implements ClassSourceMapper
 {
     private static $MAPPED_INDEX_KEY_FROM_MAP = 0;

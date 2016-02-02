@@ -16,9 +16,9 @@ use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
 
 /**
- * Builds array like this:
- * [String]
- * where the only value (with key index 0) is the held scalar value
+ * Maps scalar value source to array and from array.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 class ScalarValueMapper implements ValueSourceArrayMapper
 {

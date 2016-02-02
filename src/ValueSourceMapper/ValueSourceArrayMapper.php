@@ -11,6 +11,11 @@ namespace lukaszmakuch\ObjectBuilder\ValueSourceMapper;
 
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
+/**
+ * Maps some value sorce to array and from array.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 interface ValueSourceArrayMapper extends SerializableArrayMapper
 {
 }

@@ -10,6 +10,8 @@
 namespace lukaszmakuch\ObjectBuilder\MethodSelector;
 
 /**
+ * Represents a selector of methods.
+ * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 interface MethodSelector

@@ -11,6 +11,12 @@ namespace lukaszmakuch\ObjectBuilder\ParamSelectorMapper;
 
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
+/**
+ * Represents interface of a mapper that shold be 
+ * able to map some param selector to an array.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 interface ParamSelectorArrayMapper extends SerializableArrayMapper
 {
 }

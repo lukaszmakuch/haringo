@@ -11,11 +11,19 @@ namespace lukaszmakuch\ObjectBuilder\ValueSource\Impl;
 
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
+/**
+ * Allows to build a structure where some value sources are stored under
+ * some key or integer keys.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ArrayValueSource implements ValueSource
 {
     private $sourcesByKeys = [];
     
     /**
+     * Adds a value source under some key.
+     * 
      * @param String|int $index
      * @param ValueSource $source
      */
@@ -25,6 +33,8 @@ class ArrayValueSource implements ValueSource
     }
     
     /**
+     * Gets all previously added value sources.
+     * 
      * @return array like:
      * [
      *     String|int => ValueSource

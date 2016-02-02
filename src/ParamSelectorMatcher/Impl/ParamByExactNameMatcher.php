@@ -15,6 +15,9 @@ use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use ReflectionParameter;
 
 /**
+ * Checks whether some reflected param matches the given
+ * param by exact name selector.
+ * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 class ParamByExactNameMatcher implements ParameterMatcher
@@ -26,5 +29,4 @@ class ParamByExactNameMatcher implements ParameterMatcher
         /* @var $selector ParamByExactName */
         return ($selector->getExactName() == $param->getName());
     }
-
 }

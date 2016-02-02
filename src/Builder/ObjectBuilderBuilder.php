@@ -33,6 +33,7 @@ use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ExactMethodNameMatcher
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodMatcherProxy;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\MethodSelectorFromMapMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\MethodSelectorMap;
+use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
@@ -49,6 +50,11 @@ use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\BuildPlanValueSource\Bui
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ScalarValueResolver;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ValueSourceResolverProxy;
 
+/**
+ * Builds the whole object builder with all modules.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ObjectBuilderBuilder
 {
     private $classSourceMap;
@@ -83,6 +89,9 @@ class ObjectBuilderBuilder
         $this->paramSelectorMap = $map;
     }
     
+    /**
+     * @return ObjectBuilder
+     */
     public function buildObjectBuilder()
     {
         $builder = new BuilderProxy();

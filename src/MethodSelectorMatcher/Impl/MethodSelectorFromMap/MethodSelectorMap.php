@@ -11,10 +11,21 @@ namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFr
 
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
 
+/**
+ * Maps of full method identifiers (class + method) under some string keys.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class MethodSelectorMap
 {
     private $fullMethodIdentifierByKey = [];
-    
+   
+    /**
+     * Stores some full method identifier under some given string key.
+     * 
+     * @param String $key
+     * @param FullMethodIdentifier $fullMethodId
+     */
     public function addSelector(
         $key,
         FullMethodIdentifier $fullMethodId

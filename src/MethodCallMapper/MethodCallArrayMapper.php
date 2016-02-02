@@ -14,12 +14,24 @@ use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
 /**
+ * Maps method calls to arrays.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 class MethodCallArrayMapper implements SerializableArrayMapper
 {
     private $methodSelectorMapper;
     private $assignedParamValueMapper;
-    
+   
+    /**
+     * Provides dependencies.
+     * 
+     * @param SerializableArrayMapper $methodSelectorMapper used to map
+     * method selectors.
+     * 
+     * @param SerializableArrayMapper $assignedParamValueMapper used to map 
+     * parameter values
+     */
     public function __construct(
         SerializableArrayMapper $methodSelectorMapper,
         SerializableArrayMapper $assignedParamValueMapper

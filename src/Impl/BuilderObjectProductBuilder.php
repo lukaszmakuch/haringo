@@ -17,10 +17,26 @@ use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
 use ReflectionObject;
 
+/**
+ * Builds objects based on build plans which describe how to use some builder
+ * object to get the product.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class BuilderObjectProductBuilder extends FactoryProductBuilderTpl
 {
     protected $objectResolver;
     
+    /**
+     * Provides dependencies.
+     * 
+     * @param FullClassPathResolver $classPathResolver allows to get class paths
+     * @param MethodMatcher $methodMatcher allows to match methods 
+     * against some selectors
+     * @param ParameterListGenerator $paramListGenerator generates ordered
+     * list of method parameters
+     * @param ValueResolver $objectResolver gets values based on their sources
+     */
     public function __construct(
         FullClassPathResolver $classPathResolver,
         MethodMatcher $methodMatcher,

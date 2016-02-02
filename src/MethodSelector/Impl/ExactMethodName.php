@@ -11,15 +11,28 @@ namespace lukaszmakuch\ObjectBuilder\MethodSelector\Impl;
 
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 
+/**
+ * Allows to select a method by its exact name.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ExactMethodName implements MethodSelector
 {
     private $methodName;
     
+    /**
+     * Sets desired method exact name.
+     * 
+     * @param String $methodName
+     */
     public function __construct($methodName)
     {
         $this->methodName = $methodName;
     }
     
+    /**
+     * @return String method name 
+     */
     public function getExactMethodName()
     {
         return $this->methodName;

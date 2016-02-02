@@ -11,11 +11,18 @@ namespace lukaszmakuch\ObjectBuilder\MethodSelector\Impl;
 
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 
+/**
+ * Holds key from the method map.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class MethodSelectorFromMap implements MethodSelector
 {
     private $keyFromMap;
     
     /**
+     * Sets the key from the method map.
+     * 
      * @param String $keyFromMap
      */
     public function __construct($keyFromMap)
@@ -24,7 +31,7 @@ class MethodSelectorFromMap implements MethodSelector
     }
 
     /**
-     * @return string
+     * @return string a key from the map
      */
     public function getKeyFromMap()
     {

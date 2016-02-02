@@ -50,6 +50,11 @@ use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\ArrayValueSourceMapper;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\BuildPlanValueSource\BuildPlanValueSourceMapper;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\ScalarValueMapper;
 
+/**
+ * Builds the whole serializer with all modules.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class BuildPlanSerializerBuilder
 {
     private $planMapper;

@@ -13,10 +13,21 @@ use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
 
+/**
+ * Maps a value source based on build plan to and from array.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class BuildPlanValueSourceMapper  implements ValueSourceArrayMapper
 {
     private $buildPlanMapper;
     
+    /**
+     * Provides dependencies.
+     * 
+     * @param SerializableArrayMapper $buildPlanMapper used to map build plans to
+     * arrays and from arrays to build plans.
+     */
     public function __construct(SerializableArrayMapper $buildPlanMapper)
     {
         $this->buildPlanMapper = $buildPlanMapper;

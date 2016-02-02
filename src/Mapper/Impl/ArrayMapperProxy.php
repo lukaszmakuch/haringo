@@ -14,6 +14,14 @@ use lukaszmakuch\ClassBasedRegistry\Exception\ValueNotFound;
 use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
+/**
+ * Allows to assign a specified mapper proxy 
+ * to some class of object mapped by it. 
+ * 
+ * Every registered mapper has its own unique id.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ArrayMapperProxy implements SerializableArrayMapper
 {
     private static $MAPPED_KEY_MAPPER_UNIQ_ID = 1;
@@ -33,6 +41,12 @@ class ArrayMapperProxy implements SerializableArrayMapper
         $this->uniqIdByObject = new ClassBasedRegistry();
     }
     
+    /**
+     * @param SerializableArrayMapper $actualMapper
+     * @param String $supportedClassOfMappedObjects full class path of objects
+     * that may be mapped by that mapper
+     * @param String $registeredMapperUniqId id unique among this proxy
+     */
     public function registerActualMapper(
         SerializableArrayMapper $actualMapper,
         $supportedClassOfMappedObjects,

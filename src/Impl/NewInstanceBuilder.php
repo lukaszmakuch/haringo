@@ -11,6 +11,11 @@ namespace lukaszmakuch\ObjectBuilder\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 
+/**
+ * Builds a new object based on it's class and method called on it.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class NewInstanceBuilder extends BuilderTpl
 {
     public function buildObjectBasedOn(BuildPlan $p)

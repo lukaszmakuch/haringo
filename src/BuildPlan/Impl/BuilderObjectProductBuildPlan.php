@@ -13,31 +13,60 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
+/**
+ * Describes how a product of a builder object should be build.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class BuilderObjectProductBuildPlan implements BuildPlan
 {
     protected $builderSource;
     protected $settingCalls = [];
     protected $buildCall;
     
+    /**
+     * Sets source of the builder. It must be an object.
+     * 
+     * Equivalent to:
+     * $builder = new Builder();
+     * 
+     * @param ValueSource $builderObjectSource
+     * @return BuilderObjectProductBuildPlan self
+     */
     public function setBuilderSource(ValueSource $builderObjectSource)
     {
         $this->builderSource = $builderObjectSource;
         return $this;
     }
     
+    /**
+     * Sets some settings. 
+     * 
+     * Equivalent to:
+     * $builder->setProperty($value);
+     * 
+     * @param MethodCall $call
+     */
     public function addSettingMethodCall(MethodCall $call)
     {
         $this->settingCalls[] = $call;
     }
     
+    /**
+     * Sets the main method used to actually build some product.
+     * 
+     * Equivalent to:
+     * $product = $builder->build();
+     * 
+     * @param MethodCall $call
+     */
     public function setBuildMethodCall(MethodCall $call)
     {
         $this->buildCall = $call;
     }
     
-    
     /**
-     * @return ValueSource
+     * @return ValueSource previously set builder source
      */
     public function getBuilderSource()
     {
@@ -45,7 +74,7 @@ class BuilderObjectProductBuildPlan implements BuildPlan
     }
     
     /**
-     * @return MethodCall
+     * @return MethodCall call used to build the product
      */
     public function getBuildMethodCall()
     {
@@ -53,7 +82,7 @@ class BuilderObjectProductBuildPlan implements BuildPlan
     }
     
     /**
-     * @return MethodCall[]
+     * @return MethodCall[] calls used to set some properties
      */
     public function getAllSettingMethodCalls()
     {

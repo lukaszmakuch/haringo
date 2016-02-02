@@ -21,6 +21,13 @@ class FullMethodIdentifier
     private $classSource;
     private $methodSelector;
     
+    /**
+     * Provides dependencies.
+     * 
+     * @param FullClassPathSource $classSource determines within which class
+     * the matcher should look for the desired method
+     * @param MethodSelector $methodSelector selects methods
+     */
     public function __construct(FullClassPathSource $classSource, MethodSelector $methodSelector)
     {
         $this->classSource = $classSource;

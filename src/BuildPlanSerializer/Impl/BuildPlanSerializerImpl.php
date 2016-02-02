@@ -19,11 +19,24 @@ use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
 use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
 
+/**
+ * Default implementation of the serializer.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class BuildPlanSerializerImpl implements BuildPlanSerializer
 {
     private $buildPlanArrayMapper;
     private $arrayStringMapper;
     
+    /**
+     * Provides dependencies.
+     * 
+     * @param SerializableArrayMapper $planMapper used to map a build plan 
+     * to an array
+     * @param ArrayStringMapper $arrayStringMapper used to map the array
+     * to a string
+     */
     public function __construct(
         SerializableArrayMapper $planMapper,
         ArrayStringMapper $arrayStringMapper

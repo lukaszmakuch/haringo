@@ -12,16 +12,34 @@ namespace lukaszmakuch\ObjectBuilder\MethodCall;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 
+/**
+ * Single call of a method selected by some selector and triggered with 
+ * some parameters (also selected by selectors) with some values (resolved as
+ * late as possible).
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class MethodCall
 {
     private $selector;
     private $valueSourcesWithParamsSelectors = [];
     
+    /**
+     * Provides dependency.
+     * 
+     * @param MethodSelector $selector used to select the method
+     */
     public function __construct(MethodSelector $selector)
     {
         $this->selector = $selector;
     }
 
+    /**
+     * Assign some value to some param.
+     * 
+     * @param AssignedParamValue $valueWithSelector
+     * @return MethodCall
+     */
     public function assignParamValue(
         AssignedParamValue $valueWithSelector
     ) {
@@ -29,14 +47,19 @@ class MethodCall
         return $this;
     }
 
+    /**
+     * @return AssignedParamValue[]
+     */
     public function getAssignedParamValues()
     {
         return $this->valueSourcesWithParamsSelectors;
     }
 
+    /**
+     * @return MethodSelector
+     */
     public function getSelector()
     {
         return $this->selector;
     }
-
 }

@@ -26,6 +26,11 @@ use ReflectionMethod;
 use SplObjectStorage;
 use UnexpectedValueException;
 
+/**
+ * Template of ObjectBuilder objects which contains common parts.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 abstract class BuilderTpl implements ObjectBuilder
 {
     protected $classPathResolver;
@@ -33,6 +38,15 @@ abstract class BuilderTpl implements ObjectBuilder
     protected $paramListGenerator;
     protected $buildPlanByBuildObject;
 
+    /**
+     * Provides dependencies.
+     * 
+     * @param FullClassPathResolver $classPathResolver used to get class paths
+     * @param MethodMatcher $methodMatcher used to match methods
+     * against some selectors
+     * @param ParameterListGenerator $paramListGenerator
+     * used to generate an ordered list of method parameters
+     */
     public function __construct(
         FullClassPathResolver $classPathResolver,
         MethodMatcher $methodMatcher,
@@ -43,7 +57,6 @@ abstract class BuilderTpl implements ObjectBuilder
         $this->paramListGenerator = $paramListGenerator;
         $this->buildPlanByBuildObject = new SplObjectStorage();
     }
-    
 
     public function getBuildPlanUsedToBuild($previouslyBuiltObject)
     {

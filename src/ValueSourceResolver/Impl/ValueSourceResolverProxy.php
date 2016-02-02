@@ -15,6 +15,11 @@ use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Exception\ImpossibleToResolve
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
+/**
+ * Allows to assign different value resolvers to different value source classes.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ValueSourceResolverProxy implements ValueResolver
 {
     private $actualResolvers;
@@ -24,6 +29,12 @@ class ValueSourceResolverProxy implements ValueResolver
         $this->actualResolvers = new ClassBasedRegistry();
     }
     
+    /**
+     * Adds a resolver to support some ValueSource class.
+     * 
+     * @param ValueResolver $r resolver to use
+     * @param String $targetValueSourceClass ValueSource class to support
+     */
     public function registerResolver(ValueResolver $r, $targetValueSourceClass)
     {
         $this->actualResolvers->associateValueWithClasses($r, [$targetValueSourceClass]);

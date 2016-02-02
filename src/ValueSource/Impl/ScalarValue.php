@@ -12,6 +12,7 @@ namespace lukaszmakuch\ObjectBuilder\ValueSource\Impl;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
 /**
+ * Represents a value source that will always be resolved to a scalar value.
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 class ScalarValue implements ValueSource

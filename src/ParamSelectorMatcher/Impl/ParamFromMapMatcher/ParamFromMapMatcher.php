@@ -10,13 +10,19 @@
 namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher;
 
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
+use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Exception\UnsupportedMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
-use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
 use ReflectionMethod;
 use ReflectionParameter;
 
+/**
+ * Allows to check whether some parameter from the map matches some reflected
+ * parameter.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ParamFromMapMatcher implements ParameterMatcher
 {
     private $map;
@@ -24,6 +30,16 @@ class ParamFromMapMatcher implements ParameterMatcher
     private $methodMatcher;
     private $actualParamMatcher;
     
+    /**
+     * Provides dependencies.
+     * 
+     * @param ParamSelectorMap $map map of parameters
+     * @param FullClassPathResolver $classPathResolver source of full class paths
+     * @param MethodMatcher $methodMatcher service that allows to match methods
+     * against some selectors
+     * @param ParameterMatcher $actualParamMatcher checks whether the 
+     * selector found within the map grabs some param.
+     */
     public function __construct(
         ParamSelectorMap $map,
         FullClassPathResolver $classPathResolver,

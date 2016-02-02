@@ -13,13 +13,24 @@ use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
+/**
+ * Resolves array value sources.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ArrayValueSourceResolver implements ValueResolver
 {
     private $actualResolver;
     
+    /**
+     * Provides resolver of value sources that are stored within given array value
+     * sources.
+     * 
+     * @param ValueResolver $actualResolver
+     */
     public function __construct(ValueResolver $actualResolver)
     {
-        return $this->actualResolver = $actualResolver;
+        $this->actualResolver = $actualResolver;
     }
     
     public function resolveValueFrom(ValueSource $source)

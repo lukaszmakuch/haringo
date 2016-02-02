@@ -12,6 +12,11 @@ namespace lukaszmakuch\ObjectBuilder\ArrayStringMapper\Impl;
 use lukaszmakuch\ObjectBuilder\ArrayStringMapper\ArrayStringMapper;
 use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToArray;
 
+/**
+ * Maps arrays to and from JSON.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class JSONArrayStringMapper implements ArrayStringMapper
 {
     public function arrayToString(array $inputArray)

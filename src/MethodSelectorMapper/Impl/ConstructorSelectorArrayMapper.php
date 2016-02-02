@@ -14,6 +14,8 @@ use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
 
 /**
  * Returns an empty array, because it doesn't need to store anything.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 class ConstructorSelectorArrayMapper implements MethodSelectorArrayMapper
 {

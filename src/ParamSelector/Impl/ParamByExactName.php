@@ -12,6 +12,8 @@ namespace lukaszmakuch\ObjectBuilder\ParamSelector\Impl;
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 
 /**
+ * Allows to get a param by its exact name.
+ * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 class ParamByExactName implements ParameterSelector
@@ -19,7 +21,7 @@ class ParamByExactName implements ParameterSelector
     private $exactParameterName;
     
     /**
-     * @param String $exactParameterName
+     * @param String $exactParameterName exact param name
      */
     public function __construct($exactParameterName)
     {
@@ -27,7 +29,7 @@ class ParamByExactName implements ParameterSelector
     }
     
     /**
-     * @return String
+     * @return String previously provided exact param name
      */
     public function getExactName()
     {

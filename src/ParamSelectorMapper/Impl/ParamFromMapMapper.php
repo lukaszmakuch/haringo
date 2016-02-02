@@ -12,6 +12,11 @@ namespace lukaszmakuch\ObjectBuilder\ParamSelectorMapper\Impl;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\ParamSelectorArrayMapper;
 
+/**
+ * Maps param from map selectors.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ParamFromMapMapper implements ParamSelectorArrayMapper
 {
     private static $MAPPED_INDEX_KEY_FROM_MAP = 0;

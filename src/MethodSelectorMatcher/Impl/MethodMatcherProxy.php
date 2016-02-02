@@ -13,6 +13,11 @@ use lukaszmakuch\ClassBasedRegistry\ClassBasedRegistry;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 
+/**
+ * Proxy of method matchers.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class MethodMatcherProxy implements MethodMatcher
 {
     private $matchersBySelectors;
@@ -22,6 +27,11 @@ class MethodMatcherProxy implements MethodMatcher
         $this->matchersBySelectors = new ClassBasedRegistry();
     }
 
+    /**
+     * Assigns actual matcher to some class of method matchers.
+     * @param MethodMatcher $m
+     * @param String $targetMethodSelectorClass
+     */
     public function registerMatcher(MethodMatcher $m, $targetMethodSelectorClass)
     {
         $this->matchersBySelectors->associateValueWithClasses(

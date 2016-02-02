@@ -11,17 +11,29 @@ namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFr
 
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
+use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Exception\UnsupportedMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
-use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use ReflectionMethod;
 
+/**
+ * Maps a selector from the map.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class MethodSelectorFromMapMatcher implements MethodMatcher
 {
     private $map;
     private $classPathResolver;
     private $actualMatcher;
-    
+   
+    /**
+     * Provides dependencies.
+     * 
+     * @param MethodSelectorMap $map map of selectors under some keys
+     * @param FullClassPathResolver $classPathResolver resolver of full class paths
+     * @param MethodMatcher $actualMatcher matcher of method calls.
+     */
     public function __construct(
         MethodSelectorMap $map,
         FullClassPathResolver $classPathResolver,

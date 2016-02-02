@@ -11,6 +11,11 @@ namespace lukaszmakuch\ObjectBuilder\ParamSelector\Impl;
 
 use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
 
+/**
+ * Provides a value stored under some key within the map.
+ * 
+ * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
+ */
 class ParamFromMap implements ParameterSelector
 {
     private $key;
