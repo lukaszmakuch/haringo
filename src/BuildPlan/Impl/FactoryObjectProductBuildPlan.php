@@ -11,7 +11,7 @@ namespace lukaszmakuch\ObjectBuilder\BuildPlan\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\ValueSource\ObjectSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
 
 class FactoryObjectProductBuildPlan implements BuildPlan
@@ -19,7 +19,7 @@ class FactoryObjectProductBuildPlan implements BuildPlan
     private $factoryObjectSource;
     private $buildMethodCall;
     
-    public function setFactoryObject(ObjectSource $objectSource)
+    public function setFactoryObject(ValueSource $objectSource)
     {
         $this->factoryObjectSource = $objectSource;
     }
@@ -30,7 +30,7 @@ class FactoryObjectProductBuildPlan implements BuildPlan
     }
     
     /**
-     * @return ObjectSource
+     * @return ValueSource
      */
     public function getFactoryObjectSource()
     {

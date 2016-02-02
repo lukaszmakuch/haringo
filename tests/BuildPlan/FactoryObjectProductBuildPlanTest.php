@@ -13,6 +13,7 @@ use lukaszmakuch\ObjectBuilder\BuilderTestTpl;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
@@ -52,5 +53,33 @@ class FactoryObjectProductBuildPlanTest extends BuilderTestTpl
         $builtObject = $this->getRebuiltObjectBy($plan);
         $this->assertInstanceOf(TestClass::class, $builtObject);
         $this->assertEquals("paramValue", $builtObject->passedToConstructor);
+    }
+    
+    public function testNoBuildMethod()
+    {
+        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $plan = new FactoryObjectProductBuildPlan();
+        $plan->setFactoryObject(
+            //build TestStaticFactory
+            new BuildPlanValueSource((new NewInstanceBuildPlan())
+                ->setClassSource(new ExactClassPath(TestFactoryClass::class)
+            ))
+        );
+        $this->builder->buildObjectBasedOn($plan);
+    }
+    
+    public function testNoFactorySource()
+    {
+        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $plan = new FactoryObjectProductBuildPlan();
+        $this->builder->buildObjectBasedOn($plan);
+    }
+    
+    public function testWrongFactorySource()
+    {
+        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $plan = new FactoryObjectProductBuildPlan();
+        $plan->setFactoryObject(new ScalarValue("not a factory"));
+        $this->builder->buildObjectBasedOn($plan);
     }
 }

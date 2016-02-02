@@ -12,8 +12,10 @@ namespace lukaszmakuch\ObjectBuilder\Impl;
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
+use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
+use ReflectionObject;
 
 class FactoryObjectProductBuilder extends FactoryProductBuilderTpl
 {
@@ -31,11 +33,12 @@ class FactoryObjectProductBuilder extends FactoryProductBuilderTpl
     
     public function buildObjectBasedOn(BuildPlan $p)
     {
+        $this->denyUnlessComplete($p);
         /* @var $p FactoryObjectProductBuildPlan */
-        $factoryObject = $this->objectResolver->resolveValueFrom($p->getFactoryObjectSource());
+        $factoryObject = $this->getFactoryObjectBasedOn($p);
         
         $factoryMethod = $this->findFactoryMethod(
-            new \ReflectionObject($factoryObject),
+            new ReflectionObject($factoryObject),
             $p->getBuildMethodCall()->getSelector()
         );
 
@@ -47,5 +50,31 @@ class FactoryObjectProductBuilder extends FactoryProductBuilderTpl
 
         $this->buildPlanByBuildObject->attach($builtObject, $p);
         return $builtObject;
+    }
+    
+    
+    private function denyUnlessComplete(FactoryObjectProductBuildPlan $p)
+    {
+        if (
+            is_null($p->getBuildMethodCall())
+            || is_null($p->getFactoryObjectSource())
+        ) {
+            throw new ImpossibleToFinishBuildPlan();
+        }
+    }
+    
+    /**
+     * @return type
+     * @throws ImpossibleToFinishBuildPlan
+     */
+    private function getFactoryObjectBasedOn(FactoryObjectProductBuildPlan $p)
+    {
+        $factorySource = $p->getFactoryObjectSource();
+        $factory = $this->objectResolver->resolveValueFrom($factorySource);
+        if (!is_object($factory)) {
+            throw new ImpossibleToFinishBuildPlan();
+        }
+        
+        return $factory;
     }
 }
