@@ -36,14 +36,22 @@ class ScalarValueMapper implements ValueSourceArrayMapper
         return new ScalarValue($previouslyMappedObject[0]);
     }
     
-    protected function throwExceptionIfUnsupported(ValueSource $valueSource)
+    /**
+     * @param ValueSource $valueSource
+     * @throws ImpossibleToMapObject
+     */
+    private function throwExceptionIfUnsupported(ValueSource $valueSource)
     {
         if (false === ($valueSource instanceof ScalarValue)) {
             throw new ImpossibleToMapObject();
         }
     }
-    
-    protected function throwExceptionIfInvalidInputArray(array $previouslyMappedArray)
+
+    /**
+     * @param array $previouslyMappedArray
+     * @throws ImpossibleToBuildFromArray
+     */
+    private function throwExceptionIfInvalidInputArray(array $previouslyMappedArray)
     {
         if (
             empty($previouslyMappedArray)

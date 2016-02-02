@@ -52,7 +52,10 @@ class FactoryObjectProductBuilder extends FactoryProductBuilderTpl
         return $builtObject;
     }
     
-    
+    /**
+     * @param FactoryObjectProductBuildPlan $p
+     * @throws ImpossibleToFinishBuildPlan when the plan is not completed
+     */
     private function denyUnlessComplete(FactoryObjectProductBuildPlan $p)
     {
         if (
@@ -64,8 +67,8 @@ class FactoryObjectProductBuilder extends FactoryProductBuilderTpl
     }
     
     /**
-     * @return type
-     * @throws ImpossibleToFinishBuildPlan
+     * @return mixed factory object
+     * @throws ImpossibleToFinishBuildPlan when got something different than an object
      */
     private function getFactoryObjectBasedOn(FactoryObjectProductBuildPlan $p)
     {

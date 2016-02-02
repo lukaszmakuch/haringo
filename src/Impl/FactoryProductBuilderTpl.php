@@ -9,11 +9,8 @@
 
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ObjectResolver;
 use ReflectionClass;
 
 abstract class FactoryProductBuilderTpl extends BuilderTpl
@@ -30,6 +27,10 @@ abstract class FactoryProductBuilderTpl extends BuilderTpl
         return $allMatchingMethods[0];
     }
     
+    /**
+     * @param array $reflectedFactoryMethods
+     * @throws ImpossibleToFinishBuildPlan when there is less or more methods than 1
+     */
     protected function throwExceptionIfWrongNumberOfFactoryMethods(array $reflectedFactoryMethods)
     {
         if (count($reflectedFactoryMethods) != 1) {

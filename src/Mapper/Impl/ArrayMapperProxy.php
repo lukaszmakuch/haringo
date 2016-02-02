@@ -66,6 +66,10 @@ class ArrayMapperProxy implements SerializableArrayMapper
         return $mapper->mapToObject($mappedData);
     }
 
+    /**
+     * @param mixed $object
+     * @throws ImpossibleToMapObject
+     */
     private function throwExceptionIfUnsupportedObject($object)
     {
         if (false === ($object instanceof $this->classOfSupportedMappedObjects)) {

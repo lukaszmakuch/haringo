@@ -35,6 +35,10 @@ class ParamByExactNameMapperImpl implements ParamSelectorArrayMapper
         return new ParamByExactName($previouslyMappedObject[0]);
     }
 
+    /**
+     * @param ParameterSelector $selector
+     * @throws ImpossibleToMapObject when this selector is not supported
+     */
     private function throwExceptionIfUnsupported(ParameterSelector $selector)
     {
         if (false === ($selector instanceof ParamByExactName)) {
