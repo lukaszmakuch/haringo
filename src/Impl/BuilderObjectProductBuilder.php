@@ -10,10 +10,12 @@
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
+use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\BuilderObjectProductBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
+use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
+use ReflectionObject;
 
 class BuilderObjectProductBuilder extends FactoryProductBuilderTpl
 {
@@ -31,9 +33,10 @@ class BuilderObjectProductBuilder extends FactoryProductBuilderTpl
     
     public function buildObjectBasedOn(BuildPlan $p)
     {
-        /* @var $p \lukaszmakuch\ObjectBuilder\BuildPlan\Impl\BuilderObjectProductBuildPlan */
-        $builderObject = $this->objectResolver->resolveValueFrom($p->getBuilderSource());
-        $reflectedBuilder = new \ReflectionObject($builderObject);
+        /* @var $p BuilderObjectProductBuildPlan */
+        $this->denyIfIncomplete($p);
+        $builderObject = $this->getBuilderBasedOn($p);
+        $reflectedBuilder = new ReflectionObject($builderObject);
         $this->callMethodsOf(
             $builderObject,
             $reflectedBuilder,
@@ -52,5 +55,34 @@ class BuilderObjectProductBuilder extends FactoryProductBuilderTpl
 
         $this->buildPlanByBuildObject->attach($builtObject, $p);
         return $builtObject;
+    }
+    
+    /**
+     * @throws ImpossibleToFinishBuildPlan
+     */
+    private function denyIfIncomplete(BuilderObjectProductBuildPlan $p)
+    {
+        if (
+            is_null($p->getBuilderSource())
+            || is_null($p->getBuildMethodCall())
+        ) {
+            throw new ImpossibleToFinishBuildPlan();
+        }
+    }
+    
+    /**
+     * @throws ImpossibleToFinishBuildPlan when the source provides something
+     * else than an object.
+     * @return mixed builder object
+     */
+    private function getBuilderBasedOn(BuilderObjectProductBuildPlan $p)
+    {
+        $builderSource = $p->getBuilderSource();
+        $builder = $this->objectResolver->resolveValueFrom($builderSource);
+        if (!is_object($builder)) {
+            throw new ImpossibleToFinishBuildPlan();
+        }
+        
+        return $builder;
     }
 }
