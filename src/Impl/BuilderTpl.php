@@ -64,6 +64,7 @@ abstract class BuilderTpl implements ObjectBuilder
      * @param Object $targetObject
      * @param \ReflectionClass $reflectedClass
      * @param MethodCall[] $allMethodCalls
+     * @throws ImpossibleToFinishBuildPlan when no methods found
      */
     protected function callMethodsOf(
         $targetObject,
@@ -91,20 +92,32 @@ abstract class BuilderTpl implements ObjectBuilder
      * Finds all methods matching the given selector.
      * 
      * @return ReflectionMethod[]
+     * @throws ImpossibleToFinishBuildPlan
      */
     protected function findMatchingMethods(
+        \ReflectionClass $reflectedClass,
+        MethodSelector $selector
+    ) {
+        try {
+            return $this->findMatchingMethodsImpl($reflectedClass, $selector);
+        } catch (UnsupportedMatcher $e) {
+            throw new ImpossibleToFinishBuildPlan();
+        }
+    }
+    
+    /**
+     * @return ReflectionMethod[]
+     * @throws ImpossibleToFinishBuildPlan when it's impossible to check methods
+     */
+    private function findMatchingMethodsImpl(
         \ReflectionClass $reflectedClass,
         MethodSelector $selector
     ) {
         $matchingMathods = [];
         $allMethods = $this->getReflectedMethodsAndConstructorOf($reflectedClass);
         foreach ($allMethods as $method) {
-            try {
-                if ($this->methodMatcher->methodMatches($method, $selector)) {
-                    $matchingMathods[] = $method;
-                }
-            } catch (UnsupportedMatcher $e) {
-                throw new ImpossibleToFinishBuildPlan();
+            if ($this->methodMatcher->methodMatches($method, $selector)) {
+                $matchingMathods[] = $method;
             }
         }
         
@@ -134,12 +147,10 @@ abstract class BuilderTpl implements ObjectBuilder
         $targetObject, 
         $paramsWithSelectors
     ) {
-        return $reflectedMethod->invokeArgs(
-            $targetObject, 
-            $this->paramListGenerator->getOrderedListOfArgumentValue(
-                $reflectedMethod,
-                $paramsWithSelectors
-            )
+        $args = $this->paramListGenerator->getOrderedListOfArgumentValue(
+            $reflectedMethod,
+            $paramsWithSelectors
         );
+        return $reflectedMethod->invokeArgs($targetObject, $args);
     }
 }
