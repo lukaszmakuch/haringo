@@ -10,6 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
+use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Exception\UnsupportedSource;
 
 class ClassPathSourceMap
 {
@@ -20,8 +21,17 @@ class ClassPathSourceMap
         $this->actualSourceByKey[$key] = $actualSource;
     }
     
+    /**
+     * @param String $key
+     * @return FullClassPathSource
+     * @throws UnsupportedSource
+     */
     public function getSourceBy($key)
     {
+        if (!isset($this->actualSourceByKey[$key])) {
+            throw new UnsupportedSource();
+        }
+
         return $this->actualSourceByKey[$key];
     }
 }

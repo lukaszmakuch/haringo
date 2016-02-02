@@ -10,6 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\Impl;
 
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
+use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Exception\UnsupportedSource;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
 use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
@@ -53,11 +54,22 @@ abstract class BuilderTpl implements ObjectBuilder
         }
     }
     
+    /**
+     * @throws ImpossibleToFinishBuildPlan
+     */
     protected function getReflectedClassBasedOn(FullClassPathSource $classSource)
     {
-        return new ReflectionClass(
-            $this->classPathResolver->resolve($classSource)
-        );
+        try {
+            $classPath = $this->classPathResolver->resolve($classSource);
+        } catch (UnsupportedSource $e) {
+            throw new ImpossibleToFinishBuildPlan();
+        }
+        
+        if (!class_exists($classPath)) {
+            throw new ImpossibleToFinishBuildPlan();
+        }
+        
+        return new ReflectionClass($classPath);
     }
     
     /**
