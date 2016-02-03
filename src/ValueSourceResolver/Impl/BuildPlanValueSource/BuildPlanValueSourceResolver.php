@@ -9,8 +9,8 @@
 
 namespace lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\BuildPlanValueSource;
 
+use lukaszmakuch\ObjectBuilder\BuildingStrategy\BuildingStrategy;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
-use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Exception\ImpossibleToResolveValue;
@@ -23,23 +23,24 @@ use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
  */
 class BuildPlanValueSourceResolver  implements ValueResolver
 {
-    private $objectBuilder;
+    private $buildingStrategy;
     
     /**
-     * Provides builder used to build objects based on given value sources.
+     * Provides building strategy used to build objects 
+     * based on given value sources.
      * 
-     * @param ObjectBuilder $objectBuilder
+     * @param BuildingStrategy $buildingStrategy
      */
-    public function __construct(ObjectBuilder $objectBuilder)
+    public function __construct(BuildingStrategy $buildingStrategy)
     {
-        $this->objectBuilder = $objectBuilder;
+        $this->buildingStrategy = $buildingStrategy;
     }
 
     public function resolveValueFrom(ValueSource $source)
     {
         try {
             /* @var $source BuildPlanValueSource */
-            return $this->objectBuilder->buildObjectBasedOn($source->getBuildPlan());
+            return $this->buildingStrategy->buildObjectBasedOn($source->getBuildPlan());
         } catch (ImpossibleToFinishBuildPlan $e) {
             throw new ImpossibleToResolveValue();
         }

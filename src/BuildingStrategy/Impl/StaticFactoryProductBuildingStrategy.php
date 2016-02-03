@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\StaticFactoryProductBuildPlan;
@@ -18,7 +18,7 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\StaticFactoryProductBuildPlan;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class StaticFactoryProductBuilder extends FactoryProductBuilderTpl
+class StaticFactoryProductBuildingStrategy extends FactoryProductBuildingStrategyTpl
 {
     public function buildObjectBasedOn(BuildPlan $p)
     {

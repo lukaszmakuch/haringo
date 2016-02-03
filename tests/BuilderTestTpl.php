@@ -9,9 +9,8 @@
 
 namespace lukaszmakuch\ObjectBuilder;
 
-use lukaszmakuch\ObjectBuilder\Builder\ObjectBuilderBuilder;
+use lukaszmakuch\ObjectBuilder\Builder\Impl\ObjectBuilderBuilderImpl;
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder\BuildPlanSerializerBuilder;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\MethodSelectorMap;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
@@ -23,25 +22,21 @@ abstract class BuilderTestTpl extends PHPUnit_Framework_TestCase
      * @var ObjectBuilder
      */
     protected $builder;
-    protected $serializer;
 
     protected function setUp()
     {
-        $serializerBuilder = new BuildPlanSerializerBuilder();
-        $this->serializer = $serializerBuilder->buildSerializer();
-        
-        $objectBuilderBuilder = new ObjectBuilderBuilder();
+        $objectBuilderBuilder = new ObjectBuilderBuilderImpl();
         $objectBuilderBuilder->setParamSelectorMap($this->getParamSelectorMap());
         $objectBuilderBuilder->setClassSourceMap($this->getClassSourceMap());
         $objectBuilderBuilder->setMethodSelectorMap($this->getMethodSelectorMap());
-        $this->builder = $objectBuilderBuilder->buildObjectBuilder();
+        $this->builder = $objectBuilderBuilder->build();
     }
     
     protected function getRebuiltObjectBy(BuildPlan $plan)
     {
-        $serializedPlan = $this->serializer->serialize($plan);
+        $serializedPlan = $this->builder->serializeBuildPlan($plan);
         $this->assertTrue(is_string($serializedPlan));
-        $deserializedPlan = $this->serializer->deserialize($serializedPlan);
+        $deserializedPlan = $this->builder->deserializeBuildPlan($serializedPlan);
         $builtObject = $this->builder->buildObjectBasedOn($deserializedPlan);
         return $builtObject;
     }
@@ -54,11 +49,17 @@ abstract class BuilderTestTpl extends PHPUnit_Framework_TestCase
         return new ParamSelectorMap();
     }
     
+    /**
+     * @return ClassPathSourceMap
+     */
     protected function getClassSourceMap()
     {
         return new ClassPathSourceMap();
     }
     
+    /**
+     * @return MethodSelectorMap
+     */
     protected function getMethodSelectorMap()
     {
         return new MethodSelectorMap();

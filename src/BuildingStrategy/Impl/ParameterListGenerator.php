@@ -6,7 +6,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
 
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;

@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
@@ -23,7 +23,7 @@ use ReflectionObject;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class FactoryObjectProductBuilder extends FactoryProductBuilderTpl
+class FactoryObjectProductBuildingStrategy extends FactoryProductBuildingStrategyTpl
 {
     protected $objectResolver;
     
@@ -60,7 +60,7 @@ class FactoryObjectProductBuilder extends FactoryProductBuilderTpl
 
         $builtObject = $this->callSpecifiedMethod(
             $factoryMethod,
-            $factoryObject, //static
+            $factoryObject,
             $p->getBuildMethodCall()->getAssignedParamValues()
         );
 

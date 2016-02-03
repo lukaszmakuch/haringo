@@ -37,4 +37,21 @@ interface ObjectBuilder
      * @throws BuildPlanNotFound
      */
     public function getBuildPlanUsedToBuild($previouslyBuiltObject);
+    
+    /**
+     * Translates the given build plan to a string.
+     * 
+     * @param BuildPlan $p
+     */
+    public function serializeBuildPlan(BuildPlan $p);
+    
+    /**
+     * Translates the given string to a BuildPlan object.
+     * 
+     * @param String $serializedBuildPlan serialized BuildPlan (result of 
+     * calling the serializeBuildPlan method)
+     * 
+     * @return BuildPlan
+     */
+    public function deserializeBuildPlan($serializedBuildPlan);
 }

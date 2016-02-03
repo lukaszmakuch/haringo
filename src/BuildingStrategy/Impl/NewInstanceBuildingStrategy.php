@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 
@@ -16,7 +16,7 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class NewInstanceBuilder extends BuilderTpl
+class NewInstanceBuildingStrategy extends BuildingStrategyTpl
 {
     public function buildObjectBasedOn(BuildPlan $p)
     {

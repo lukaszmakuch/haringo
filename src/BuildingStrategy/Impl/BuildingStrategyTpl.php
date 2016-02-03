@@ -7,8 +7,9 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
 
+use lukaszmakuch\ObjectBuilder\BuildingStrategy\BuildingStrategy;
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Exception\UnsupportedSource;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
@@ -18,7 +19,6 @@ use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Exception\UnsupportedMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
-use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use Object;
 use ReflectionClass;
@@ -27,11 +27,11 @@ use SplObjectStorage;
 use UnexpectedValueException;
 
 /**
- * Template of ObjectBuilder objects which contains common parts.
+ * Template of BuildingStrategy objects which contains common parts.
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-abstract class BuilderTpl implements ObjectBuilder
+abstract class BuildingStrategyTpl implements BuildingStrategy
 {
     protected $classPathResolver;
     protected $methodMatcher;
@@ -56,15 +56,6 @@ abstract class BuilderTpl implements ObjectBuilder
         $this->methodMatcher = $methodMatcher;
         $this->paramListGenerator = $paramListGenerator;
         $this->buildPlanByBuildObject = new SplObjectStorage();
-    }
-
-    public function getBuildPlanUsedToBuild($previouslyBuiltObject)
-    {
-        try {
-            return $this->buildPlanByBuildObject->offsetGet($previouslyBuiltObject);
-        } catch (UnexpectedValueException $e) {
-            throw new BuildPlanNotFound("this builder has not been used to build the given object");
-        }
     }
     
     /**

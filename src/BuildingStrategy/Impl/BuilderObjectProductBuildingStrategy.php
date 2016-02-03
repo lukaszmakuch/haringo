@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
 
 use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\BuilderObjectProductBuildPlan;
@@ -23,7 +23,7 @@ use ReflectionObject;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class BuilderObjectProductBuilder extends FactoryProductBuilderTpl
+class BuilderObjectProductBuildingStrategy extends FactoryProductBuildingStrategyTpl
 {
     protected $objectResolver;
     

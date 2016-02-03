@@ -7,18 +7,18 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Impl;
+namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
 
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use ReflectionClass;
 
 /**
- * Contains common parts of factory product builders. 
+ * Contains common parts of factory product building strategies. 
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-abstract class FactoryProductBuilderTpl extends BuilderTpl
+abstract class FactoryProductBuildingStrategyTpl extends BuildingStrategyTpl
 {
     /**
      * Gets the factory method. The selector must pick exactly 1 object.
