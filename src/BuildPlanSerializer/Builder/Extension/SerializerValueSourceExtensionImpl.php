@@ -22,6 +22,13 @@ class SerializerValueSourceExtensionImpl implements SerializerValueSourceExtensi
     private $supportedClass;
     private $uniqId;
     
+    /**
+     * Provides dependencies of a serializer value source extension.
+     * 
+     * @param ValueSourceArrayMapper $mapper
+     * @param String $supportedClass full class path of the supported ValueSource
+     * @param String $uniqId unique extension id
+     */
     public function __construct(
         ValueSourceArrayMapper $mapper,
         $supportedClass,
