@@ -16,6 +16,7 @@ use lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl\FactoryObjectProductBuildin
 use lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl\NewInstanceBuildingStrategy;
 use lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl\ParameterListGenerator;
 use lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl\StaticFactoryProductBuildingStrategy;
+use lukaszmakuch\ObjectBuilder\BuildingStrategyBuilder\Extension\BuildingStrategyValueSourceExtension;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\BuilderObjectProductBuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
@@ -67,12 +68,19 @@ class BuildingStrategyBuilder
     private $valueResolver;
     private $paramListGenerator;
     
+    /**
+     * @var BuildingStrategyValueSourceExtension
+     */
+    private $valueSourceExtensions;
+    
     public function __construct()
     {
         //maps
         $this->classSourceMap = new ClassPathSourceMap();
         $this->methodSelectorMap = new MethodSelectorMap();
         $this->paramSelectorMap = new ParamSelectorMap();
+        //extensions
+        $this->valueSourceExtensions = [];
     }
     
     public function setClassSourceMap(ClassPathSourceMap $map)
@@ -88,6 +96,11 @@ class BuildingStrategyBuilder
     public function setParamSelectorMap(ParamSelectorMap $map)
     {
         $this->paramSelectorMap = $map;
+    }
+    
+    public function addValueSourceExtension(BuildingStrategyValueSourceExtension $extension)
+    {
+        $this->valueSourceExtensions[] = $extension;
     }
     
     /**
@@ -166,6 +179,12 @@ class BuildingStrategyBuilder
             new BuildPlanValueSourceResolver($strategy),
             BuildPlanValueSource::class
         );
+        foreach ($this->valueSourceExtensions as $extension) {
+            $this->valueResolver->registerResolver(
+                $extension->getResolver(),
+                $extension->getSupportedValueSourceClass()
+            );
+        }
         
         //param list generator
         $this->paramListGenerator = new ParameterListGenerator(

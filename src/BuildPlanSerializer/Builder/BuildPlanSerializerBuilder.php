@@ -17,6 +17,7 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl\BuilderObjectProductBuildPlanMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl\FactoryObjectProductBuildPlanMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl\NewInstanceBuildPlanMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder\Extension\ValueSourceExtension;
 use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\BuildPlanSerializer;
 use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\BuildPlanSerializerImpl;
 use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
@@ -49,6 +50,7 @@ use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\ArrayValueSourceMapper;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\BuildPlanValueSource\BuildPlanValueSourceMapper;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\ScalarValueMapper;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder\Extension\SerializerValueSourceExtension;
 
 /**
  * Builds the whole serializer with all modules.
@@ -62,6 +64,16 @@ class BuildPlanSerializerBuilder
     private $methodSelectorMapper;
     private $paramSelectorArrayMapper;
     private $methodCallMapper;
+    
+    /**
+     * @var SerializerValueSourceExtension 
+     */
+    private $valueSourceExtensions = [];
+    
+    public function addValueSourceExtension(SerializerValueSourceExtension $extension)
+    {
+        $this->valueSourceExtensions[] = $extension;
+    }
     
     /**
      * @return BuildPlanSerializer
@@ -139,6 +151,13 @@ class BuildPlanSerializerBuilder
             BuildPlanValueSource::class,
             "build_plan"
         );
+        foreach ($this->valueSourceExtensions as $valueSourceExtension) {
+            $this->valueSourceArrayMapper->registerActualMapper(
+                $valueSourceExtension->getMapper(),
+                $valueSourceExtension->getSupportedValueSourceClass(),
+                $valueSourceExtension->getUniqueExtensionId()
+            );
+        }
         
         // param value mapper
         $assignedParamValueMapper = new AssignedParamValueArrayMapper(

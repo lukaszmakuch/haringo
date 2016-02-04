@@ -9,6 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\Builder;
 
+use lukaszmakuch\ObjectBuilder\Builder\Extension\ValueSourceExtension;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\MethodSelectorMap;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
@@ -48,4 +49,11 @@ interface ObjectBuilderBuilder
      * @param MethodSelectorMap $map
      */
     public function setMethodSelectorMap(MethodSelectorMap $map);
+    
+    /**
+     * Adds support of a new value source.
+     * 
+     * @param ValueSourceExtension $extension
+     */
+    public function addValueSourceExtension(ValueSourceExtension $extension);
 }

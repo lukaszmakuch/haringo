@@ -9,9 +9,12 @@
 
 namespace lukaszmakuch\ObjectBuilder\Builder\Impl;
 
+use lukaszmakuch\ObjectBuilder\Builder\Extension\ValueSourceExtension;
 use lukaszmakuch\ObjectBuilder\Builder\ObjectBuilderBuilder;
 use lukaszmakuch\ObjectBuilder\BuildingStrategyBuilder\BuildingStrategyBuilder;
+use lukaszmakuch\ObjectBuilder\BuildingStrategyBuilder\Extension\BuildingStrategyValueSourceExtension;
 use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder\BuildPlanSerializerBuilder;
+use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder\Extension\SerializerValueSourceExtensionImpl;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
 use lukaszmakuch\ObjectBuilder\Impl\ObjectBuilderImpl;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\MethodSelectorMap;
@@ -65,5 +68,23 @@ class ObjectBuilderBuilderImpl implements ObjectBuilderBuilder
     public function setParamSelectorMap(ParamSelectorMap $map)
     {
         $this->buildingStrategyBuilder->setParamSelectorMap($map);
+    }
+
+    public function addValueSourceExtension(ValueSourceExtension $extension)
+    {
+        //extends mapper
+        $serializerExtension = new SerializerValueSourceExtensionImpl(
+            $extension->getMapper(),
+            $extension->getSupportedValueSourceClass(),
+            $extension->getUniqueExtensionId()
+        );
+        $this->serializerBuilder->addValueSourceExtension($serializerExtension);
+        
+        //extend building strategy
+        $buildingStrategyExtension = new BuildingStrategyValueSourceExtension(
+            $extension->getResolver(),
+            $extension->getSupportedValueSourceClass()
+        );
+        $this->buildingStrategyBuilder->addValueSourceExtension($buildingStrategyExtension);
     }
 }
