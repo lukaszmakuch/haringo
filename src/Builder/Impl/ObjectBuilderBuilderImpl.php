@@ -70,21 +70,52 @@ class ObjectBuilderBuilderImpl implements ObjectBuilderBuilder
         $this->buildingStrategyBuilder->setParamSelectorMap($map);
     }
 
-    public function addValueSourceExtension(ValueSourceExtension $extension)
+    public function addValueSourceExtension(ValueSourceExtension $ext)
     {
-        //extends mapper
-        $serializerExtension = new SerializerValueSourceExtensionImpl(
-            $extension->getMapper(),
-            $extension->getSupportedValueSourceClass(),
-            $extension->getUniqueExtensionId()
+        $this->addValSourceExtToSerializer($ext);
+        $this->addValSourceExtToBuildingStrategy($ext);
+    }
+    
+    private function addValSourceExtToSerializer(ValueSourceExtension $ext)
+    {
+        $serializerExt = $this->getSerializerValSourceExtBasedOn($ext);
+        $this->serializerBuilder->addValueSourceExtension($serializerExt);
+    }
+    
+    private function addValSourceExtToBuildingStrategy(ValueSourceExtension $ext)
+    {
+        $buildingStrategyExt = $this->getBuildingStrategyValSourceExtBasedOn($ext);
+        $this->buildingStrategyBuilder->addValueSourceExtension($buildingStrategyExt);
+    }
+    
+    /**
+     * Converts a general value source extension into an extension accepted by
+     * the mapper.
+     * 
+     * @param ValueSourceExtension $ext
+     * @return SerializerValueSourceExtensionImpl
+     */
+    private function getSerializerValSourceExtBasedOn(ValueSourceExtension $ext)
+    {
+        return new SerializerValueSourceExtensionImpl(
+            $ext->getMapper(),
+            $ext->getSupportedValueSourceClass(),
+            $ext->getUniqueExtensionId()
         );
-        $this->serializerBuilder->addValueSourceExtension($serializerExtension);
-        
-        //extend building strategy
-        $buildingStrategyExtension = new BuildingStrategyValueSourceExtension(
-            $extension->getResolver(),
-            $extension->getSupportedValueSourceClass()
+    }
+    
+    /**
+     * Converts a general value source extension into an extension accepted by
+     * the building strategy.
+     * 
+     * @param ValueSourceExtension $ext
+     * @return BuildingStrategyValueSourceExtension
+     */
+    private function getBuildingStrategyValSourceExtBasedOn(ValueSourceExtension $ext)
+    {
+        return new BuildingStrategyValueSourceExtension(
+            $ext->getResolver(),
+            $ext->getSupportedValueSourceClass()
         );
-        $this->buildingStrategyBuilder->addValueSourceExtension($buildingStrategyExtension);
     }
 }
