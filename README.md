@@ -1,6 +1,9 @@
 # Haringo
 Serialize the way how you create an object, not the object itself!
 
+[![travis](https://travis-ci.org/lukaszmakuch/haringo.svg)](https://travis-ci.org/lukaszmakuch/haringo)
+
+
 ## What's Heringo?
 Haringo is a libary that aims to solve main problems with classical serialization:
 * lost references which cause presence of \_\_wakeup() methods which use global variables
