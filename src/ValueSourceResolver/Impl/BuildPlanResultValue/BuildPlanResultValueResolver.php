@@ -7,11 +7,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\BuildPlanValueSource;
+namespace lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\BuildPlanResultValue;
 
 use lukaszmakuch\ObjectBuilder\BuildingStrategy\BuildingStrategy;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanResultValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Exception\ImpossibleToResolveValue;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
@@ -21,7 +21,7 @@ use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class BuildPlanValueSourceResolver  implements ValueResolver
+class BuildPlanResultValueResolver  implements ValueResolver
 {
     private $buildingStrategy;
     
@@ -39,7 +39,7 @@ class BuildPlanValueSourceResolver  implements ValueResolver
     public function resolveValueFrom(ValueSource $source)
     {
         try {
-            /* @var $source BuildPlanValueSource */
+            /* @var $source BuildPlanResultValue */
             return $this->buildingStrategy->buildObjectBasedOn($source->getBuildPlan());
         } catch (ImpossibleToFinishBuildPlan $e) {
             throw new ImpossibleToResolveValue();

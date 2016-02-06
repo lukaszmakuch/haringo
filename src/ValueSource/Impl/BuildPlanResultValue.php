@@ -19,7 +19,7 @@ use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class BuildPlanValueSource implements ValueSource
+class BuildPlanResultValue implements ValueSource
 {
     private $heldBuildPlan;
     

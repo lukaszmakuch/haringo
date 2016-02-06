@@ -44,10 +44,10 @@ use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParameterMatcherProxy;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamFromMapMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanResultValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ArrayValue\ArrayValueResolver;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\BuildPlanValueSource\BuildPlanValueSourceResolver;
+use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\BuildPlanResultValue\BuildPlanResultValueResolver;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ScalarValueResolver;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ValueSourceResolverProxy;
 
@@ -176,8 +176,8 @@ class BuildingStrategyBuilder
             ArrayValue::class
         );
         $this->valueResolver->registerResolver(
-            new BuildPlanValueSourceResolver($strategy),
-            BuildPlanValueSource::class
+            new BuildPlanResultValueResolver($strategy),
+            BuildPlanResultValue::class
         );
         foreach ($this->valueSourceExtensions as $extension) {
             $this->valueResolver->registerResolver(

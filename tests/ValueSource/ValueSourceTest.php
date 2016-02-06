@@ -18,7 +18,7 @@ use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\TestClass;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanResultValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 
 class ValueSourceTest extends BuilderTestTpl
@@ -64,7 +64,7 @@ class ValueSourceTest extends BuilderTestTpl
         $otherPlan = new NewInstanceBuildPlan();
         $otherPlan->setClassSource(new ExactClassPath(TestClass::class));
         
-        $builPlanSource = new BuildPlanValueSource($otherPlan);
+        $builPlanSource = new BuildPlanResultValue($otherPlan);
         
         $this->assertInstanceOf(
             TestClass::class,

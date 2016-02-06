@@ -19,7 +19,7 @@ use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\TestClass;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanResultValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 
 class TestFactoryClass
@@ -37,7 +37,7 @@ class FactoryObjectProductBuildPlanTest extends BuilderTestTpl
         $plan = new FactoryObjectProductBuildPlan();
         $plan->setFactoryObject(
             //build TestStaticFactory
-            new BuildPlanValueSource((new NewInstanceBuildPlan())
+            new BuildPlanResultValue((new NewInstanceBuildPlan())
                 ->setClassSource(new ExactClassPath(TestFactoryClass::class)
             ))
         );
@@ -61,7 +61,7 @@ class FactoryObjectProductBuildPlanTest extends BuilderTestTpl
         $plan = new FactoryObjectProductBuildPlan();
         $plan->setFactoryObject(
             //build TestStaticFactory
-            new BuildPlanValueSource((new NewInstanceBuildPlan())
+            new BuildPlanResultValue((new NewInstanceBuildPlan())
                 ->setClassSource(new ExactClassPath(TestFactoryClass::class)
             ))
         );
