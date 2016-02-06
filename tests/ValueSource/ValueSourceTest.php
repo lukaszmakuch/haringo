@@ -17,7 +17,7 @@ use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\TestClass;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 
@@ -49,7 +49,7 @@ class ValueSourceTest extends BuilderTestTpl
     
     public function testArray()
     {
-        $arraySource = new ArrayValueSource();
+        $arraySource = new ArrayValue();
         $arraySource->addValue("a", new ScalarValue(1));
         $arraySource->addValue(2, new ScalarValue("b"));
         

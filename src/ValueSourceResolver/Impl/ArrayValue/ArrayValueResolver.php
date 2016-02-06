@@ -7,9 +7,9 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ArrayValueSource;
+namespace lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ArrayValue;
 
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
 
@@ -18,7 +18,7 @@ use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ArrayValueSourceResolver implements ValueResolver
+class ArrayValueResolver implements ValueResolver
 {
     private $actualResolver;
     
@@ -35,7 +35,7 @@ class ArrayValueSourceResolver implements ValueResolver
     
     public function resolveValueFrom(ValueSource $source)
     {
-        /* @var $source ArrayValueSource */
+        /* @var $source ArrayValue */
         $result = [];
         foreach ($source->getAllSources() as $key => $valueSource) {
             $result[$key] = $this->actualResolver->resolveValueFrom($valueSource);

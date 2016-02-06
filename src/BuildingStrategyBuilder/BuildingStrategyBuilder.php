@@ -43,10 +43,10 @@ use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamByPositionMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParameterMatcherProxy;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamFromMapMatcher;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ArrayValueSource\ArrayValueSourceResolver;
+use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ArrayValue\ArrayValueResolver;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\BuildPlanValueSource\BuildPlanValueSourceResolver;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ScalarValueResolver;
 use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ValueSourceResolverProxy;
@@ -172,8 +172,8 @@ class BuildingStrategyBuilder
             ScalarValue::class
         );
         $this->valueResolver->registerResolver(
-            new ArrayValueSourceResolver($this->valueResolver),
-            ArrayValueSource::class
+            new ArrayValueResolver($this->valueResolver),
+            ArrayValue::class
         );
         $this->valueResolver->registerResolver(
             new BuildPlanValueSourceResolver($strategy),

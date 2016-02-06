@@ -10,7 +10,7 @@
 namespace lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl;
 
 use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
 
 /**
@@ -18,7 +18,7 @@ use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ArrayValueSourceMapper implements ValueSourceArrayMapper
+class ArrayValueMapper implements ValueSourceArrayMapper
 {
     private $actualMapper;
     
@@ -35,7 +35,7 @@ class ArrayValueSourceMapper implements ValueSourceArrayMapper
     
     public function mapToArray($objectToMap)
     {
-        /* @var $objectToMap ArrayValueSource */
+        /* @var $objectToMap ArrayValue */
         $result = [];
         foreach ($objectToMap->getAllSources() as $key => $valueSource) {
             $result[$key] = $this->actualMapper->mapToArray($valueSource);
@@ -46,14 +46,14 @@ class ArrayValueSourceMapper implements ValueSourceArrayMapper
 
     public function mapToObject(array $previouslyMappedObject)
     {
-        $arrayValueSource = new ArrayValueSource();
+        $ArrayValue = new ArrayValue();
         foreach ($previouslyMappedObject as $index => $mappedValueSource) {
-            $arrayValueSource->addValue(
+            $ArrayValue->addValue(
                 $index, 
                 $this->actualMapper->mapToObject($mappedValueSource)
             );
         }
         
-        return $arrayValueSource;
+        return $ArrayValue;
     }
 }

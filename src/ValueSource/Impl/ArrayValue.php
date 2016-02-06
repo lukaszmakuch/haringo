@@ -17,7 +17,7 @@ use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ArrayValueSource implements ValueSource
+class ArrayValue implements ValueSource
 {
     private $sourcesByKeys = [];
     

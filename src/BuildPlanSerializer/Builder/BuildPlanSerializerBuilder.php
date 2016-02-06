@@ -43,11 +43,11 @@ use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\Impl\ParamByExactNameMapperIm
 use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\Impl\ParamByPositionMapper;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\Impl\ParamFromMapMapper;
 use lukaszmakuch\ObjectBuilder\ParamValueMapper\AssignedParamValueArrayMapper;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValueSource;
+use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanValueSource;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
-use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\ArrayValueSourceMapper;
+use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\ArrayValueMapper;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\BuildPlanValueSource\BuildPlanValueSourceMapper;
 use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\ScalarValueMapper;
 use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder\Extension\SerializerValueSourceExtension;
@@ -142,8 +142,8 @@ class BuildPlanSerializerBuilder
             "scalar"
         );
         $this->valueSourceArrayMapper->registerActualMapper(
-            new ArrayValueSourceMapper($this->valueSourceArrayMapper),
-            ArrayValueSource::class,
+            new ArrayValueMapper($this->valueSourceArrayMapper),
+            ArrayValue::class,
             "array"
         );
         $this->valueSourceArrayMapper->registerActualMapper(
