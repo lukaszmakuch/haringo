@@ -11,7 +11,7 @@ namespace lukaszmakuch\ObjectBuilder\Builder;
 
 use lukaszmakuch\ObjectBuilder\Builder\Extension\ValueSourceExtension;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\MethodSelectorMap;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
 use lukaszmakuch\ObjectBuilder\ObjectBuilder;
 use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
 

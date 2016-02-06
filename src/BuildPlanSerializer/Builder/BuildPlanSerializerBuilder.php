@@ -30,11 +30,11 @@ use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl\ConstructorSelectorArrayMapper;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl\ExactMethodNameArrayMapperImpl;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl\MethodSelectorFromMapMapper;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl\MethodFromMapMapper;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
@@ -113,8 +113,8 @@ class BuildPlanSerializerBuilder
             "exact_name"
         );
         $this->methodSelectorMapper->registerActualMapper(
-            new MethodSelectorFromMapMapper(),
-            MethodSelectorFromMap::class,
+            new MethodFromMapMapper(),
+            MethodFromMap::class,
             "from_map"
         );
         

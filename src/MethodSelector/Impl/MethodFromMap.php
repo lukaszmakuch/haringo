@@ -16,7 +16,7 @@ use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class MethodSelectorFromMap implements MethodSelector
+class MethodFromMap implements MethodSelector
 {
     private $keyFromMap;
     

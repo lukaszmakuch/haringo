@@ -7,9 +7,9 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap;
+namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap;
 
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
 
 /**
  * Maps of full method identifiers (class + method) under some string keys.
@@ -40,7 +40,7 @@ class MethodSelectorMap
     /**
      * @return FullMethodIdentifier[]
      */
-    public function getMethodIdentifiersBy(MethodSelectorFromMap $selectorFromMap)
+    public function getMethodIdentifiersBy(MethodFromMap $selectorFromMap)
     {
         $key = $selectorFromMap->getKeyFromMap();
         if ($this->noIdentifierFor($key)) {

@@ -7,10 +7,10 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap;
+namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap;
 
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
 use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Exception\UnsupportedMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
@@ -21,7 +21,7 @@ use ReflectionMethod;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class MethodSelectorFromMapMatcher implements MethodMatcher
+class MethodFromMapMatcher implements MethodMatcher
 {
     private $map;
     private $classPathResolver;
@@ -54,7 +54,7 @@ class MethodSelectorFromMapMatcher implements MethodMatcher
      * @return MethodSelector
      * @throws UnsupportedMatcher
      */
-    private function getActualMethodSelectorBy(MethodSelectorFromMap $selectorFromMap, ReflectionMethod $method)
+    private function getActualMethodSelectorBy(MethodFromMap $selectorFromMap, ReflectionMethod $method)
     {
         $possibleIdentifiers = $this->map->getMethodIdentifiersBy($selectorFromMap);
         $methodClassPath = $method->getDeclaringClass()->getName();

@@ -29,12 +29,12 @@ use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathResolverProxy;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ExactClassPathResolver;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ConstructorSelectorMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ExactMethodNameMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodMatcherProxy;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\MethodSelectorFromMapMatcher;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\MethodSelectorMap;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodFromMapMatcher;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
@@ -139,12 +139,12 @@ class BuildingStrategyBuilder
             ExactMethodName::class
         );
         $this->methodMatcher->registerMatcher(
-            new MethodSelectorFromMapMatcher(
+            new MethodFromMapMatcher(
                 $this->methodSelectorMap,
                 $this->classPathResolver,
                 $this->methodMatcher 
             ), 
-            MethodSelectorFromMap::class
+            MethodFromMap::class
         );
 
         //register parameter matchers

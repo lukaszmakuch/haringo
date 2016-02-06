@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
 
 /**
@@ -17,18 +17,18 @@ use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class MethodSelectorFromMapMapper implements MethodSelectorArrayMapper
+class MethodFromMapMapper implements MethodSelectorArrayMapper
 {
     private static $MAPPED_INDEX_KEY_FROM_MAP = 0;
     public function mapToArray($objectToMap)
     {
-        /* @var $selector MethodSelectorFromMap */
+        /* @var $selector MethodFromMap */
         $selector = $objectToMap;
         return [$selector->getKeyFromMap()];
     }
 
     public function mapToObject(array $previouslyMappedObject)
     {
-        return new MethodSelectorFromMap($previouslyMappedObject[self::$MAPPED_INDEX_KEY_FROM_MAP]);
+        return new MethodFromMap($previouslyMappedObject[self::$MAPPED_INDEX_KEY_FROM_MAP]);
     }
 }

@@ -16,9 +16,9 @@ use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodSelectorFromMap;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\FullMethodIdentifier;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodSelectorFromMap\MethodSelectorMap;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\FullMethodIdentifier;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\TestClass;
@@ -56,12 +56,12 @@ class MethodSelectorTest extends BuilderTestTpl
     
     public function testSelectorFromMap()
     {
-        $this->checkMethodSelector(new MethodSelectorFromMap("mapped_method_constructor"));
+        $this->checkMethodSelector(new MethodFromMap("mapped_method_constructor"));
     }
     
     public function testExceptionWhenNoKeyInMap()
     {
-        $this->assertExceptionFor(new MethodSelectorFromMap("key_which_does_not_exist"));
+        $this->assertExceptionFor(new MethodFromMap("key_which_does_not_exist"));
     }
     
     /**
