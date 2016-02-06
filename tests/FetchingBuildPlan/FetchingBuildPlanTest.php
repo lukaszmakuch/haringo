@@ -25,4 +25,11 @@ class FetchingBuildPlanTest extends HaringoTestTpl
         
         $this->assertTrue($plan === $this->haringo->getBuildPlanUsedToBuild($obj));
     }
+    
+    public function testExceptionIfNoBuildPlanForObject()
+    {
+        $this->setExpectedException(\lukaszmakuch\Haringo\Exception\BuildPlanNotFound::class);
+        $notBuiltByHaringo = new \DateTime();
+        $this->haringo->getBuildPlanUsedToBuild($notBuiltByHaringo);
+    }
 }
