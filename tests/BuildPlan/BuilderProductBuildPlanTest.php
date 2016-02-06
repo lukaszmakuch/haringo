@@ -36,23 +36,23 @@ class BuilderProductBuildPlanTest extends BuilderTestTpl
 {
     public function testCorrectBuild()
     {
-        $plan = new BuilderObjectProductBuildPlan();
-        $plan->setBuilderSource(
-            //build TestBuilder object
-            new BuildPlanResultValue((new NewInstanceBuildPlan())
-                ->setClassSource(new ExactClassPath(TestBuilder::class)
-            ))
-        );
-        $plan->addSettingMethodCall(
-            (new MethodCall(new MethodByExactName("setConstructorParam")))
-                ->assignParamValue(new AssignedParamValue(
-                    new ParamByExactName("param"),
-                    new ScalarValue("paramValue")
+        $plan = (new BuilderObjectProductBuildPlan())
+            ->setBuilderSource(
+                //build TestBuilder object
+                new BuildPlanResultValue((new NewInstanceBuildPlan())
+                    ->setClassSource(new ExactClassPath(TestBuilder::class)
                 ))
-        );
-        $plan->setBuildMethodCall(
-            (new MethodCall(new MethodByExactName("build")))
-        );
+            )
+            ->addSettingMethodCall(
+                (new MethodCall(new MethodByExactName("setConstructorParam")))
+                    ->assignParamValue(new AssignedParamValue(
+                        new ParamByExactName("param"),
+                        new ScalarValue("paramValue")
+                    ))
+            )
+            ->setBuildMethodCall(
+                (new MethodCall(new MethodByExactName("build")))
+            );
 
         /* @var $builtObject TestClass */
         $builtObject = $this->getRebuiltObjectBy($plan);

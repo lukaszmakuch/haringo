@@ -34,20 +34,20 @@ class FactoryObjectProductBuildPlanTest extends BuilderTestTpl
 {
     public function testCorrectBuild()
     {
-        $plan = new FactoryObjectProductBuildPlan();
-        $plan->setFactoryObject(
-            //build TestStaticFactory
-            new BuildPlanResultValue((new NewInstanceBuildPlan())
-                ->setClassSource(new ExactClassPath(TestFactoryClass::class)
-            ))
-        );
-        $plan->setBuildMethodCall(
-            (new MethodCall(new MethodByExactName("getProduct")))
-                ->assignParamValue(new AssignedParamValue(
-                    new ParamByExactName("configValue"),
-                    new ScalarValue("paramValue")
+        $plan = (new FactoryObjectProductBuildPlan())
+            ->setFactoryObject(
+                //build TestFactoryClass instance
+                new BuildPlanResultValue((new NewInstanceBuildPlan())
+                    ->setClassSource(new ExactClassPath(TestFactoryClass::class)
                 ))
-        );
+            )
+            ->setBuildMethodCall(
+                (new MethodCall(new MethodByExactName("getProduct")))
+                    ->assignParamValue(new AssignedParamValue(
+                        new ParamByExactName("configValue"),
+                        new ScalarValue("paramValue")
+                    ))
+            );
         
         /* @var $builtObject TestClass */
         $builtObject = $this->getRebuiltObjectBy($plan);

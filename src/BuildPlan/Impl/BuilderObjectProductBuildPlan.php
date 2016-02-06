@@ -46,10 +46,12 @@ class BuilderObjectProductBuildPlan implements BuildPlan
      * $builder->setProperty($value);
      * 
      * @param MethodCall $call
+     * @return BuilderObjectProductBuildPlan self
      */
     public function addSettingMethodCall(MethodCall $call)
     {
         $this->settingCalls[] = $call;
+        return $this;
     }
     
     /**
@@ -59,10 +61,12 @@ class BuilderObjectProductBuildPlan implements BuildPlan
      * $product = $builder->build();
      * 
      * @param MethodCall $call
+     * @return BuilderObjectProductBuildPlan self
      */
     public function setBuildMethodCall(MethodCall $call)
     {
         $this->buildCall = $call;
+        return $this;
     }
     
     /**
