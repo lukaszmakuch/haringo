@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ArrayStringMapper;
+namespace lukaszmakuch\Haringo\ArrayStringMapper;
 
-use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToArray;
-use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToString;
+use lukaszmakuch\Haringo\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\Haringo\ArrayStringMapper\Exception\UnableToMapToString;
 
 /**
  * Maps an array to a string that may be later mapped back into an array.

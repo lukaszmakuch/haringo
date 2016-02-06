@@ -1,15 +1,15 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSourceMapper;
+namespace lukaszmakuch\Haringo\ValueSourceMapper;
 
-use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
+use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
 
 /**
  * Maps some value sorce to array and from array.

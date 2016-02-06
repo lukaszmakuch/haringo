@@ -1,35 +1,35 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder;
+namespace lukaszmakuch\Haringo;
 
-use lukaszmakuch\ObjectBuilder\Builder\Impl\ObjectBuilderBuilderImpl;
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
+use lukaszmakuch\Haringo\Builder\Impl\HaringoBuilderImpl;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
 use PHPUnit_Framework_TestCase;
 
 abstract class BuilderTestTpl extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var ObjectBuilder
+     * @var Haringo
      */
     protected $builder;
 
     protected function setUp()
     {
-        $objectBuilderBuilder = new ObjectBuilderBuilderImpl();
-        $objectBuilderBuilder->setParamSelectorMap($this->getParamSelectorMap());
-        $objectBuilderBuilder->setClassSourceMap($this->getClassSourceMap());
-        $objectBuilderBuilder->setMethodSelectorMap($this->getMethodSelectorMap());
-        $this->builder = $objectBuilderBuilder->build();
+        $HaringoBuilder = new HaringoBuilderImpl();
+        $HaringoBuilder->setParamSelectorMap($this->getParamSelectorMap());
+        $HaringoBuilder->setClassSourceMap($this->getClassSourceMap());
+        $HaringoBuilder->setMethodSelectorMap($this->getMethodSelectorMap());
+        $this->builder = $HaringoBuilder->build();
     }
     
     protected function getRebuiltObjectBy(BuildPlan $plan)

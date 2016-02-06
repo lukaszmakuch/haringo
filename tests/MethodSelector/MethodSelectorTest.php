@@ -1,28 +1,28 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelector;
+namespace lukaszmakuch\Haringo\MethodSelector;
 
-use lukaszmakuch\ObjectBuilder\BuilderTestTpl;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
-use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\FullMethodIdentifier;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\TestClass;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
+use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
+use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\MethodCall\MethodCall;
+use lukaszmakuch\Haringo\MethodSelector\Impl\ConstructorSelector;
+use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
+use lukaszmakuch\Haringo\MethodSelector\Impl\MethodFromMap;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap\FullMethodIdentifier;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByPosition;
+use lukaszmakuch\Haringo\ParamValue\AssignedParamValue;
+use lukaszmakuch\Haringo\TestClass;
+use lukaszmakuch\Haringo\ValueSource\Impl\ScalarValue;
 
 class MethodSelectorTest extends BuilderTestTpl
 {

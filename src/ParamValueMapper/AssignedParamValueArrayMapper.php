@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamValueMapper;
+namespace lukaszmakuch\Haringo\ParamValueMapper;
 
-use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
+use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
+use lukaszmakuch\Haringo\ParamValue\AssignedParamValue;
 
 /**
  * Maps assigned parameter values with selectors to array.

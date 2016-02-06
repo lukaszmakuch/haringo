@@ -1,23 +1,23 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl;
+namespace lukaszmakuch\Haringo\BuildPlanSerializer\Impl;
 
-use lukaszmakuch\ObjectBuilder\ArrayStringMapper\ArrayStringMapper;
-use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToArray;
-use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Exception\UnableToMapToString;
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\BuildPlanSerializer;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception\UnableToSerialize;
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
-use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
+use lukaszmakuch\Haringo\ArrayStringMapper\ArrayStringMapper;
+use lukaszmakuch\Haringo\ArrayStringMapper\Exception\UnableToMapToArray;
+use lukaszmakuch\Haringo\ArrayStringMapper\Exception\UnableToMapToString;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\BuildPlanSerializer\BuildPlanSerializer;
+use lukaszmakuch\Haringo\BuildPlanSerializer\Exception\UnableToSerialize;
+use lukaszmakuch\Haringo\Mapper\Exception\ImpossibleToBuildFromArray;
+use lukaszmakuch\Haringo\Mapper\Exception\ImpossibleToMapObject;
+use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
 
 /**
  * Default implementation of the serializer.

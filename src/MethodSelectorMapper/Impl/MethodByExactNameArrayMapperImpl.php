@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl;
+namespace lukaszmakuch\Haringo\MethodSelectorMapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
+use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
+use lukaszmakuch\Haringo\MethodSelectorMapper\MethodSelectorArrayMapper;
 
 /**
  * Maps exact method name selectors to arrays.

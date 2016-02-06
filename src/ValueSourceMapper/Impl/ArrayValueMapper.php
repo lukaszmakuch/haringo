@@ -1,17 +1,17 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl;
+namespace lukaszmakuch\Haringo\ValueSourceMapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
-use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
+use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
+use lukaszmakuch\Haringo\ValueSource\Impl\ArrayValue;
+use lukaszmakuch\Haringo\ValueSourceMapper\ValueSourceArrayMapper;
 
 /**
  * Maps array value source to array.

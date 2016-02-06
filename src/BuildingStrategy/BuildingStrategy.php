@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildingStrategy;
+namespace lukaszmakuch\Haringo\BuildingStrategy;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
 
 /**
  * Allows to build some object based on a BuildPlan.

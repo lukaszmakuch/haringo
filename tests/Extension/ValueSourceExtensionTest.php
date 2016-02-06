@@ -1,27 +1,27 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Extension;
+namespace lukaszmakuch\Haringo\Extension;
 
-use lukaszmakuch\ObjectBuilder\Builder\Extension\ValueSourceExtension;
-use lukaszmakuch\ObjectBuilder\Builder\Impl\ObjectBuilderBuilderImpl;
-use lukaszmakuch\ObjectBuilder\BuilderTestTpl;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\TestClass;
-use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
-use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
+use lukaszmakuch\Haringo\Builder\Extension\ValueSourceExtension;
+use lukaszmakuch\Haringo\Builder\Impl\HaringoBuilderImpl;
+use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
+use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\Haringo\MethodCall\MethodCall;
+use lukaszmakuch\Haringo\MethodSelector\Impl\ConstructorSelector;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByPosition;
+use lukaszmakuch\Haringo\ParamValue\AssignedParamValue;
+use lukaszmakuch\Haringo\TestClass;
+use lukaszmakuch\Haringo\ValueSource\ValueSource;
+use lukaszmakuch\Haringo\ValueSourceMapper\ValueSourceArrayMapper;
+use lukaszmakuch\Haringo\ValueSourceResolver\ValueResolver;
 
 class NewValueSource implements ValueSource
 {
@@ -87,11 +87,11 @@ class ValueSourceExtensionTest extends BuilderTestTpl
     
     /**
      * @param ValueSourceExtension $extension
-     * @return \lukaszmakuch\ObjectBuilder\ObjectBuilder
+     * @return \lukaszmakuch\Haringo\Haringo
      */
     private function buildExtendedBuilder(ValueSourceExtension $extension)
     {
-        $builder = new ObjectBuilderBuilderImpl();
+        $builder = new HaringoBuilderImpl();
         $builder->addValueSourceExtension($extension);
         return $builder->build();
     }

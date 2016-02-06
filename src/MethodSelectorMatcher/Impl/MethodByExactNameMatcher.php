@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl;
+namespace lukaszmakuch\Haringo\MethodSelectorMatcher\Impl;
 
-use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
+use lukaszmakuch\Haringo\MethodSelector\MethodSelector;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\MethodMatcher;
 
 /**
  * Checks whether some method is called exactly as the selector says it should
@@ -22,7 +22,7 @@ class MethodByExactNameMatcher implements MethodMatcher
 {
     public function methodMatches(\ReflectionMethod $method, MethodSelector $selector)
     {
-        /* @var $selector \lukaszmakuch\ObjectBuilder\BuildPlan\MethodCal\Selector\Impl\MethodByExactName */
+        /* @var $selector \lukaszmakuch\Haringo\BuildPlan\MethodCal\Selector\Impl\MethodByExactName */
         return ($method->getName() === $selector->getMethodByExactName());
     }
 }

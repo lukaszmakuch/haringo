@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSource\Impl;
+namespace lukaszmakuch\Haringo\ValueSource\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\ValueSource\ValueSource;
 
 /**
  * Represents a value source that is actually a whole different BuildPlan.

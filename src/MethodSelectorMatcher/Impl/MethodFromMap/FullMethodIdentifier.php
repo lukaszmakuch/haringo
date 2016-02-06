@@ -1,15 +1,15 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap;
-use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
+namespace lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap;
+use lukaszmakuch\Haringo\ClassSource\FullClassPathSource;
+use lukaszmakuch\Haringo\MethodSelector\MethodSelector;
 
 /**
  * Identifier exact method (together with the class it belongs to).

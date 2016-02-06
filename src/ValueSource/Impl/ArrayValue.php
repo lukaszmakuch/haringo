@@ -1,15 +1,15 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSource\Impl;
+namespace lukaszmakuch\Haringo\ValueSource\Impl;
 
-use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
+use lukaszmakuch\Haringo\ValueSource\ValueSource;
 
 /**
  * Allows to build a structure where some value sources are stored under

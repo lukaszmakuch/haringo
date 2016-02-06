@@ -1,27 +1,27 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Impl;
+namespace lukaszmakuch\Haringo\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\BuildingStrategy;
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\BuildPlanSerializer;
-use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
-use lukaszmakuch\ObjectBuilder\ObjectBuilder;
+use lukaszmakuch\Haringo\BuildingStrategy\BuildingStrategy;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\BuildPlanSerializer\BuildPlanSerializer;
+use lukaszmakuch\Haringo\Exception\BuildPlanNotFound;
+use lukaszmakuch\Haringo\Haringo;
 use SplObjectStorage;
 
 /**
- * Default implementation of ObjectBuilder.
+ * Default implementation of Haringo.
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ObjectBuilderImpl implements ObjectBuilder
+class HaringoImpl implements Haringo
 {
     private $serializer;
     

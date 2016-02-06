@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap;
+namespace lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap;
 
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
-use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Exception\UnsupportedMatcher;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
+use lukaszmakuch\Haringo\ClassSourceResolver\FullClassPathResolver;
+use lukaszmakuch\Haringo\MethodSelector\Impl\MethodFromMap;
+use lukaszmakuch\Haringo\MethodSelector\MethodSelector;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Exception\UnsupportedMatcher;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\MethodMatcher;
 use ReflectionMethod;
 
 /**

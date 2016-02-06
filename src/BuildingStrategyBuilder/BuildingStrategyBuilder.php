@@ -1,55 +1,55 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildingStrategyBuilder;
+namespace lukaszmakuch\Haringo\BuildingStrategyBuilder;
 
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\BuildingStrategy;
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl\BuilderObjectProductBuildingStrategy;
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl\BuildingStrategyProxy;
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl\FactoryObjectProductBuildingStrategy;
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl\NewInstanceBuildingStrategy;
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl\ParameterListGenerator;
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl\StaticFactoryProductBuildingStrategy;
-use lukaszmakuch\ObjectBuilder\BuildingStrategyBuilder\Extension\BuildingStrategyValueSourceExtension;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\BuilderObjectProductBuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\StaticFactoryProductBuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ClassPathFromMap;
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathFromMapResolver;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathResolverProxy;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ExactClassPathResolver;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ConstructorSelectorMatcher;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodByExactNameMatcher;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodMatcherProxy;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodFromMapMatcher;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamByExactNameMatcher;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamByPositionMatcher;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParameterMatcherProxy;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamFromMapMatcher;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanResultValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ArrayValue\ArrayValueResolver;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\BuildPlanResultValue\BuildPlanResultValueResolver;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ScalarValueResolver;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\ValueSourceResolverProxy;
+use lukaszmakuch\Haringo\BuildingStrategy\BuildingStrategy;
+use lukaszmakuch\Haringo\BuildingStrategy\Impl\BuilderObjectProductBuildingStrategy;
+use lukaszmakuch\Haringo\BuildingStrategy\Impl\BuildingStrategyProxy;
+use lukaszmakuch\Haringo\BuildingStrategy\Impl\FactoryObjectProductBuildingStrategy;
+use lukaszmakuch\Haringo\BuildingStrategy\Impl\NewInstanceBuildingStrategy;
+use lukaszmakuch\Haringo\BuildingStrategy\Impl\ParameterListGenerator;
+use lukaszmakuch\Haringo\BuildingStrategy\Impl\StaticFactoryProductBuildingStrategy;
+use lukaszmakuch\Haringo\BuildingStrategyBuilder\Extension\BuildingStrategyValueSourceExtension;
+use lukaszmakuch\Haringo\BuildPlan\Impl\BuilderObjectProductBuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\Impl\FactoryObjectProductBuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\Impl\StaticFactoryProductBuildPlan;
+use lukaszmakuch\Haringo\ClassSource\Impl\ClassPathFromMap;
+use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\Haringo\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathFromMapResolver;
+use lukaszmakuch\Haringo\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
+use lukaszmakuch\Haringo\ClassSourceResolver\Impl\ClassPathResolverProxy;
+use lukaszmakuch\Haringo\ClassSourceResolver\Impl\ExactClassPathResolver;
+use lukaszmakuch\Haringo\MethodSelector\Impl\ConstructorSelector;
+use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
+use lukaszmakuch\Haringo\MethodSelector\Impl\MethodFromMap;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\ConstructorSelectorMatcher;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodByExactNameMatcher;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodMatcherProxy;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap\MethodFromMapMatcher;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByPosition;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamFromMap;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamByExactNameMatcher;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamByPositionMatcher;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParameterMatcherProxy;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamFromMapMatcher;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
+use lukaszmakuch\Haringo\ValueSource\Impl\ArrayValue;
+use lukaszmakuch\Haringo\ValueSource\Impl\BuildPlanResultValue;
+use lukaszmakuch\Haringo\ValueSource\Impl\ScalarValue;
+use lukaszmakuch\Haringo\ValueSourceResolver\Impl\ArrayValue\ArrayValueResolver;
+use lukaszmakuch\Haringo\ValueSourceResolver\Impl\BuildPlanResultValue\BuildPlanResultValueResolver;
+use lukaszmakuch\Haringo\ValueSourceResolver\Impl\ScalarValueResolver;
+use lukaszmakuch\Haringo\ValueSourceResolver\Impl\ValueSourceResolverProxy;
 
 /**
  * Builds the whole strategy of building things based

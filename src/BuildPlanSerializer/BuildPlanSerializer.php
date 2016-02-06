@@ -1,17 +1,17 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer;
+namespace lukaszmakuch\Haringo\BuildPlanSerializer;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception\UnableToDeserialize;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Exception\UnableToSerialize;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\BuildPlanSerializer\Exception\UnableToDeserialize;
+use lukaszmakuch\Haringo\BuildPlanSerializer\Exception\UnableToSerialize;
 
 /**
  * Supports serialization and deserialization of BuildPlan objects.

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSourceMapper\Impl;
+namespace lukaszmakuch\Haringo\ClassSourceMapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
+use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\Haringo\ClassSourceMapper\ClassSourceMapper;
 
 /**
  * Maps exact class path to array and from array.

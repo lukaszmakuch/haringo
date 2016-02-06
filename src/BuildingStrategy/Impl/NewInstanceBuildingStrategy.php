@@ -1,15 +1,15 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
+namespace lukaszmakuch\Haringo\BuildingStrategy\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
 
 /**
  * Builds a new object based on it's class and method called on it.

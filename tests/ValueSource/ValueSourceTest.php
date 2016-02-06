@@ -1,25 +1,25 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSource;
+namespace lukaszmakuch\Haringo\ValueSource;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\BuilderTestTpl;
-use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\TestClass;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanResultValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
+use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
+use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\MethodCall\MethodCall;
+use lukaszmakuch\Haringo\MethodSelector\Impl\ConstructorSelector;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
+use lukaszmakuch\Haringo\ParamValue\AssignedParamValue;
+use lukaszmakuch\Haringo\TestClass;
+use lukaszmakuch\Haringo\ValueSource\Impl\ArrayValue;
+use lukaszmakuch\Haringo\ValueSource\Impl\BuildPlanResultValue;
+use lukaszmakuch\Haringo\ValueSource\Impl\ScalarValue;
 
 class ValueSourceTest extends BuilderTestTpl
 {

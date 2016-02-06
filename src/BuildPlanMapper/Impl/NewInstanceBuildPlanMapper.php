@@ -1,18 +1,18 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl;
+namespace lukaszmakuch\Haringo\BuildPlanMapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
-use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
-use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
+use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
+use lukaszmakuch\Haringo\MethodCall\MethodCall;
 
 /**
  * Maps build plans of new class instances.

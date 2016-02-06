@@ -1,15 +1,15 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelector\Impl;
+namespace lukaszmakuch\Haringo\MethodSelector\Impl;
 
-use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
+use lukaszmakuch\Haringo\MethodSelector\MethodSelector;
 
 /**
  * Singleton which allows to select a class constructor.

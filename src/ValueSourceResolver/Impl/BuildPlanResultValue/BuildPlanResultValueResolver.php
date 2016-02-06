@@ -1,20 +1,20 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl\BuildPlanResultValue;
+namespace lukaszmakuch\Haringo\ValueSourceResolver\Impl\BuildPlanResultValue;
 
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\BuildingStrategy;
-use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanResultValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Exception\ImpossibleToResolveValue;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
+use lukaszmakuch\Haringo\BuildingStrategy\BuildingStrategy;
+use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\ValueSource\Impl\BuildPlanResultValue;
+use lukaszmakuch\Haringo\ValueSource\ValueSource;
+use lukaszmakuch\Haringo\ValueSourceResolver\Exception\ImpossibleToResolveValue;
+use lukaszmakuch\Haringo\ValueSourceResolver\ValueResolver;
 
 /**
  * Resolves values based on build plans.

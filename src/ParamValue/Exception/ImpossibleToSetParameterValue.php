@@ -1,13 +1,13 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamValue\Exception;
+namespace lukaszmakuch\Haringo\ParamValue\Exception;
 
 /**
  * Thrown when for some reason it's not possible to set a parameter value.

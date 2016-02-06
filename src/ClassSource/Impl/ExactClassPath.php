@@ -1,15 +1,15 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSource\Impl;
+namespace lukaszmakuch\Haringo\ClassSource\Impl;
 
-use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
+use lukaszmakuch\Haringo\ClassSource\FullClassPathSource;
 
 /**
  * Represents the exact full class path of an object that should be created.

@@ -1,56 +1,56 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder;
+namespace lukaszmakuch\Haringo\BuildPlanSerializer\Builder;
 
-use lukaszmakuch\ObjectBuilder\ArrayStringMapper\Impl\JSONArrayStringMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\BuilderObjectProductBuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl\BuilderObjectProductBuildPlanMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl\FactoryObjectProductBuildPlanMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl\NewInstanceBuildPlanMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder\Extension\ValueSourceExtension;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\BuildPlanSerializer;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Impl\BuildPlanSerializerImpl;
-use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ClassPathFromMap;
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\ClassSourceMapper\Impl\ClassPathFromMapMapper;
-use lukaszmakuch\ObjectBuilder\ClassSourceMapper\Impl\ExactClassPathArrayMapper;
-use lukaszmakuch\ObjectBuilder\Mapper\Impl\ArrayMapperProxy;
-use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
-use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl\ConstructorSelectorArrayMapper;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl\MethodByExactNameArrayMapperImpl;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl\MethodFromMapMapper;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
-use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\Impl\ParamByExactNameMapperImpl;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\Impl\ParamByPositionMapper;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\Impl\ParamFromMapMapper;
-use lukaszmakuch\ObjectBuilder\ParamValueMapper\AssignedParamValueArrayMapper;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ArrayValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanResultValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
-use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\ArrayValueMapper;
-use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\BuildPlanResultValue\BuildPlanResultValueMapper;
-use lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\ScalarValueMapper;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder\Extension\SerializerValueSourceExtension;
+use lukaszmakuch\Haringo\ArrayStringMapper\Impl\JSONArrayStringMapper;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\Impl\BuilderObjectProductBuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\Impl\FactoryObjectProductBuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
+use lukaszmakuch\Haringo\BuildPlanMapper\Impl\BuilderObjectProductBuildPlanMapper;
+use lukaszmakuch\Haringo\BuildPlanMapper\Impl\FactoryObjectProductBuildPlanMapper;
+use lukaszmakuch\Haringo\BuildPlanMapper\Impl\NewInstanceBuildPlanMapper;
+use lukaszmakuch\Haringo\BuildPlanSerializer\Builder\Extension\ValueSourceExtension;
+use lukaszmakuch\Haringo\BuildPlanSerializer\BuildPlanSerializer;
+use lukaszmakuch\Haringo\BuildPlanSerializer\Impl\BuildPlanSerializerImpl;
+use lukaszmakuch\Haringo\ClassSource\FullClassPathSource;
+use lukaszmakuch\Haringo\ClassSource\Impl\ClassPathFromMap;
+use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\Haringo\ClassSourceMapper\Impl\ClassPathFromMapMapper;
+use lukaszmakuch\Haringo\ClassSourceMapper\Impl\ExactClassPathArrayMapper;
+use lukaszmakuch\Haringo\Mapper\Impl\ArrayMapperProxy;
+use lukaszmakuch\Haringo\MethodCall\MethodCall;
+use lukaszmakuch\Haringo\MethodCallMapper\MethodCallArrayMapper;
+use lukaszmakuch\Haringo\MethodSelector\Impl\ConstructorSelector;
+use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
+use lukaszmakuch\Haringo\MethodSelector\Impl\MethodFromMap;
+use lukaszmakuch\Haringo\MethodSelector\MethodSelector;
+use lukaszmakuch\Haringo\MethodSelectorMapper\Impl\ConstructorSelectorArrayMapper;
+use lukaszmakuch\Haringo\MethodSelectorMapper\Impl\MethodByExactNameArrayMapperImpl;
+use lukaszmakuch\Haringo\MethodSelectorMapper\Impl\MethodFromMapMapper;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByPosition;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamFromMap;
+use lukaszmakuch\Haringo\ParamSelector\ParameterSelector;
+use lukaszmakuch\Haringo\ParamSelectorMapper\Impl\ParamByExactNameMapperImpl;
+use lukaszmakuch\Haringo\ParamSelectorMapper\Impl\ParamByPositionMapper;
+use lukaszmakuch\Haringo\ParamSelectorMapper\Impl\ParamFromMapMapper;
+use lukaszmakuch\Haringo\ParamValueMapper\AssignedParamValueArrayMapper;
+use lukaszmakuch\Haringo\ValueSource\Impl\ArrayValue;
+use lukaszmakuch\Haringo\ValueSource\Impl\BuildPlanResultValue;
+use lukaszmakuch\Haringo\ValueSource\Impl\ScalarValue;
+use lukaszmakuch\Haringo\ValueSource\ValueSource;
+use lukaszmakuch\Haringo\ValueSourceMapper\Impl\ArrayValueMapper;
+use lukaszmakuch\Haringo\ValueSourceMapper\Impl\BuildPlanResultValue\BuildPlanResultValueMapper;
+use lukaszmakuch\Haringo\ValueSourceMapper\Impl\ScalarValueMapper;
+use lukaszmakuch\Haringo\BuildPlanSerializer\Builder\Extension\SerializerValueSourceExtension;
 
 /**
  * Builds the whole serializer with all modules.

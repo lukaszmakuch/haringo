@@ -1,21 +1,21 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSource;
+namespace lukaszmakuch\Haringo\ClassSource;
 
-use lukaszmakuch\ObjectBuilder\BuilderTestTpl;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ClassPathFromMap;
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
-use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
-use lukaszmakuch\ObjectBuilder\TestClass as TestClass;
+use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
+use lukaszmakuch\Haringo\ClassSource\Impl\ClassPathFromMap;
+use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\Haringo\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
+use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\TestClass as TestClass;
 
 class ClassSourceTest extends BuilderTestTpl
 {

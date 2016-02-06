@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl;
+namespace lukaszmakuch\Haringo\ClassSourceResolver\Impl;
 
 use lukaszmakuch\ClassBasedRegistry\ClassBasedRegistry;
 use lukaszmakuch\ClassBasedRegistry\Exception\ValueNotFound;
-use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Exception\UnsupportedSource;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
+use lukaszmakuch\Haringo\ClassSource\FullClassPathSource;
+use lukaszmakuch\Haringo\ClassSourceResolver\Exception\UnsupportedSource;
+use lukaszmakuch\Haringo\ClassSourceResolver\FullClassPathResolver;
 
 /**
  * Proxy of class path resolvers that 

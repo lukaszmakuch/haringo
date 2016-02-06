@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodSelectorMatcher;
+namespace lukaszmakuch\Haringo\MethodSelectorMatcher;
 
-use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Exception\UnsupportedMatcher;
+use lukaszmakuch\Haringo\MethodSelector\MethodSelector;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Exception\UnsupportedMatcher;
 use ReflectionMethod;
 
 /**

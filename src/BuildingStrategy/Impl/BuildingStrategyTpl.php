@@ -1,25 +1,25 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
+namespace lukaszmakuch\Haringo\BuildingStrategy\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\BuildingStrategy;
-use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Exception\UnsupportedSource;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
-use lukaszmakuch\ObjectBuilder\Exception\BuildPlanNotFound;
-use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
-use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Exception\UnsupportedMatcher;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
+use lukaszmakuch\Haringo\BuildingStrategy\BuildingStrategy;
+use lukaszmakuch\Haringo\ClassSource\FullClassPathSource;
+use lukaszmakuch\Haringo\ClassSourceResolver\Exception\UnsupportedSource;
+use lukaszmakuch\Haringo\ClassSourceResolver\FullClassPathResolver;
+use lukaszmakuch\Haringo\Exception\BuildPlanNotFound;
+use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\MethodCall\MethodCall;
+use lukaszmakuch\Haringo\MethodSelector\MethodSelector;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Exception\UnsupportedMatcher;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\MethodMatcher;
+use lukaszmakuch\Haringo\ParamValue\AssignedParamValue;
 use Object;
 use ReflectionClass;
 use ReflectionMethod;

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSourceResolver;
+namespace lukaszmakuch\Haringo\ValueSourceResolver;
 
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Exception\ImpossibleToResolveValue;
-use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
+use lukaszmakuch\Haringo\ValueSourceResolver\Exception\ImpossibleToResolveValue;
+use lukaszmakuch\Haringo\ValueSource\ValueSource;
 
 /**
  * Resolves values from some given sources.

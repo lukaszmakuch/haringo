@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl;
+namespace lukaszmakuch\Haringo\BuildPlanMapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\FactoryObjectProductBuildPlan;
-use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
+use lukaszmakuch\Haringo\BuildPlan\Impl\FactoryObjectProductBuildPlan;
+use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
 
 /**
  * Maps build plans of factory object's products.

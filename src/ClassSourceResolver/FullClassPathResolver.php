@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ClassSourceResolver;
+namespace lukaszmakuch\Haringo\ClassSourceResolver;
 
-use lukaszmakuch\ObjectBuilder\ClassSource\FullClassPathSource;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Exception\UnsupportedSource;
+use lukaszmakuch\Haringo\ClassSource\FullClassPathSource;
+use lukaszmakuch\Haringo\ClassSourceResolver\Exception\UnsupportedSource;
 
 /**
  * Resolves full class path.

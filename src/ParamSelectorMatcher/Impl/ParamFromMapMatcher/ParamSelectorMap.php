@@ -1,15 +1,15 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher;
+namespace lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher;
 
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamFromMap;
 
 /**
  * Holds definitions of some full parameter identifiers together with their

@@ -1,30 +1,30 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamSelector;
+namespace lukaszmakuch\Haringo\ParamSelector;
 
-use lukaszmakuch\ObjectBuilder\BuilderTestTpl;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
-use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\FullMethodIdentifier;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamFromMap;
-use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\FullParamIdentifier;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\TestClass;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
+use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
+use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\MethodCall\MethodCall;
+use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap\FullMethodIdentifier;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByPosition;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamFromMap;
+use lukaszmakuch\Haringo\ParamSelector\ParameterSelector;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher\FullParamIdentifier;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
+use lukaszmakuch\Haringo\ParamValue\AssignedParamValue;
+use lukaszmakuch\Haringo\TestClass;
+use lukaszmakuch\Haringo\ValueSource\Impl\ScalarValue;
 
 class ParamSelectorsTest extends BuilderTestTpl
 {

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Mapper;
+namespace lukaszmakuch\Haringo\Mapper;
 
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
+use lukaszmakuch\Haringo\Mapper\Exception\ImpossibleToBuildFromArray;
+use lukaszmakuch\Haringo\Mapper\Exception\ImpossibleToMapObject;
 
 /**
  * Allows to map an object to an array that may contain: 

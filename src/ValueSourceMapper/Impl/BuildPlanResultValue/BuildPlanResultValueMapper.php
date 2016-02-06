@@ -1,17 +1,17 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSourceMapper\Impl\BuildPlanResultValue;
+namespace lukaszmakuch\Haringo\ValueSourceMapper\Impl\BuildPlanResultValue;
 
-use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
-use lukaszmakuch\ObjectBuilder\ValueSource\Impl\BuildPlanResultValue;
-use lukaszmakuch\ObjectBuilder\ValueSourceMapper\ValueSourceArrayMapper;
+use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
+use lukaszmakuch\Haringo\ValueSource\Impl\BuildPlanResultValue;
+use lukaszmakuch\Haringo\ValueSourceMapper\ValueSourceArrayMapper;
 
 /**
  * Maps a value source based on build plan to and from array.

@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
+namespace lukaszmakuch\Haringo\BuildingStrategy\Impl;
 
 use lukaszmakuch\ClassBasedRegistry\ClassBasedRegistry;
 use lukaszmakuch\ClassBasedRegistry\Exception\ValueNotFound;
-use lukaszmakuch\ObjectBuilder\BuildingStrategy\BuildingStrategy;
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\BuildingStrategy\BuildingStrategy;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
 
 /**
  * Proxy that allows to assign some building strategy to target build plan class.

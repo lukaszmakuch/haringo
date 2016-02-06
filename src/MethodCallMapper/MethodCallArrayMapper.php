@@ -1,17 +1,17 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\MethodCallMapper;
+namespace lukaszmakuch\Haringo\MethodCallMapper;
 
-use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
-use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
+use lukaszmakuch\Haringo\MethodCall\MethodCall;
+use lukaszmakuch\Haringo\ParamValue\AssignedParamValue;
+use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
 
 /**
  * Maps method calls to arrays.

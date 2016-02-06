@@ -1,17 +1,17 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl;
+namespace lukaszmakuch\Haringo\ParamSelectorMatcher\Impl;
 
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
-use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByPosition;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\ParameterMatcher;
+use lukaszmakuch\Haringo\ParamSelector\ParameterSelector;
 use ReflectionParameter;
 
 /**

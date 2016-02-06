@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamValue;
+namespace lukaszmakuch\Haringo\ParamValue;
 
-use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
+use lukaszmakuch\Haringo\ParamSelector\ParameterSelector;
+use lukaszmakuch\Haringo\ValueSource\ValueSource;
 
 /**
  * Holds parameter selector and value source together.

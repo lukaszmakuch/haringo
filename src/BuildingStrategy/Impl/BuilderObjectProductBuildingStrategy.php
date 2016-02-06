@@ -1,20 +1,20 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildingStrategy\Impl;
+namespace lukaszmakuch\Haringo\BuildingStrategy\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\BuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\BuilderObjectProductBuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
-use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
+use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\Impl\BuilderObjectProductBuildPlan;
+use lukaszmakuch\Haringo\ClassSourceResolver\FullClassPathResolver;
+use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\MethodMatcher;
+use lukaszmakuch\Haringo\ValueSourceResolver\ValueResolver;
 use ReflectionObject;
 
 /**

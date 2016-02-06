@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildPlanMapper\Impl;
+namespace lukaszmakuch\Haringo\BuildPlanMapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\StaticFactoryBuildPlan;
-use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\StaticFactoryProductBuildPlan;
-use lukaszmakuch\ObjectBuilder\ClassSourceMapper\ClassSourceMapper;
-use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
-use lukaszmakuch\ObjectBuilder\MethodCallMapper\MethodCallArrayMapper;
+use lukaszmakuch\Haringo\BuildPlan\Impl\StaticFactoryBuildPlan;
+use lukaszmakuch\Haringo\BuildPlan\Impl\StaticFactoryProductBuildPlan;
+use lukaszmakuch\Haringo\ClassSourceMapper\ClassSourceMapper;
+use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
+use lukaszmakuch\Haringo\MethodCallMapper\MethodCallArrayMapper;
 
 /**
  * Maps build plans of static factory method's products.

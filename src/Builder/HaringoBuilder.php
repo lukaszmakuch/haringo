@@ -1,31 +1,31 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Builder;
+namespace lukaszmakuch\Haringo\Builder;
 
-use lukaszmakuch\ObjectBuilder\Builder\Extension\ValueSourceExtension;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
-use lukaszmakuch\ObjectBuilder\ObjectBuilder;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
+use lukaszmakuch\Haringo\Builder\Extension\ValueSourceExtension;
+use lukaszmakuch\Haringo\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
+use lukaszmakuch\Haringo\Haringo;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
 
 /**
  * Allows to build an object builder.
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-interface ObjectBuilderBuilder
+interface HaringoBuilder
 {
     /**
      * Builds an object builder.
      * 
-     * @return ObjectBuilder
+     * @return Haringo
      */
     public function build();
     

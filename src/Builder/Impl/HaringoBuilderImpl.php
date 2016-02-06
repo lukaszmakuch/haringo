@@ -1,31 +1,31 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Builder\Impl;
+namespace lukaszmakuch\Haringo\Builder\Impl;
 
-use lukaszmakuch\ObjectBuilder\Builder\Extension\ValueSourceExtension;
-use lukaszmakuch\ObjectBuilder\Builder\ObjectBuilderBuilder;
-use lukaszmakuch\ObjectBuilder\BuildingStrategyBuilder\BuildingStrategyBuilder;
-use lukaszmakuch\ObjectBuilder\BuildingStrategyBuilder\Extension\BuildingStrategyValueSourceExtension;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder\BuildPlanSerializerBuilder;
-use lukaszmakuch\ObjectBuilder\BuildPlanSerializer\Builder\Extension\SerializerValueSourceExtensionImpl;
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
-use lukaszmakuch\ObjectBuilder\Impl\ObjectBuilderImpl;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
+use lukaszmakuch\Haringo\Builder\Extension\ValueSourceExtension;
+use lukaszmakuch\Haringo\Builder\HaringoBuilder;
+use lukaszmakuch\Haringo\BuildingStrategyBuilder\BuildingStrategyBuilder;
+use lukaszmakuch\Haringo\BuildingStrategyBuilder\Extension\BuildingStrategyValueSourceExtension;
+use lukaszmakuch\Haringo\BuildPlanSerializer\Builder\BuildPlanSerializerBuilder;
+use lukaszmakuch\Haringo\BuildPlanSerializer\Builder\Extension\SerializerValueSourceExtensionImpl;
+use lukaszmakuch\Haringo\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
+use lukaszmakuch\Haringo\Impl\HaringoImpl;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
 
 /**
  * Default object buider builder implementation.
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ObjectBuilderBuilderImpl implements ObjectBuilderBuilder
+class HaringoBuilderImpl implements HaringoBuilder
 {
     /**
      * @var BuildPlanSerializerBuilder used to build serializer
@@ -49,7 +49,7 @@ class ObjectBuilderBuilderImpl implements ObjectBuilderBuilder
     
     public function build()
     {
-        return new ObjectBuilderImpl(
+        return new HaringoImpl(
             $this->serializerBuilder->buildSerializer(), 
             $this->buildingStrategyBuilder->buildObjectBuildingStrategy()
         );

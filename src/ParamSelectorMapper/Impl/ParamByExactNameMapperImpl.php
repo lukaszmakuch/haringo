@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamSelectorMapper\Impl;
+namespace lukaszmakuch\Haringo\ParamSelectorMapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
-use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToBuildFromArray;
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMapper\ParamSelectorArrayMapper;
+use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
+use lukaszmakuch\Haringo\ParamSelector\ParameterSelector;
+use lukaszmakuch\Haringo\Mapper\Exception\ImpossibleToBuildFromArray;
+use lukaszmakuch\Haringo\Mapper\Exception\ImpossibleToMapObject;
+use lukaszmakuch\Haringo\ParamSelectorMapper\ParamSelectorArrayMapper;
 
 /**
  * Maps param by exact name selectors.

@@ -1,18 +1,18 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\Mapper\Impl;
+namespace lukaszmakuch\Haringo\Mapper\Impl;
 
 use lukaszmakuch\ClassBasedRegistry\ClassBasedRegistry;
 use lukaszmakuch\ClassBasedRegistry\Exception\ValueNotFound;
-use lukaszmakuch\ObjectBuilder\Mapper\Exception\ImpossibleToMapObject;
-use lukaszmakuch\ObjectBuilder\Mapper\SerializableArrayMapper;
+use lukaszmakuch\Haringo\Mapper\Exception\ImpossibleToMapObject;
+use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
 
 /**
  * Allows to assign a specified mapper proxy 

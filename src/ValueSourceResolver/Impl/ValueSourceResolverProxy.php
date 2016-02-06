@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ValueSourceResolver\Impl;
+namespace lukaszmakuch\Haringo\ValueSourceResolver\Impl;
 
 use lukaszmakuch\ClassBasedRegistry\ClassBasedRegistry;
 use lukaszmakuch\ClassBasedRegistry\Exception\ValueNotFound;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\Exception\ImpossibleToResolveValue;
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
-use lukaszmakuch\ObjectBuilder\ValueSource\ValueSource;
+use lukaszmakuch\Haringo\ValueSourceResolver\Exception\ImpossibleToResolveValue;
+use lukaszmakuch\Haringo\ValueSourceResolver\ValueResolver;
+use lukaszmakuch\Haringo\ValueSource\ValueSource;
 
 /**
  * Allows to assign different value resolvers to different value source classes.

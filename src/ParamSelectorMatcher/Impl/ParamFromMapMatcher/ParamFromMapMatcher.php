@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Impl\ParamFromMapMatcher;
+namespace lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher;
 
-use lukaszmakuch\ObjectBuilder\ClassSourceResolver\FullClassPathResolver;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
-use lukaszmakuch\ObjectBuilder\ParamSelector\ParameterSelector;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\Exception\UnsupportedMatcher;
-use lukaszmakuch\ObjectBuilder\ParamSelectorMatcher\ParameterMatcher;
+use lukaszmakuch\Haringo\ClassSourceResolver\FullClassPathResolver;
+use lukaszmakuch\Haringo\MethodSelectorMatcher\MethodMatcher;
+use lukaszmakuch\Haringo\ParamSelector\ParameterSelector;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\Exception\UnsupportedMatcher;
+use lukaszmakuch\Haringo\ParamSelectorMatcher\ParameterMatcher;
 use ReflectionMethod;
 use ReflectionParameter;
 

@@ -1,15 +1,15 @@
 <?php
 
 /**
- * This file is part of the ObjectBuilder library.
+ * This file is part of the Haringo library.
  *
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\ObjectBuilder\BuildingStrategyBuilder\Extension;
+namespace lukaszmakuch\Haringo\BuildingStrategyBuilder\Extension;
 
-use lukaszmakuch\ObjectBuilder\ValueSourceResolver\ValueResolver;
+use lukaszmakuch\Haringo\ValueSourceResolver\ValueResolver;
 
 /**
  * Extension of a building strategy.
