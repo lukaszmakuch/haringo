@@ -14,7 +14,7 @@ use lukaszmakuch\Haringo\Exception\UnableToDeserialize;
 use lukaszmakuch\Haringo\Exception\UnableToSerialize;
 use lukaszmakuch\Haringo\HaringoTestTpl;
 
-class ExceptionTest extends HaringoTestTpl
+class SerializationTest extends HaringoTestTpl
 {
     public function testUnableToSerializaException()
     {
