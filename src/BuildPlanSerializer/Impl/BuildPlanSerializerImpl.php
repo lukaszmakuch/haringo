@@ -14,7 +14,8 @@ use lukaszmakuch\Haringo\ArrayStringMapper\Exception\UnableToMapToArray;
 use lukaszmakuch\Haringo\ArrayStringMapper\Exception\UnableToMapToString;
 use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
 use lukaszmakuch\Haringo\BuildPlanSerializer\BuildPlanSerializer;
-use lukaszmakuch\Haringo\BuildPlanSerializer\Exception\UnableToSerialize;
+use lukaszmakuch\Haringo\Exception\UnableToSerialize;
+use lukaszmakuch\Haringo\Exception\UnableToDeserialize;
 use lukaszmakuch\Haringo\Mapper\Exception\ImpossibleToBuildFromArray;
 use lukaszmakuch\Haringo\Mapper\Exception\ImpossibleToMapObject;
 use lukaszmakuch\Haringo\Mapper\SerializableArrayMapper;
@@ -50,9 +51,9 @@ class BuildPlanSerializerImpl implements BuildPlanSerializer
         try {
             return $this->deserializeImpl($serializedPlan);
         } catch (UnableToMapToArray $e) {
-            throw new UnableToSerialize();
+            throw new UnableToDeserialize();
         } catch (ImpossibleToBuildFromArray $e) {
-            throw new UnableToSerialize();
+            throw new UnableToDeserialize();
         }
     }
 

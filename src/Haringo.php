@@ -11,6 +11,8 @@ namespace lukaszmakuch\Haringo;
 use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
 use lukaszmakuch\Haringo\Exception\BuildPlanNotFound;
 use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToSerialize;
+use lukaszmakuch\Haringo\Exception\UnableToDeserialize;
 
 /**
  * Builds objects based on given plans.
@@ -42,6 +44,7 @@ interface Haringo
      * Translates the given build plan to a string.
      * 
      * @param BuildPlan $p
+     * @throws UnableToSerialize
      */
     public function serializeBuildPlan(BuildPlan $p);
     
@@ -52,6 +55,7 @@ interface Haringo
      * calling the serializeBuildPlan method)
      * 
      * @return BuildPlan
+     * @throws UnableToDeserialize
      */
     public function deserializeBuildPlan($serializedBuildPlan);
 }

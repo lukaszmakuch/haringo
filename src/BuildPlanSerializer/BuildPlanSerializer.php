@@ -10,8 +10,8 @@
 namespace lukaszmakuch\Haringo\BuildPlanSerializer;
 
 use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
-use lukaszmakuch\Haringo\BuildPlanSerializer\Exception\UnableToDeserialize;
-use lukaszmakuch\Haringo\BuildPlanSerializer\Exception\UnableToSerialize;
+use lukaszmakuch\Haringo\Exception\UnableToDeserialize;
+use lukaszmakuch\Haringo\Exception\UnableToSerialize;
 
 /**
  * Supports serialization and deserialization of BuildPlan objects.

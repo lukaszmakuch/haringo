@@ -7,7 +7,7 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace lukaszmakuch\Haringo\BuildPlanSerializer\Exception;
+namespace lukaszmakuch\Haringo\Exception;
 
 /**
  * Thrown when it's not possible to deserialize any BuildPlan from some string.
