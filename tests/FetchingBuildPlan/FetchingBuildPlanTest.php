@@ -12,6 +12,7 @@ namespace lukaszmakuch\Haringo\FetchingBuildPlan;
 use DateTime;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\Haringo\Exception\BuildPlanNotFound;
 use lukaszmakuch\Haringo\HaringoTestTpl;
 
 class FetchingBuildPlanTest extends HaringoTestTpl
@@ -28,7 +29,7 @@ class FetchingBuildPlanTest extends HaringoTestTpl
     
     public function testExceptionIfNoBuildPlanForObject()
     {
-        $this->setExpectedException(\lukaszmakuch\Haringo\Exception\BuildPlanNotFound::class);
+        $this->setExpectedException(BuildPlanNotFound::class);
         $notBuiltByHaringo = new \DateTime();
         $this->haringo->getBuildPlanUsedToBuild($notBuiltByHaringo);
     }
