@@ -96,6 +96,6 @@ class ParamSelectorsTest extends HaringoTestTpl
                         new ScalarValue("secondParamVal")
                     ))
             );
-        $this->builder->buildObjectBasedOn($plan);
+        $this->haringo->buildObjectBasedOn($plan);
     }
 }

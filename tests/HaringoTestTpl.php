@@ -21,7 +21,7 @@ abstract class HaringoTestTpl extends PHPUnit_Framework_TestCase
     /**
      * @var Haringo
      */
-    protected $builder;
+    protected $haringo;
 
     protected function setUp()
     {
@@ -29,15 +29,15 @@ abstract class HaringoTestTpl extends PHPUnit_Framework_TestCase
         $HaringoBuilder->setParamSelectorMap($this->getParamSelectorMap());
         $HaringoBuilder->setClassSourceMap($this->getClassSourceMap());
         $HaringoBuilder->setMethodSelectorMap($this->getMethodSelectorMap());
-        $this->builder = $HaringoBuilder->build();
+        $this->haringo = $HaringoBuilder->build();
     }
     
     protected function getRebuiltObjectBy(BuildPlan $plan)
     {
-        $serializedPlan = $this->builder->serializeBuildPlan($plan);
+        $serializedPlan = $this->haringo->serializeBuildPlan($plan);
         $this->assertTrue(is_string($serializedPlan));
-        $deserializedPlan = $this->builder->deserializeBuildPlan($serializedPlan);
-        $builtObject = $this->builder->buildObjectBasedOn($deserializedPlan);
+        $deserializedPlan = $this->haringo->deserializeBuildPlan($serializedPlan);
+        $builtObject = $this->haringo->buildObjectBasedOn($deserializedPlan);
         return $builtObject;
     }
     

@@ -65,14 +65,14 @@ class FactoryObjectProductBuildPlanTest extends HaringoTestTpl
                 ->setClassSource(new ExactClassPath(TestFactoryClass::class)
             ))
         );
-        $this->builder->buildObjectBasedOn($plan);
+        $this->haringo->buildObjectBasedOn($plan);
     }
     
     public function testNoFactorySource()
     {
         $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
         $plan = new FactoryObjectProductBuildPlan();
-        $this->builder->buildObjectBasedOn($plan);
+        $this->haringo->buildObjectBasedOn($plan);
     }
     
     public function testWrongFactorySource()
@@ -80,6 +80,6 @@ class FactoryObjectProductBuildPlanTest extends HaringoTestTpl
         $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
         $plan = new FactoryObjectProductBuildPlan();
         $plan->setFactoryObject(new ScalarValue("not a factory"));
-        $this->builder->buildObjectBasedOn($plan);
+        $this->haringo->buildObjectBasedOn($plan);
     }
 }

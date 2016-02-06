@@ -42,7 +42,7 @@ class StaticFactoryProductBuildPlanTest extends HaringoTestTpl
             );
 
         /* @var $product TestClass */
-        $product = $this->builder->buildObjectBasedOn($plan);
+        $product = $this->haringo->buildObjectBasedOn($plan);
         
         $this->assertInstanceOf(TestClass::class, $product);
         $this->assertEquals("paramValue", $product->passedToConstructor);

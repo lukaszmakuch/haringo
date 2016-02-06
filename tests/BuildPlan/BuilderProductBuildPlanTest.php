@@ -70,14 +70,14 @@ class BuilderProductBuildPlanTest extends HaringoTestTpl
                 ->setClassSource(new ExactClassPath(TestBuilder::class)
             ))
         );
-        $this->builder->buildObjectBasedOn($plan);
+        $this->haringo->buildObjectBasedOn($plan);
     }
     
     public function testExceptionWhenNoBuilderSource()
     {
         $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
         $plan = new BuilderObjectProductBuildPlan();
-        $this->builder->buildObjectBasedOn($plan);
+        $this->haringo->buildObjectBasedOn($plan);
     }
     
     public function testExceptionWhenBuilderIsNotObject()
@@ -88,6 +88,6 @@ class BuilderProductBuildPlanTest extends HaringoTestTpl
         $plan->setBuildMethodCall(
             (new MethodCall(new MethodByExactName("build")))
         );
-        $this->builder->buildObjectBasedOn($plan);
+        $this->haringo->buildObjectBasedOn($plan);
     }
 }
