@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\Haringo\ParamSelector;
 
-use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
@@ -26,7 +26,7 @@ use lukaszmakuch\Haringo\ParamValue\AssignedParamValue;
 use lukaszmakuch\Haringo\TestClass;
 use lukaszmakuch\Haringo\ValueSource\Impl\ScalarValue;
 
-class ParamSelectorsTest extends BuilderTestTpl
+class ParamSelectorsTest extends HaringoTestTpl
 {
     protected function getParamSelectorMap()
     {

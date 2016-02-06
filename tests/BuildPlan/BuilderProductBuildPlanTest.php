@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\Haringo\BuildPlan;
 
-use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\BuildPlan\Impl\BuilderObjectProductBuildPlan;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
@@ -32,7 +32,7 @@ class TestBuilder
     }
 }
 
-class BuilderProductBuildPlanTest extends BuilderTestTpl
+class BuilderProductBuildPlanTest extends HaringoTestTpl
 {
     public function testCorrectBuild()
     {

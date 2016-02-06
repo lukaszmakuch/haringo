@@ -16,14 +16,14 @@ use lukaszmakuch\Haringo\Haringo;
 use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
 
 /**
- * Allows to build an object builder.
+ * Allows to build an instance of Haringo.
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
 interface HaringoBuilder
 {
     /**
-     * Builds an object builder.
+     * Builds Haringo.
      * 
      * @return Haringo
      */

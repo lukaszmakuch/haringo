@@ -11,7 +11,7 @@ namespace lukaszmakuch\Haringo\BuildPlan;
 
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
 use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
@@ -19,7 +19,7 @@ use lukaszmakuch\Haringo\ParamValue\AssignedParamValue;
 use lukaszmakuch\Haringo\ValueSource\Impl\ScalarValue;
 use lukaszmakuch\Haringo\TestClass;
 
-class NewInstanceBuildPlanTest extends BuilderTestTpl
+class NewInstanceBuildPlanTest extends HaringoTestTpl
 {
     public function testCorrectBuild()
     {

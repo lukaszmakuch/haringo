@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\Haringo\ClassSource;
 
-use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ClassPathFromMap;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
@@ -17,7 +17,7 @@ use lukaszmakuch\Haringo\ClassSourceResolver\Impl\ClassPathFromMapResolver\Class
 use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\Haringo\TestClass as TestClass;
 
-class ClassSourceTest extends BuilderTestTpl
+class ClassSourceTest extends HaringoTestTpl
 {
     protected function getClassSourceMap()
     {

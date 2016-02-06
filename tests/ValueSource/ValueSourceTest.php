@@ -11,7 +11,7 @@ namespace lukaszmakuch\Haringo\ValueSource;
 
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
 use lukaszmakuch\Haringo\MethodSelector\Impl\ConstructorSelector;
 use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
@@ -21,7 +21,7 @@ use lukaszmakuch\Haringo\ValueSource\Impl\ArrayValue;
 use lukaszmakuch\Haringo\ValueSource\Impl\BuildPlanResultValue;
 use lukaszmakuch\Haringo\ValueSource\Impl\ScalarValue;
 
-class ValueSourceTest extends BuilderTestTpl
+class ValueSourceTest extends HaringoTestTpl
 {
     public function testString()
     {

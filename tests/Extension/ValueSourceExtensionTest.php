@@ -11,7 +11,7 @@ namespace lukaszmakuch\Haringo\Extension;
 
 use lukaszmakuch\Haringo\Builder\Extension\ValueSourceExtension;
 use lukaszmakuch\Haringo\Builder\Impl\HaringoBuilderImpl;
-use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
@@ -27,7 +27,7 @@ class NewValueSource implements ValueSource
 {
 }
 
-class ValueSourceExtensionTest extends BuilderTestTpl
+class ValueSourceExtensionTest extends HaringoTestTpl
 {
     public function testAddingExtension()
     {

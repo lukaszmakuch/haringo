@@ -16,7 +16,7 @@ use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelector
 use lukaszmakuch\Haringo\ParamSelectorMatcher\Impl\ParamFromMapMatcher\ParamSelectorMap;
 use PHPUnit_Framework_TestCase;
 
-abstract class BuilderTestTpl extends PHPUnit_Framework_TestCase
+abstract class HaringoTestTpl extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Haringo

@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\Haringo\BuildPlan;
 
-use lukaszmakuch\Haringo\BuilderTestTpl;
+use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\BuildPlan\Impl\StaticFactoryProductBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
@@ -27,7 +27,7 @@ class TestStaticFactory
     }
 }
 
-class StaticFactoryProductBuildPlanTest extends BuilderTestTpl
+class StaticFactoryProductBuildPlanTest extends HaringoTestTpl
 {
     public function testCorrectBuild()
     {
