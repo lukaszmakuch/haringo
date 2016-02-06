@@ -1,6 +1,6 @@
 {
-    "name": "lukaszmakuch/object-builder",
-    "description": "Allows to build objects.",
+    "name": "lukaszmakuch/haringo",
+    "description": "Serializes the way how an object is created, not the object itself.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -12,12 +12,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "lukaszmakuch\\ObjectBuilder\\": "src/"
+            "lukaszmakuch\\Haringo\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "lukaszmakuch\\ObjectBuilder\\": ["tests/", "test-src/"]
+            "lukaszmakuch\\Haringo\\": ["tests/", "test-src/"]
         }
     },
     "minimum-stability": "stable",
