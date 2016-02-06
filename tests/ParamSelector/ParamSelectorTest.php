@@ -12,7 +12,7 @@ namespace lukaszmakuch\Haringo\ParamSelector;
 use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
 use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\Haringo\MethodSelectorMatcher\Impl\MethodFromMap\FullMethodIdentifier;
@@ -86,7 +86,7 @@ class ParamSelectorsTest extends HaringoTestTpl
     
     protected function checkExceptionWhenWrongSelector(ParameterSelector $wrongSelector)
     {
-        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $this->setExpectedException(UnableToBuild::class);
         $plan = (new NewInstanceBuildPlan())
             ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(

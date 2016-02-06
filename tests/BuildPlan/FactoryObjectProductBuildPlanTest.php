@@ -13,7 +13,7 @@ use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\BuildPlan\Impl\FactoryObjectProductBuildPlan;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
 use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
@@ -57,7 +57,7 @@ class FactoryObjectProductBuildPlanTest extends HaringoTestTpl
     
     public function testNoBuildMethod()
     {
-        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $this->setExpectedException(UnableToBuild::class);
         $plan = new FactoryObjectProductBuildPlan();
         $plan->setFactoryObject(
             //build TestStaticFactory
@@ -70,14 +70,14 @@ class FactoryObjectProductBuildPlanTest extends HaringoTestTpl
     
     public function testNoFactorySource()
     {
-        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $this->setExpectedException(UnableToBuild::class);
         $plan = new FactoryObjectProductBuildPlan();
         $this->haringo->buildObjectBasedOn($plan);
     }
     
     public function testWrongFactorySource()
     {
-        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $this->setExpectedException(UnableToBuild::class);
         $plan = new FactoryObjectProductBuildPlan();
         $plan->setFactoryObject(new ScalarValue("not a factory"));
         $this->haringo->buildObjectBasedOn($plan);

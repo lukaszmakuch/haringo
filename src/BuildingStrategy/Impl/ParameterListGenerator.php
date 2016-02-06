@@ -8,11 +8,14 @@
 
 namespace lukaszmakuch\Haringo\BuildingStrategy\Impl;
 
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\ParamSelectorMatcher\ParameterMatcher;
 use lukaszmakuch\Haringo\ParamValue\AssignedParamValue;
+use lukaszmakuch\Haringo\ValueSource\ValueSource;
+use lukaszmakuch\Haringo\ValueSourceResolver\Exception\ImpossibleToResolveValue;
 use lukaszmakuch\Haringo\ValueSourceResolver\ValueResolver;
 use ReflectionMethod;
+use ReflectionParameter;
 
 /**
  * Generates list of resolved parameters' values in the same
@@ -41,7 +44,7 @@ class ParameterListGenerator
      * @param AssignedParamValue[] $paramsWithSelectors
      * 
      * @return array ordered values ready to be passed as arguments
-     * @throws ImpossibleToFinishBuildPlan when a selector hasn't been used
+     * @throws UnableToBuild
      */
     public function getOrderedListOfArgumentValue(
         ReflectionMethod $reflectedMethod,
@@ -63,14 +66,14 @@ class ParameterListGenerator
      * @param array $orderedParamList
      * 
      * @return null, it modifies the array passed as the second argument
-     * @throws ImpossibleToFinishBuildPlan when a selector hasn't been used
+     * @throws UnableToBuild 
      */
     private function addParamValueToList(
         \ReflectionMethod $reflectedMethod,
         AssignedParamValue $paramValue,
         &$orderedParamList
     ) {
-        /* @var $methodParams \ReflectionParameter[] */
+        /* @var $methodParams ReflectionParameter[] */
         $methodParams = $reflectedMethod->getParameters();
         $nothingSet = true;
         for ($paramIndex = 0; $paramIndex < count($methodParams); $paramIndex++) {
@@ -81,13 +84,12 @@ class ParameterListGenerator
             )) {
                 $nothingSet = false;
                 $valueSource = $paramValue->getValueSource();
-                $orderedParamList[$paramIndex] = $this->resolver
-                    ->resolveValueFrom($valueSource);
+                $orderedParamList[$paramIndex] = $this->resolve($valueSource);
             }
         }
 
         if ($nothingSet) {
-            throw new ImpossibleToFinishBuildPlan("param not set");
+            throw new UnableToBuild("param not set");
         }
     }
     
@@ -106,5 +108,21 @@ class ParameterListGenerator
         }
         
         return $orderedParamList;
+    }
+    
+    /**
+     * Resolves some value.
+     * 
+     * @param ValueSource $valSrc
+     * @return mixed resolved value
+     * @throws UnableToBuild
+     */
+    private function resolve(ValueSource $valSrc)
+    {
+        try {
+            return $this->resolver->resolveValueFrom($valSrc);
+        } catch (ImpossibleToResolveValue $e) {
+            throw new UnableToBuild("impossible to resolve a value");
+        }
     }
 }

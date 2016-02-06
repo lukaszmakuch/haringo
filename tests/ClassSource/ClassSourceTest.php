@@ -14,7 +14,7 @@ use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ClassPathFromMap;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\Haringo\ClassSourceResolver\Impl\ClassPathFromMapResolver\ClassPathSourceMap;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\TestClass as TestClass;
 
 class ClassSourceTest extends HaringoTestTpl
@@ -57,7 +57,7 @@ class ClassSourceTest extends HaringoTestTpl
     
     protected function assertExceptionWhenWrongSource(FullClassPathSource $source)
     {
-        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $this->setExpectedException(UnableToBuild::class);
         $plan = new NewInstanceBuildPlan();
         $plan->setClassSource($source);
         $this->getRebuiltObjectBy($plan);

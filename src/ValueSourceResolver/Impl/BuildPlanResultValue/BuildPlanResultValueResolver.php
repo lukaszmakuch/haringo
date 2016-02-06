@@ -10,7 +10,7 @@
 namespace lukaszmakuch\Haringo\ValueSourceResolver\Impl\BuildPlanResultValue;
 
 use lukaszmakuch\Haringo\BuildingStrategy\BuildingStrategy;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\ValueSource\Impl\BuildPlanResultValue;
 use lukaszmakuch\Haringo\ValueSource\ValueSource;
 use lukaszmakuch\Haringo\ValueSourceResolver\Exception\ImpossibleToResolveValue;
@@ -41,7 +41,7 @@ class BuildPlanResultValueResolver  implements ValueResolver
         try {
             /* @var $source BuildPlanResultValue */
             return $this->buildingStrategy->buildObjectBasedOn($source->getBuildPlan());
-        } catch (ImpossibleToFinishBuildPlan $e) {
+        } catch (UnableToBuild $e) {
             throw new ImpossibleToResolveValue();
         }
     }

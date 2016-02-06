@@ -345,7 +345,6 @@ $obj = $factory->getProduct("paramValue");
 use lukaszmakuch\Haringo\BuildPlan\Impl\FactoryObjectProductBuildPlan;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
 use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
@@ -408,7 +407,6 @@ $obj = $builder->build();
 use lukaszmakuch\Haringo\BuildPlan\Impl\BuilderObjectProductBuildPlan;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
 use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
@@ -685,13 +683,13 @@ To get the product, call the *buildObjectBasedOn* method with a *BuildPlan*:
 <?php
 use lukaszmakuch\Haringo\Haringo;
 use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 
 /* @var $haringo Haringo */
 /* @var $buildPlan BuildPlan */
 try {
     $buitObject = $haringo->buildObjectBasedOn($buildPlan);
-} catch (ImpossibleToFinishBuildPlan $e) {
+} catch (UnableToBuild $e) {
     //it was impossible to build an object based on the given build plan
 }
 ```
@@ -724,7 +722,7 @@ It's possible to figure out what was the build plan used to built some object:
 <?php
 use lukaszmakuch\Haringo\Haringo;
 use lukaszmakuch\Haringo\Exception\BuildPlanNotFound;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
 
 /* @var $haringo Haringo */
@@ -732,7 +730,7 @@ use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
 try {
     $buitObject = $haringo->buildObjectBasedOn($buildPlan);
     $fetchedBuildPlan = $haringo->getBuildPlanUsedToBuild(buitObject);
-} catch (ImpossibleToFinishBuildPlan $e) {
+} catch (UnableToBuild $e) {
     //it was impossible to build an object based on the given build plan
 } catch (BuildPlanNotFound $e) {
     //it was impossible to fetch the build plan used to build the given object

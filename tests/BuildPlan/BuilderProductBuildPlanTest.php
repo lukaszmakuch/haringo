@@ -13,7 +13,7 @@ use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\BuildPlan\Impl\BuilderObjectProductBuildPlan;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
 use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\Haringo\ParamSelector\Impl\ParamByExactName;
@@ -62,7 +62,7 @@ class BuilderProductBuildPlanTest extends HaringoTestTpl
     
     public function testExceptionWhenNoBuildMethodSet()
     {
-        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $this->setExpectedException(UnableToBuild::class);
         $plan = new BuilderObjectProductBuildPlan();
         $plan->setBuilderSource(
             //build TestBuilder object
@@ -75,14 +75,14 @@ class BuilderProductBuildPlanTest extends HaringoTestTpl
     
     public function testExceptionWhenNoBuilderSource()
     {
-        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $this->setExpectedException(UnableToBuild::class);
         $plan = new BuilderObjectProductBuildPlan();
         $this->haringo->buildObjectBasedOn($plan);
     }
     
     public function testExceptionWhenBuilderIsNotObject()
     {
-        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $this->setExpectedException(UnableToBuild::class);
         $plan = new BuilderObjectProductBuildPlan();
         $plan->setBuilderSource(new ScalarValue("not a builder for sure"));
         $plan->setBuildMethodCall(

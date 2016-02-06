@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\Haringo\BuildingStrategy\Impl;
 
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\MethodSelector\MethodSelector;
 use ReflectionClass;
 
@@ -41,12 +41,12 @@ abstract class FactoryProductBuildingStrategyTpl extends BuildingStrategyTpl
     
     /**
      * @param array $reflectedFactoryMethods
-     * @throws ImpossibleToFinishBuildPlan when there is less or more methods than 1
+     * @throws UnableToBuild when there is less or more methods than 1
      */
     protected function throwExceptionIfWrongNumberOfFactoryMethods(array $reflectedFactoryMethods)
     {
         if (count($reflectedFactoryMethods) != 1) {
-            throw new ImpossibleToFinishBuildPlan(
+            throw new UnableToBuild(
                 "factory method selector matches different than 1 number of methods"
             );
         }

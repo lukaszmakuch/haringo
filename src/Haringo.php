@@ -10,7 +10,7 @@ namespace lukaszmakuch\Haringo;
 
 use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
 use lukaszmakuch\Haringo\Exception\BuildPlanNotFound;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\Exception\UnableToSerialize;
 use lukaszmakuch\Haringo\Exception\UnableToDeserialize;
 
@@ -25,7 +25,7 @@ interface Haringo
      * Build an object based on the given plan.
      * 
      * @return mixed object built based on the given BuildPlan
-     * @throws ImpossibleToFinishBuildPlan
+     * @throws UnableToBuild
      */
     public function buildObjectBasedOn(BuildPlan $p);
     

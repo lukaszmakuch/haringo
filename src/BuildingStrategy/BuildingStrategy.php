@@ -10,7 +10,7 @@
 namespace lukaszmakuch\Haringo\BuildingStrategy;
 
 use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 
 /**
  * Allows to build some object based on a BuildPlan.
@@ -23,7 +23,7 @@ interface BuildingStrategy
      * Build an object based on the given plan.
      * 
      * @return mixed object built based on the given BuildPlan
-     * @throws ImpossibleToFinishBuildPlan
+     * @throws UnableToBuild
      */
     public function buildObjectBasedOn(BuildPlan $p);
 }

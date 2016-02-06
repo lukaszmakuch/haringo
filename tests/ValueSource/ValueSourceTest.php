@@ -11,6 +11,7 @@ namespace lukaszmakuch\Haringo\ValueSource;
 
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
 use lukaszmakuch\Haringo\MethodSelector\Impl\ConstructorSelector;
@@ -70,6 +71,15 @@ class ValueSourceTest extends HaringoTestTpl
             TestClass::class,
             $this->getRebuiltResultOf($builPlanSource)
         );
+    }
+    
+    public function testExceptionIfWrongValueSource()
+    {
+        $this->setExpectedException(UnableToBuild::class);
+        $otherPlan = new NewInstanceBuildPlan();
+        $otherPlan->setClassSource(new ExactClassPath("no_class_like_that"));
+        $builPlanSource = new BuildPlanResultValue($otherPlan);
+        $this->getRebuiltResultOf($builPlanSource);
     }
     
     /**

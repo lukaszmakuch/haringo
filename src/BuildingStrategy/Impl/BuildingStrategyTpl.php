@@ -14,7 +14,7 @@ use lukaszmakuch\Haringo\ClassSource\FullClassPathSource;
 use lukaszmakuch\Haringo\ClassSourceResolver\Exception\UnsupportedSource;
 use lukaszmakuch\Haringo\ClassSourceResolver\FullClassPathResolver;
 use lukaszmakuch\Haringo\Exception\BuildPlanNotFound;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
 use lukaszmakuch\Haringo\MethodSelector\MethodSelector;
 use lukaszmakuch\Haringo\MethodSelectorMatcher\Exception\UnsupportedMatcher;
@@ -59,18 +59,18 @@ abstract class BuildingStrategyTpl implements BuildingStrategy
     }
     
     /**
-     * @throws ImpossibleToFinishBuildPlan
+     * @throws UnableToBuild
      */
     protected function getReflectedClassBasedOn(FullClassPathSource $classSource)
     {
         try {
             $classPath = $this->classPathResolver->resolve($classSource);
         } catch (UnsupportedSource $e) {
-            throw new ImpossibleToFinishBuildPlan();
+            throw new UnableToBuild();
         }
         
         if (!class_exists($classPath)) {
-            throw new ImpossibleToFinishBuildPlan();
+            throw new UnableToBuild();
         }
         
         return new ReflectionClass($classPath);
@@ -80,7 +80,7 @@ abstract class BuildingStrategyTpl implements BuildingStrategy
      * @param Object $targetObject
      * @param \ReflectionClass $reflectedClass
      * @param MethodCall[] $allMethodCalls
-     * @throws ImpossibleToFinishBuildPlan when no methods found
+     * @throws UnableToBuild when no methods found
      */
     protected function callMethodsOf(
         $targetObject,
@@ -91,7 +91,7 @@ abstract class BuildingStrategyTpl implements BuildingStrategy
             $selector = $call->getSelector();
             $matchingMethods = $this->findMatchingMethods($reflectedClass, $selector);
             if (empty($matchingMethods)) {
-                throw new ImpossibleToFinishBuildPlan();
+                throw new UnableToBuild();
             }
             
             foreach ($matchingMethods as $reflectedMethod) {
@@ -108,7 +108,7 @@ abstract class BuildingStrategyTpl implements BuildingStrategy
      * Finds all methods matching the given selector.
      * 
      * @return ReflectionMethod[]
-     * @throws ImpossibleToFinishBuildPlan
+     * @throws UnableToBuild
      */
     protected function findMatchingMethods(
         \ReflectionClass $reflectedClass,
@@ -117,13 +117,13 @@ abstract class BuildingStrategyTpl implements BuildingStrategy
         try {
             return $this->findMatchingMethodsImpl($reflectedClass, $selector);
         } catch (UnsupportedMatcher $e) {
-            throw new ImpossibleToFinishBuildPlan();
+            throw new UnableToBuild();
         }
     }
     
     /**
      * @return ReflectionMethod[]
-     * @throws ImpossibleToFinishBuildPlan when it's impossible to check methods
+     * @throws UnableToBuild when it's impossible to check methods
      */
     private function findMatchingMethodsImpl(
         \ReflectionClass $reflectedClass,
@@ -157,6 +157,7 @@ abstract class BuildingStrategyTpl implements BuildingStrategy
      * @param AssignedParamValue[] $paramsWithSelectors
      * 
      * @return mixed method result
+     * @throws UnableToBuild
      */
     protected function callSpecifiedMethod(
         ReflectionMethod $reflectedMethod, 

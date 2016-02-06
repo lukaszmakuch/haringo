@@ -12,7 +12,7 @@ namespace lukaszmakuch\Haringo\MethodSelector;
 use lukaszmakuch\Haringo\HaringoTestTpl;
 use lukaszmakuch\Haringo\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\Haringo\ClassSource\Impl\ExactClassPath;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\MethodCall\MethodCall;
 use lukaszmakuch\Haringo\MethodSelector\Impl\ConstructorSelector;
 use lukaszmakuch\Haringo\MethodSelector\Impl\MethodByExactName;
@@ -94,7 +94,7 @@ class MethodSelectorTest extends HaringoTestTpl
      */
     protected function assertExceptionFor(MethodSelector $selector)
     {
-        $this->setExpectedException(ImpossibleToFinishBuildPlan::class);
+        $this->setExpectedException(UnableToBuild::class);
         $plan = (new NewInstanceBuildPlan())
             ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(new MethodCall($selector));

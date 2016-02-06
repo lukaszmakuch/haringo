@@ -12,7 +12,7 @@ namespace lukaszmakuch\Haringo\BuildingStrategy\Impl;
 use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
 use lukaszmakuch\Haringo\BuildPlan\Impl\BuilderObjectProductBuildPlan;
 use lukaszmakuch\Haringo\ClassSourceResolver\FullClassPathResolver;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\MethodSelectorMatcher\MethodMatcher;
 use lukaszmakuch\Haringo\ValueSourceResolver\ValueResolver;
 use ReflectionObject;
@@ -74,7 +74,7 @@ class BuilderObjectProductBuildingStrategy extends FactoryProductBuildingStrateg
     }
     
     /**
-     * @throws ImpossibleToFinishBuildPlan
+     * @throws UnableToBuild
      */
     private function denyIfIncomplete(BuilderObjectProductBuildPlan $p)
     {
@@ -82,12 +82,12 @@ class BuilderObjectProductBuildingStrategy extends FactoryProductBuildingStrateg
             is_null($p->getBuilderSource())
             || is_null($p->getBuildMethodCall())
         ) {
-            throw new ImpossibleToFinishBuildPlan();
+            throw new UnableToBuild();
         }
     }
     
     /**
-     * @throws ImpossibleToFinishBuildPlan when the source provides something
+     * @throws UnableToBuild when the source provides something
      * else than an object.
      * @return mixed builder object
      */
@@ -96,7 +96,7 @@ class BuilderObjectProductBuildingStrategy extends FactoryProductBuildingStrateg
         $builderSource = $p->getBuilderSource();
         $builder = $this->objectResolver->resolveValueFrom($builderSource);
         if (!is_object($builder)) {
-            throw new ImpossibleToFinishBuildPlan();
+            throw new UnableToBuild();
         }
         
         return $builder;

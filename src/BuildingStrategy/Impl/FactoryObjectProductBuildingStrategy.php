@@ -12,7 +12,7 @@ namespace lukaszmakuch\Haringo\BuildingStrategy\Impl;
 use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
 use lukaszmakuch\Haringo\BuildPlan\Impl\FactoryObjectProductBuildPlan;
 use lukaszmakuch\Haringo\ClassSourceResolver\FullClassPathResolver;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 use lukaszmakuch\Haringo\MethodSelectorMatcher\MethodMatcher;
 use lukaszmakuch\Haringo\ValueSourceResolver\ValueResolver;
 use ReflectionObject;
@@ -70,7 +70,7 @@ class FactoryObjectProductBuildingStrategy extends FactoryProductBuildingStrateg
     
     /**
      * @param FactoryObjectProductBuildPlan $p
-     * @throws ImpossibleToFinishBuildPlan when the plan is not completed
+     * @throws UnableToBuild when the plan is not completed
      */
     private function denyUnlessComplete(FactoryObjectProductBuildPlan $p)
     {
@@ -78,20 +78,20 @@ class FactoryObjectProductBuildingStrategy extends FactoryProductBuildingStrateg
             is_null($p->getBuildMethodCall())
             || is_null($p->getFactoryObjectSource())
         ) {
-            throw new ImpossibleToFinishBuildPlan();
+            throw new UnableToBuild();
         }
     }
     
     /**
      * @return mixed factory object
-     * @throws ImpossibleToFinishBuildPlan when got something different than an object
+     * @throws UnableToBuild when got something different than an object
      */
     private function getFactoryObjectBasedOn(FactoryObjectProductBuildPlan $p)
     {
         $factorySource = $p->getFactoryObjectSource();
         $factory = $this->objectResolver->resolveValueFrom($factorySource);
         if (!is_object($factory)) {
-            throw new ImpossibleToFinishBuildPlan();
+            throw new UnableToBuild();
         }
         
         return $factory;

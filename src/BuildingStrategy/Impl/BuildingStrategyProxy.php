@@ -13,7 +13,7 @@ use lukaszmakuch\ClassBasedRegistry\ClassBasedRegistry;
 use lukaszmakuch\ClassBasedRegistry\Exception\ValueNotFound;
 use lukaszmakuch\Haringo\BuildingStrategy\BuildingStrategy;
 use lukaszmakuch\Haringo\BuildPlan\BuildPlan;
-use lukaszmakuch\Haringo\Exception\ImpossibleToFinishBuildPlan;
+use lukaszmakuch\Haringo\Exception\UnableToBuild;
 
 /**
  * Proxy that allows to assign some building strategy to target build plan class.
@@ -56,14 +56,14 @@ class BuildingStrategyProxy implements BuildingStrategy
      * @param BuildPlan $p
      * @return BuildingStrategy
      * 
-     * @throw ImpossibleToFinishBuildPlan
+     * @throw UnableToBuild
      */
     private function getActualStrategyBy(BuildPlan $p)
     {
         try {
             return $this->strategyByBuildPlan->fetchValueByObjects([$p]);
         } catch (ValueNotFound $e) {
-            throw new ImpossibleToFinishBuildPlan();
+            throw new UnableToBuild();
         }
     }
 }

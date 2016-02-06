@@ -14,6 +14,6 @@ namespace lukaszmakuch\Haringo\Exception;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ImpossibleToFinishBuildPlan extends \RuntimeException
+class UnableToBuild extends \RuntimeException
 {
 }
