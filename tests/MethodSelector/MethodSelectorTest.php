@@ -15,7 +15,7 @@ use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\FullMethodIdentifier;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
@@ -46,12 +46,12 @@ class MethodSelectorTest extends BuilderTestTpl
     
     public function testSelectorByName()
     {
-        $this->checkMethodSelector(new ExactMethodName("__construct"));
+        $this->checkMethodSelector(new MethodByExactName("__construct"));
     }
     
     public function testExceptionWhenNoMethodWithGivenName()
     {
-        $this->assertExceptionFor(new ExactMethodName("methodThatDoesNotExist"));
+        $this->assertExceptionFor(new MethodByExactName("methodThatDoesNotExist"));
     }
     
     public function testSelectorFromMap()

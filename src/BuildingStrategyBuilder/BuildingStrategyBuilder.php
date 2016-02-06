@@ -28,10 +28,10 @@ use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathFromMapResolver
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ClassPathResolverProxy;
 use lukaszmakuch\ObjectBuilder\ClassSourceResolver\Impl\ExactClassPathResolver;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ConstructorSelector;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodFromMap;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ConstructorSelectorMatcher;
-use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\ExactMethodNameMatcher;
+use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodByExactNameMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodMatcherProxy;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodFromMapMatcher;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\MethodSelectorMap;
@@ -135,8 +135,8 @@ class BuildingStrategyBuilder
             ConstructorSelector::class
         );
         $this->methodMatcher->registerMatcher(
-            new ExactMethodNameMatcher(), 
-            ExactMethodName::class
+            new MethodByExactNameMatcher(), 
+            MethodByExactName::class
         );
         $this->methodMatcher->registerMatcher(
             new MethodFromMapMatcher(

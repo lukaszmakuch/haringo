@@ -15,7 +15,7 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\TestClass;
@@ -42,7 +42,7 @@ class FactoryObjectProductBuildPlanTest extends BuilderTestTpl
             ))
         );
         $plan->setBuildMethodCall(
-            (new MethodCall(new ExactMethodName("getProduct")))
+            (new MethodCall(new MethodByExactName("getProduct")))
                 ->assignParamValue(new AssignedParamValue(
                     new ParamByExactName("configValue"),
                     new ScalarValue("paramValue")

@@ -14,7 +14,7 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\Impl\MethodFromMap\FullMethodIdentifier;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByPosition;
@@ -36,7 +36,7 @@ class ParamSelectorsTest extends BuilderTestTpl
             new FullParamIdentifier(
                 new FullMethodIdentifier(
                     new ExactClassPath(TestClass::class), 
-                    new ExactMethodName("setMembers")
+                    new MethodByExactName("setMembers")
                 ),
                 new ParamByExactName("newB")
             )
@@ -72,7 +72,7 @@ class ParamSelectorsTest extends BuilderTestTpl
         $plan = (new NewInstanceBuildPlan())
             ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(
-                (new MethodCall(new ExactMethodName("setMembers")))
+                (new MethodCall(new MethodByExactName("setMembers")))
                     ->assignParamValue(new AssignedParamValue(
                         $selector, 
                         new ScalarValue("secondParamVal")
@@ -90,7 +90,7 @@ class ParamSelectorsTest extends BuilderTestTpl
         $plan = (new NewInstanceBuildPlan())
             ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(
-                (new MethodCall(new ExactMethodName("setMembers")))
+                (new MethodCall(new MethodByExactName("setMembers")))
                     ->assignParamValue(new AssignedParamValue(
                         $wrongSelector, 
                         new ScalarValue("secondParamVal")

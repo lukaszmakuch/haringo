@@ -15,7 +15,7 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\Exception\ImpossibleToFinishBuildPlan;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\TestClass;
@@ -44,14 +44,14 @@ class BuilderProductBuildPlanTest extends BuilderTestTpl
             ))
         );
         $plan->addSettingMethodCall(
-            (new MethodCall(new ExactMethodName("setConstructorParam")))
+            (new MethodCall(new MethodByExactName("setConstructorParam")))
                 ->assignParamValue(new AssignedParamValue(
                     new ParamByExactName("param"),
                     new ScalarValue("paramValue")
                 ))
         );
         $plan->setBuildMethodCall(
-            (new MethodCall(new ExactMethodName("build")))
+            (new MethodCall(new MethodByExactName("build")))
         );
 
         /* @var $builtObject TestClass */
@@ -86,7 +86,7 @@ class BuilderProductBuildPlanTest extends BuilderTestTpl
         $plan = new BuilderObjectProductBuildPlan();
         $plan->setBuilderSource(new ScalarValue("not a builder for sure"));
         $plan->setBuildMethodCall(
-            (new MethodCall(new ExactMethodName("build")))
+            (new MethodCall(new MethodByExactName("build")))
         );
         $this->builder->buildObjectBasedOn($plan);
     }

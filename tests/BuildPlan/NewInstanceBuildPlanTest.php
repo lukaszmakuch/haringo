@@ -13,7 +13,7 @@ use lukaszmakuch\ObjectBuilder\BuildPlan\Impl\NewInstanceBuildPlan;
 use lukaszmakuch\ObjectBuilder\ClassSource\Impl\ExactClassPath;
 use lukaszmakuch\ObjectBuilder\BuilderTestTpl;
 use lukaszmakuch\ObjectBuilder\MethodCall\MethodCall;
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\ObjectBuilder\ParamSelector\Impl\ParamByExactName;
 use lukaszmakuch\ObjectBuilder\ParamValue\AssignedParamValue;
 use lukaszmakuch\ObjectBuilder\ValueSource\Impl\ScalarValue;
@@ -26,7 +26,7 @@ class NewInstanceBuildPlanTest extends BuilderTestTpl
         $plan = (new NewInstanceBuildPlan())
             ->setClassSource(new ExactClassPath(TestClass::class))
             ->addMethodCall(
-                (new MethodCall(new ExactMethodName("setMembers")))
+                (new MethodCall(new MethodByExactName("setMembers")))
                     ->assignParamValue(new AssignedParamValue(
                         new ParamByExactName("newB"), 
                         new ScalarValue("secondParamVal")
@@ -37,7 +37,7 @@ class NewInstanceBuildPlanTest extends BuilderTestTpl
                     ))
             )
             ->addMethodCall(
-                (new MethodCall(new ExactMethodName("__construct")))
+                (new MethodCall(new MethodByExactName("__construct")))
                     ->assignParamValue(new AssignedParamValue(
                         new ParamByExactName("passedToConstructor"),
                         new ScalarValue("constructorParam")

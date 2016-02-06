@@ -9,7 +9,7 @@
 
 namespace lukaszmakuch\ObjectBuilder\MethodSelectorMapper\Impl;
 
-use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\ExactMethodName;
+use lukaszmakuch\ObjectBuilder\MethodSelector\Impl\MethodByExactName;
 use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
 
 /**
@@ -17,17 +17,17 @@ use lukaszmakuch\ObjectBuilder\MethodSelectorMapper\MethodSelectorArrayMapper;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ExactMethodNameArrayMapperImpl implements MethodSelectorArrayMapper
+class MethodByExactNameArrayMapperImpl implements MethodSelectorArrayMapper
 {
     public function mapToArray($objectToMap)
     {
-        /* @var $selector ExactMethodName */
+        /* @var $selector MethodByExactName */
         $selector = $objectToMap;
-        return [$selector->getExactMethodName()];
+        return [$selector->getMethodByExactName()];
     }
 
     public function mapToObject(array $previouslyMappedObject)
     {
-        return new ExactMethodName($previouslyMappedObject[0]);
+        return new MethodByExactName($previouslyMappedObject[0]);
     }
 }

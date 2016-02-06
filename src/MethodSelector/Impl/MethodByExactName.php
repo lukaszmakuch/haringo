@@ -16,7 +16,7 @@ use lukaszmakuch\ObjectBuilder\MethodSelector\MethodSelector;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ExactMethodName implements MethodSelector
+class MethodByExactName implements MethodSelector
 {
     private $methodName;
     
@@ -33,7 +33,7 @@ class ExactMethodName implements MethodSelector
     /**
      * @return String method name 
      */
-    public function getExactMethodName()
+    public function getMethodByExactName()
     {
         return $this->methodName;
     }

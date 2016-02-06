@@ -18,11 +18,11 @@ use lukaszmakuch\ObjectBuilder\MethodSelectorMatcher\MethodMatcher;
  * 
  * @author Łukasz Makuch <kontakt@lukaszmakuch.pl>
  */
-class ExactMethodNameMatcher implements MethodMatcher
+class MethodByExactNameMatcher implements MethodMatcher
 {
     public function methodMatches(\ReflectionMethod $method, MethodSelector $selector)
     {
-        /* @var $selector \lukaszmakuch\ObjectBuilder\BuildPlan\MethodCal\Selector\Impl\ExactMethodName */
-        return ($method->getName() === $selector->getExactMethodName());
+        /* @var $selector \lukaszmakuch\ObjectBuilder\BuildPlan\MethodCal\Selector\Impl\MethodByExactName */
+        return ($method->getName() === $selector->getMethodByExactName());
     }
 }
