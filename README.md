@@ -20,6 +20,7 @@ With Haringo you can make your serialized data totally free of things like:
 * class paths
 * method names
 * parameter names
+
 It's possible thanks to configurable map based sources and selectors.
 
 ## Table of contents
@@ -709,7 +710,7 @@ use lukaszmakuch\Haringo\Exception\UnableToSerialize;
 /* @var $haringo Haringo */
 /* @var $buildPlan BuildPlan */
 try {
-    $serializedBuildPlan = $haringo->serializeBuildPlan();
+    $serializedBuildPlan = $haringo->serializeBuildPlan(buildPlan);
     $deserializedBuildPlan = $haringo->deserializeBuildPlan(serializedBuildPlan);
 } catch (UnableToSerialize $e) {
     //it was impossible to serialize this build plan
