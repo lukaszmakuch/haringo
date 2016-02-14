@@ -72,7 +72,7 @@ of the *\lukaszmakuch\Haringo\Builder\HaringoBuilder* interface.
 <?php
 use lukaszmakuch\Haringo\Builder\Impl\HaringoBuilderImpl;
 
-$haringoBuilder = HaringoBuilderImpl();
+$haringoBuilder = new HaringoBuilderImpl();
 ```
 ### Getting a basic Haringo instance
 If you're not going to somehow extend your Haringo instance,
